@@ -1,0 +1,26 @@
+name: harmonica
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    - python=3.6
+    - pip
+    - numpy
+    - scipy
+    - pooch
+    - attrs
+    - xarray
+    # Development requirements
+    - pyproj
+    - matplotlib
+    - cartopy
+    - pytest
+    - pytest-cov
+    - coverage
+    - black
+    - pylint
+    - flake8
+    - sphinx
+    - sphinx_rtd_theme
+    - sphinx-gallery
+    - numpydoc
