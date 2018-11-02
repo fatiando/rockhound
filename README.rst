@@ -3,10 +3,12 @@ RockHound
 
     rock hound : *noun*
 
-    1. a specialist in geology
-    2. an amateur rock and mineral collector
+    1. A specialist in geology¹
+    2. An amateur rock and mineral collector¹
+    3. A Python library to download geophysical models and datasets (PREM, CRUST1.0, ETOPO1) and load them into Python data structures (pandas, numpy, xarray)²
 
-    `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__
+    ¹ `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__ |
+    ² Not a real dictionary definition.
 
 `Documentation <http://www.fatiando.org/rockhound>`__ |
 `Documentation (dev version) <http://www.fatiando.org/rockhound/dev>`__ |
@@ -54,14 +56,23 @@ or send us a message on our
 About
 -----
 
-A package for downloading common geophysical models (PREM, CRUST1.0, etc)
-and loading them as Python data structures (pandas, numpy, xarray).
-Uses `Pooch <https://github.com/fatiando/pooch>`__ to manage the downloads.
+RockHound is a Python library to download geophysical models and datasets (PREM,
+CRUST1.0, ETOPO1) and load them into Python data structures (pandas, numpy, xarray).
+
+Many of these models use non-conventional file formats or can be tricky
+to find on the internet. RockHound knowns how to download them if you don't already have
+them locally, read the file format, and return a nicely formatted data structure.
+Under the hood, it uses `Pooch <https://github.com/fatiando/pooch>`__ to
+manage the downloads.
 
 
 Project goals
 -------------
 
+* Download commonly used models and datasets.
+* Load data into ``pandas.DataFrame`` (tables) and ``xarray.Dataset`` (grids).
+* Only download if needed and check downloads for corruption.
+* Provide functions for visualizing complex models and datasets.
 
 
 Contacting Us
