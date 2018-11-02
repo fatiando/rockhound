@@ -1,12 +1,12 @@
-Rock Hound
-==========
+RockHound
+=========
 
-    Rock hound : *noun*
+    rock hound : *noun*
 
     1. a specialist in geology
     2. an amateur rock and mineral collector
 
-    `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__
+    `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__ 
 
 `Documentation <http://www.fatiando.org/rockhound>`__ |
 `Documentation (dev version) <http://www.fatiando.org/rockhound/dev>`__ |
