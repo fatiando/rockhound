@@ -1,6 +1,7 @@
 # pylint: disable=missing-docstring
 # Import functions/classes to make the public API
 from . import version
+from .models import fetch_etopo1
 
 
 # Get the version number through versioneer

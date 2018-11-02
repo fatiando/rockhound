@@ -14,6 +14,11 @@ branches:
         # Regex to build tagged commits with version numbers
         - /\d+\.\d+(\.\d+)?(\S*)?$/
 
+# Store datasets between builds to avoid downloading every time the tests are run
+cache:
+    directories:
+        - $HOME/.rockhound/data
+
 # Define environment variables common to all builds
 env:
     global:
@@ -53,16 +58,6 @@ matrix:
               - BUILD_DOCS=true
               - DEPLOY_DOCS=true
               - DEPLOY_PYPI=true
-        - os: linux
-          env:
-              - PYTHON=3.7
-              - TEST=true
-              - BUILD_DOCS=true
-        - os: linux
-          env:
-              - PYTHON=3.5
-              - TEST=true
-              - BUILD_DOCS=true
         - os: osx
           env:
               - PYTHON=3.6

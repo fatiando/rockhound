@@ -8,6 +8,12 @@ API Reference
 .. currentmodule:: rockhound
 
 
+.. autosummary::
+   :toctree: generated/
+
+    fetch_etopo1
+
+
 Utilities
 ---------
 
