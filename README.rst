@@ -6,7 +6,7 @@ RockHound
     1. a specialist in geology
     2. an amateur rock and mineral collector
 
-    `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__ 
+    `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__
 
 `Documentation <http://www.fatiando.org/rockhound>`__ |
 `Documentation (dev version) <http://www.fatiando.org/rockhound/dev>`__ |
@@ -19,9 +19,6 @@ Part of the `Fatiando a Terra <https://www.fatiando.org>`__ project
 .. image:: http://img.shields.io/travis/fatiando/rockhound/master.svg?style=flat-square&label=Linux|Mac
     :alt: TravisCI build status
     :target: https://travis-ci.org/fatiando/rockhound
-.. image:: http://img.shields.io/appveyor/ci/fatiando/rockhound/master.svg?style=flat-square&label=Windows
-    :alt: AppVeyor build status
-    :target: https://ci.appveyor.com/project/fatiando/rockhound
 .. image:: https://img.shields.io/codecov/c/github/fatiando/rockhound/master.svg?style=flat-square
     :alt: Test coverage status
     :target: https://codecov.io/gh/fatiando/rockhound
