@@ -1,0 +1,22 @@
+name: rockhound
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    - python=3.6
+    - pip
+    - pooch
+    - xarray
+    # Development requirements
+    - matplotlib
+    - cartopy
+    - pytest
+    - pytest-cov
+    - coverage
+    - black
+    - pylint
+    - flake8
+    - sphinx
+    - sphinx_rtd_theme
+    - sphinx-gallery
+    - numpydoc
