@@ -19,9 +19,9 @@ env:
     global:
         # Encrypted variables
         # Github Token for pushing the built HTML (GH_TOKEN)
-        - secure: "Xr1Zc6Zu/AyqvDaiSv7Omr6nX67Onfffk8wL5XseREh9IH3iTWcBtM5lU7JyM87czOX1s3tux1+c/2xX7CdP4W8e+EK5npKV53bbC96tl66up5JMP5mzGucatfTfRZ5bJc8MwXiAIUM3LX+8XU/tIAw56c1T0eiNmqdazBuRXsshFUMoIpIQqM7rnhOk3j//VICjZrXiz5MqNUOmVQmvGxdZyW/jgstemD4Vhw4Oh8/kr6cgXSBltFQIc07jVfywd/noNEC1X2V+R7teE+6PUKpINomPKYlLYN2+T21BdrfIkVnHEOZhnr3eft7190+naIuWB9W1V1EbVI9/2OGkFkMUvyZHBN6VaKLQbbrtzmJNt0cgQRqRXWj+XlYtJfGDxGTc020w5oafU7SxXPkcFj1x1304S59pOoVuRemaVT9zwl/Q0mbYH04WxufC6arJCnegT14OUdumw0dXaZ3Zadrb7z8OhI+Pc2AqE3LAgKrcGq2fqjEGzLVRibYwX3vbkIHgVK1RORI6+oInEXLdOc7imH/13HV0wG0VJ6gNkDtdMmmPouDb7fEby6om7yjyQ1rSqTlZT6wv40KRiXyqHA9Lx8BxK1LHB13+sZWigcnrNni834vgzeS5agoFdeOOGBB/8n7f/z98eKu3Bfk3XQLXZjW2FTeTzxovzvhNzA4="
+        - secure: "qhS44nXEK7L9RQg/2D00wOzhZzbNXhJ3FpRtMiNe3P49kjhgLBRlr3xBWk8mHv/+UTTjJr61M99L7yFDTjBamKxP1uhZC5tx7W2Li6Vm+TamASucTRX9QF8qvMgHA9vK/YXd+LnS4WuGWGcJv2XYWeExJ0skjuGa890saI7CtrWu4pf6ULucA7fjN5fvOh2RDixV8NssDGT/35VPdBDvczkcb+CDBuVu8y14nFRpFWDLGc6hnM180pGb7i7863qsgPJQcM8JFhQoRqzq7TARMP/mto3YInBG1zktHCtl6+fWBCteD8eYBGnKEQqcDkUiOq9n9t3ebz0xMd8Okh8vyyCHwd9V/9pzqq8wEBdMoIleUAUKUPaq1UNAx8Q72k451MN8wOnt3ONJGa8nVtA0TPvThSSNek95tayxPu7k8IrJJrXrgRLrlLJw2aza3++a6hcaftR5TpWREv3aEAGxH2Dk2Df71OEEOycCF+7F7/AP3zIpoo1kAfGJ3zg1NIJr3/sDiXJG3QKx3tunPDHR/6uQXYl5B2whzUigvs31OF8KFcy0gWWOklP5iipWz9wvmUyQyDfKx+nPjCjfc1zgzZHg5kTvkTjZli/Ja9fJLf3Q18HQfF97PzvKbDEDylg7g6fq7oypMGqjN8oQ9s2BIGKFRMkq1X5wjNOJm1P7ZpA="
         # PyPI password for deploying releases (TWINE_PASSWORD)
-        - secure: "ufJKNS+JGD3klJglfML+4gerCOntHlfLX8M1zb3wyf6QbOfqZncvijh5ChVSAsqMeqKJG+hHVUgRN0pPgOyhsCetgeS/QdYsehEZO+UZeni+xdaAZgG/pz0pzxDuIOOTu9CImKIn+hnMSo3cnoO9fASem1c77XvLHs6BcShYpUZTRElvDGcvWlU2aZMA2qO9rVBpRBgr8GK6uLdXqV6yzJznWlQVRSJmpVEVfdNr5cbtgy7gxf2IBL2TXEWzzqwcJc3/bkzGFCwqgJ3aouIeHeWuNJEW23BjfIj6Da7ibsC7cPwS0u96MbBTBNOVInlh6Zy7xQvJpzgYBPTE3P3+HMUF7wS6HVkGyn86kh0JMfTwUjSul9SxGDCSn1JWnH5Ya7S5rGekYPcxE+2gKAt3BHjPM8xIDo6fIPH8zWLXl7xQJDHe/TWc3GRUD2OB+y9fWy+xvuXz7DI41oSHMSAEw6Ob2x7dGPbiSGvWmK0Z6Nm1sBVP/3xGhfhuH48587cbVEU27MAIUCzyJYi2750z3LP5pDP4HGiJsiH/kZLTBTgjxKM0m6+A/quAlARUsiXyf5z9fAqed13EcB/0x8YqqGVHNC79+7eIhEWwPU1h1+NeiTqK2wznzvawdfDtFHtquLC0pqWNq+r76walp+wBG0+jGpK+D/orUoW/x0oVrGo="
+        - secure: "UPbOTWqOAdXK13FzlkV7wDF1Mw4/hTmsl7lxbFLF6fx7UcNlTom3vDqoWMVRd9R5mMQDl2sHYhd9mVBd4Ax5VG+c5hO0uAfEjP6ITI5dSH9cp2xqo5rRO2D/3AkgEbjRNxzZ+f+vw4TEBzKYG8NYUj4ChFBwAwOofXq0n064NiuC7bCo/z66eGJIsQHPhOvoLIDIN7yoxfSf7jNqnCD/uBuFzsn/xL3xwdECIWEdfkfTCo5M5dvbNnQwraNqape/JR/b91r9XuuTnMZDsmVwCBfGxzUsOFUWMMyo+V+D6oU7VVo5H0CfcBYG1VRtPxEMreKXUFdWbdEsWwPhg9XJwBypA/PC9P8Zf/DJ4hnjBKdVTnrb1tCUrxVy39xsYNohqY/GHPEvkS59LRy7Nwpu2MEoO1EHD6J3MeQZYHRs/+H7RTDyfCwBKsHfmLK5hkCl/5ACOPJUuiDuqFa9mMfWVXZPAKpUtUN1bTuzSJTutG9+ysf5D6TQLWep1NRdMLgX7ZjsZuUPwANhz3w9VgxXcRAL5gf0U0i1a4qy6rU4tx/US2pM8L51cEZRmRxdTd7+9cuzfbjH8TUcsqPNiH8FcWf71t6wnqkXbkl5vueGztxJg7iOwk3RfDqOwovyYkadCFYOB9A9tB4VW95m2QvtOKY3I50swU1sVJmMg6C4vjY="
         - TWINE_USERNAME=Leonardo.Uieda
         # The files with the listed requirements to be installed by conda
         - CONDA_REQUIREMENTS=requirements.txt
@@ -53,6 +53,11 @@ matrix:
               - BUILD_DOCS=true
               - DEPLOY_DOCS=true
               - DEPLOY_PYPI=true
+        - os: linux
+          env:
+              - PYTHON=3.7
+              - TEST=true
+              - BUILD_DOCS=true
         - os: linux
           env:
               - PYTHON=3.5
