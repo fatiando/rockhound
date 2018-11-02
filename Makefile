@@ -1,5 +1,5 @@
 # Build, package, test, and clean
-PROJECT=harmonica
+PROJECT=rockhound
 TESTDIR=tmp-test-dir-with-unique-name
 PYTEST_ARGS=--cov-config=../.coveragerc --cov-report=term-missing --cov=$(PROJECT) --doctest-modules -v --pyargs
 LINT_FILES=setup.py $(PROJECT)

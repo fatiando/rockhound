@@ -41,4 +41,4 @@ install:
 
 test_script:
     # Run the tests inside a tmp folder to make sure we're testing the installed version
-    - ps: mkdir -p tmp; cd tmp; python -c "import harmonica; harmonica.test()"
+    - ps: mkdir -p tmp; cd tmp; python -c "import rockhound; rockhound.test()"

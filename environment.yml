@@ -1,17 +1,13 @@
-name: harmonica
+name: rockhound
 channels:
     - conda-forge
     - defaults
 dependencies:
     - python=3.6
     - pip
-    - numpy
-    - scipy
     - pooch
-    - attrs
     - xarray
     # Development requirements
-    - pyproj
     - matplotlib
     - cartopy
     - pytest

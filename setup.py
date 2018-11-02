@@ -8,15 +8,15 @@ from setuptools import setup, find_packages
 import versioneer
 
 
-NAME = "harmonica"
-FULLNAME = "Harmonica"
+NAME = "rockhound"
+FULLNAME = "RockHound"
 AUTHOR = "Leonardo Uieda"
 AUTHOR_EMAIL = "leouieda@gmail.com"
 MAINTAINER = AUTHOR
 MAINTAINER_EMAIL = AUTHOR_EMAIL
 LICENSE = "BSD License"
-URL = "https://github.com/fatiando/harmonica"
-DESCRIPTION = "Forward modeling, inversion, and processing gravity and magnetic data "
+URL = "https://github.com/fatiando/rockhound"
+DESCRIPTION = "Download common geophysical models (PREM, CRUST1.0, etc) and load them as Python data structures."
 KEYWORDS = ""
 with open("README.rst") as f:
     LONG_DESCRIPTION = "".join(f.readlines())
@@ -31,16 +31,16 @@ CLASSIFIERS = [
     "Topic :: Software Development :: Libraries",
     "Programming Language :: Python :: 3.5",
     "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
     "License :: OSI Approved :: {}".format(LICENSE),
 ]
 PLATFORMS = "Any"
 PACKAGES = find_packages(exclude=["doc"])
 SCRIPTS = []
 PACKAGE_DATA = {
-    "harmonica.datasets": ["registry.txt"],
-    "harmonica.tests": ["data/*", "baseline/*"],
+    "rockhound": ["registry.txt"],
 }
-INSTALL_REQUIRES = ["numpy", "scipy", "pooch", "attrs", "xarray"]
+INSTALL_REQUIRES = ["pooch", "xarray"]
 PYTHON_REQUIRES = ">=3.5"
 
 if __name__ == "__main__":
