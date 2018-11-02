@@ -16,7 +16,7 @@ MAINTAINER = AUTHOR
 MAINTAINER_EMAIL = AUTHOR_EMAIL
 LICENSE = "BSD License"
 URL = "https://github.com/fatiando/rockhound"
-DESCRIPTION = "Download common geophysical models (PREM, CRUST1.0, etc) and load them as Python data structures."
+DESCRIPTION = "Download geophysical models and load them as Python data structures."
 KEYWORDS = ""
 with open("README.rst") as f:
     LONG_DESCRIPTION = "".join(f.readlines())
@@ -37,9 +37,7 @@ CLASSIFIERS = [
 PLATFORMS = "Any"
 PACKAGES = find_packages(exclude=["doc"])
 SCRIPTS = []
-PACKAGE_DATA = {
-    "rockhound": ["registry.txt"],
-}
+PACKAGE_DATA = {"rockhound": ["registry.txt"]}
 INSTALL_REQUIRES = ["pooch", "xarray"]
 PYTHON_REQUIRES = ">=3.5"
 

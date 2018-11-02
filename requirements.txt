@@ -1,5 +1,2 @@
-numpy
-scipy
 pooch
-attrs
 xarray

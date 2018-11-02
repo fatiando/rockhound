@@ -1,5 +1,4 @@
 # Development requirements
-pyproj
 matplotlib
 cartopy
 pytest
