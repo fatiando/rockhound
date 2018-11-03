@@ -5,10 +5,12 @@ ETOPO1 Earth Relief
 ETOPO1 is a 1 arc-minute global relief model of Earth's surface that integrates land
 topography and ocean bathymetry [AmanteEakins2009]_. It's available in two versions:
 "Ice Surface" (top of Antarctic and Greenland ice sheets) and "Bedrock" (base of the ice
-sheets).
+sheets). The grid is loaded into a :class:`xarray.DataArray` which can be used to plot
+and analyse the dataset.
 """
-import matplotlib.pyplot as plt
 import rockhound as rh
+import matplotlib.pyplot as plt
+import scipy as sp
 
 grid = rh.fetch_etopo1(version="ice")
 print(grid)
