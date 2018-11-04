@@ -5,7 +5,7 @@ RockHound
 
     1. A specialist in geology¹
     2. An amateur rock and mineral collector¹
-    3. A Python library to download geophysical models and datasets (PREM, CRUST1.0, ETOPO1) and load them into Python data structures (pandas, numpy, xarray)²
+    3. A Python library to download and read common geophysical models and datasets²
 
     ¹ `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__ |
     ² Not a real dictionary definition.
