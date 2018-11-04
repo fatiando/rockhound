@@ -1,7 +1,7 @@
 .. _gallery:
 
-Models
-======
+Models and Datasets
+===================
 
 The model and dataset files are downloaded automatically to a ``~/.rockhound/data``
 directory. You can configure this download directory by setting the
