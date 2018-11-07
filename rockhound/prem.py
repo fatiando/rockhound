@@ -15,17 +15,21 @@ def fetch_prem(load=True):
     The model includes the depth, density, seismic velocities, attenuation (Q) and
     anisotropic parameter (:math:`\eta`) on the boundaries of several Earth layers.
     It's available through IRIS Data Services Products [IRIS2011]_ in a csv file
-    (comma-separated values).
+    (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
-
 
     Parameters
     ----------
     load : bool
         Wether to load the data into a :class:`pandas.DataFrame` or just return the
         path to the downloaded data.
+
+    Returns
+    -------
+    prem : :class:`pandas.DataFrame` or str
+        The loaded data or the file path ot the downloaded data.
     """
     fname = REGISTRY.fetch("PREM_1s.csv")
     if not load:
