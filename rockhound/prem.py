@@ -45,7 +45,7 @@ def fetch_prem(load=True):
         "Vsh",
         "eta",
         "Q_mu",
-        "Q_kappa"
+        "Q_kappa",
     ]
     prem = pd.DataFrame(data=data, columns=columns)
     return prem
