@@ -5,11 +5,13 @@ from ..prem import fetch_prem
 
 
 def test_prem_file_name_only():
+    "Only fetch the file name."
     fname = fetch_prem(load=False)
     assert fname.endswith("PREM_1s.csv")
 
 
 def test_prem():
+    "Sanity checks for the prem DataFrame"
     prem = fetch_prem()
     assert prem.shape == (199, 10)
     assert prem.radius.min() == 0
