@@ -2,6 +2,7 @@
 # Import functions/classes to make the public API
 from . import version
 from .etopo1 import fetch_etopo1
+from .prem import fetch_prem
 
 
 # Get the version number through versioneer

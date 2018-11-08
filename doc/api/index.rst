@@ -12,6 +12,7 @@ API Reference
    :toctree: generated/
 
     fetch_etopo1
+    fetch_prem
 
 
 Utilities

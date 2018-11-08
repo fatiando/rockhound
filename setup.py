@@ -38,7 +38,7 @@ PLATFORMS = "Any"
 PACKAGES = find_packages(exclude=["doc"])
 SCRIPTS = []
 PACKAGE_DATA = {"rockhound": ["registry.txt"]}
-INSTALL_REQUIRES = ["pooch", "xarray"]
+INSTALL_REQUIRES = ["pooch", "xarray", "pandas"]
 PYTHON_REQUIRES = ">=3.5"
 
 if __name__ == "__main__":
