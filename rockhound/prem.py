@@ -8,7 +8,7 @@ from .registry import REGISTRY
 
 def fetch_prem(load=True):
     """
-    Fetch the Preliminary Reference Earth Model (PREM) model.
+    Fetch the Preliminary Reference Earth Model (PREM).
 
     The Preliminary reference Earth model [Dziewonsky1981]_ is a one-dimensional model
     representing the average Earth properties as a function of planetary radius.
