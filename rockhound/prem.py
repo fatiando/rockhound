@@ -29,7 +29,13 @@ def fetch_prem(load=True):
     Returns
     -------
     prem : :class:`pandas.DataFrame` or str
-        The loaded data or the file path ot the downloaded data.
+        The loaded data or the file path to the downloaded data.
+        The :class:`pandas.DataFrame` contains the following data:
+
+        - ``radius`` and ``depth`` in km.
+        - ``density`` in g/cm³.
+        - ``Vpv``, ``Vph``, ``Vsv`` and ``Vsh`` in km/s.
+        - ``eta``, ``Q_mu`` and ``Q_kappa`` (dimensionless).
     """
     fname = REGISTRY.fetch("PREM_1s.csv")
     if not load:
