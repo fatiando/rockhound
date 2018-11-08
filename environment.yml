@@ -7,6 +7,7 @@ dependencies:
     - pip
     - pooch
     - xarray
+    - pandas
     # Development requirements
     - matplotlib
     - cartopy

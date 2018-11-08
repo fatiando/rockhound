@@ -21,6 +21,7 @@ Dependencies
 
 * `pooch <http://www.fatiando.org/pooch/>`__
 * `xarray <https://xarray.pydata.org/>`__
+* `pandas <https://pandas.pydata.org>`__
 
 Most of the examples in the :ref:`gallery` also use:
 

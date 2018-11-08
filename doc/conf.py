@@ -30,6 +30,7 @@ extensions = [
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     "xarray": ("http://xarray.pydata.org/en/stable/", None),
+    "pandas": ("http://pandas.pydata.org/pandas-docs/stable/", None),
     "cartopy": ("https://scitools.org.uk/cartopy/docs/latest/", None),
     "pooch": ("https://www.fatiando.org/pooch/latest/", None),
     "matplotlib": ("https://matplotlib.org/", None),
