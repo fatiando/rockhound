@@ -16,9 +16,9 @@ DATASETS = [
     "icemask_grounded_and_shelves",
     "rockmask",
     "lakemask_vostok",
-    "bed_uncertainty",
+    "grounded_bed_uncertainty",
     "thickness_uncertainty_5km",
-    "data_coverage",
+    "coverage",
     "geoid",
 ]
 
