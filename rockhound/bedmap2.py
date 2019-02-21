@@ -41,10 +41,6 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
     ----------
     datasets : list
         Datasets that wants to be loaded from the Bedmap2 model.
-        The available datasets are: `bed`, `surface`, `thickness`,
-        `icemask_grounded_and_shelves`, `rockmask`, `lakemask_vostok`,
-        `bed_uncertainty`, `thickness_uncertainty_5km`, `data_coverage` and
-        `geoid`. For more information read the `bedmap2_readme.txt` file.
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data.
@@ -78,6 +74,8 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
             array = xr.open_rasterio(
                 os.path.join(tempdir, "bedmap2_tiff", available_datasets[dataset])
             )
+            # Replace no data values with nans
+            array = array.where(array != array.nodatavals)
             array.name = dataset
             arrays.append(array)
     ds = xr.merge(arrays)
