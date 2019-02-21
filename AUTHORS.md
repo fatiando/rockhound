@@ -1,6 +1,7 @@
-# Project Contributors
+# Project Authors
 
-The following people have made contributions to the project:
+The following people have made contributions to the project (in alphabetical order by
+last name) and are considered "The RockHound Developers":
 
-* [Leonardo Uieda](http://www.leouieda.com/)
-* [Santiago Soler](https://santis19.github.io/)
+* [Santiago Soler](https://github.com/santisoler)
+* [Leonardo Uieda](https://github.com/leouieda)
