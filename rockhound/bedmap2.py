@@ -25,14 +25,13 @@ DATASETS = [
 
 def fetch_bedmap2(datasets=DATASETS, load=True):
     """
-    Download and load Bedmap2 model datasets.
+    Fetch the Bedmap2 datasets for Antarctica.
 
-    It downloads the Bedmap2 model in `tiff` format, checks its integrity
-    through `pooch` and creates a :class:`xarray.DataArray` with the data from
-    the wanted file.
-
-    References:
-    [BEDMAP2]_
+    Bedmap2 is a suite of gridded products describing surface elevation,
+    ice-thickness, the sea ﬂoor and subglacial bed elevation of the Antarctic south
+    of 60°S [BEDMAP2]_.
+    The datasets are downloaded as `tiff` files and loaded into
+    :class:`xarray.Dataset`s.
 
     Parameters
     ----------
@@ -48,8 +47,8 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
 
     Returns
     -------
-    da : :class:`xarray.DataArray`
-        Data array containing the loaded Bedmap2 file.
+    ds : :class:`xarray.Dataset`
+        The loaded Bedmap2 datasets.
     """
     for dataset in datasets:
         if dataset not in DATASETS:
