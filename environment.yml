@@ -8,6 +8,7 @@ dependencies:
     - pooch
     - xarray
     - pandas
+    - rasterio
     # Development requirements
     - matplotlib
     - cartopy
