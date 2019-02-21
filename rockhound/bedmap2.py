@@ -30,12 +30,25 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
     Bedmap2 is a suite of gridded products describing surface elevation,
     ice-thickness, the sea ﬂoor and subglacial bed elevation of the Antarctic south
     of 60°S [BEDMAP2]_.
-    The datasets are downloaded as `tiff` files and loaded into
-    :class:`xarray.Dataset`s.
+    The datasets are downloaded as `tiff` files and loaded into a
+    :class:`xarray.Dataset` object.
 
     Each dataset is projected in Antarctic Polar Stereographic projection, latitude of
     true scale -71 degrees south, datum WGS84. All heights are in metres relative to
     sea level as defined by the g104c geoid.
+
+    The available datasets are:
+
+    - ``bed``: bedrock height
+    - ``surface``: ice surface height
+    - ``thickness``: ice thickness
+    - ``icemask_grounded_and_shelves``: mask showing the grounding line and the extent of the floating ice shelves
+    - ``rockmask``: mask showing rock outcrops
+    - ``lakemask_vostok``: mask showing the extent of the lake cavity of Lake Vostok
+    - ``grounded_bed_uncertainty``: bed uncertainty grid (figure 12 of the manuscript)
+    - ``thickness_uncertainty_5km``: thickness uncertainty grid (figure 11 of the manuscript)
+    - ``coverage``: binary grid showing the distribution of ice thickness data used in the grid of ice thickness
+    - ``geoid``: values to convert from heights relative to WGS84 datum to heights relative to EIGEN-GL04C geoid (to convert back to WGS84, add this grid)
 
     Parameters
     ----------
