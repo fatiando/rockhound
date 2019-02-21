@@ -23,7 +23,7 @@ DATASETS = [
 ]
 
 
-def fetch_bedmap2(datasets=DATASETS, load=True):
+def fetch_bedmap2(datasets="all", load=True):
     """
     Fetch the Bedmap2 datasets for Antarctica.
 
@@ -52,8 +52,9 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
 
     Parameters
     ----------
-    datasets : list
-        Datasets that wants to be loaded from the Bedmap2 model.
+    datasets : list or str
+        Dataset or list of datasets that wants to be loaded from the Bedmap2 model.
+        If `all` every dataset will be loaded.
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data.
@@ -63,6 +64,11 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
     grids : :class:`xarray.Dataset`
         The loaded Bedmap2 datasets.
     """
+    if isinstance(datasets, str):
+        if datasets == "all":
+            datasets = DATASETS
+        else:
+            datasets = [datasets]
     for dataset in datasets:
         if dataset not in DATASETS:
             raise IOError("Dataset {} not found in bedmap2_tiff.zip".format(dataset))
