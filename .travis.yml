@@ -42,23 +42,26 @@ env:
 matrix:
     include:
         # Code style and quality checks
-        - os: linux
+        - name: "Style checks"
+          os: linux
           env:
               - PYTHON=3.6
               - CHECK=true
               # Don't need to install everything just to run the style checks
-              - CONDA_INSTALL_EXTRA="black flake8 pylint"
+              - CONDA_INSTALL_EXTRA="black flake8 pylint=2.2.2"
               - CONDA_REQUIREMENTS=""
               - CONDA_REQUIREMENTS_DEV=""
         # Main build to deploy to PyPI and Github pages
-        - os: linux
+        - name: "Linux - Python 3.6 (deploy)"
+          os: linux
           env:
               - PYTHON=3.6
               - TEST=true
               - BUILD_DOCS=true
               - DEPLOY_DOCS=true
               - DEPLOY_PYPI=true
-        - os: osx
+        - name: "Mac - Python 3.6"
+          os: osx
           env:
               - PYTHON=3.6
               - TEST=true
