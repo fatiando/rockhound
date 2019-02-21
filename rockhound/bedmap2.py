@@ -23,7 +23,7 @@ DATASETS = [
 ]
 
 
-def fetch_bedmap2(datasets="all", load=True):
+def fetch_bedmap2(datasets, load=True):
     """
     Fetch the Bedmap2 datasets for Antarctica.
 
@@ -58,22 +58,20 @@ def fetch_bedmap2(datasets="all", load=True):
     Parameters
     ----------
     datasets : list or str
-        Dataset or list of datasets that wants to be loaded from the Bedmap2 model.
-        If `all` every dataset will be loaded.
+        Datasets that will be loaded from the Bedmap2 model.
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data.
 
     Returns
     -------
-    grids : :class:`xarray.Dataset`
+    grid : :class:`xarray.Dataset`
         The loaded Bedmap2 datasets.
     """
-    if isinstance(datasets, str):
-        if datasets == "all":
-            datasets = DATASETS
-        else:
-            datasets = [datasets]
+    fname = REGISTRY.fetch("bedmap2_tiff.zip")
+    if not load:
+        return fname
+
     for dataset in datasets:
         if dataset not in DATASETS:
             raise IOError("Dataset {} not found in bedmap2_tiff.zip".format(dataset))
@@ -81,10 +79,6 @@ def fetch_bedmap2(datasets="all", load=True):
         zip(DATASETS, ["bedmap2_{}.tif".format(dataset) for dataset in DATASETS])
     )
     available_datasets["geoid"] = "gl04c_geiod_to_WGS84.tif"
-    fname = REGISTRY.fetch("bedmap2_tiff.zip")
-    if not load:
-        return fname
-
     arrays = []
     for dataset in datasets:
         with tempfile.TemporaryDirectory() as tempdir:
@@ -104,5 +98,5 @@ def fetch_bedmap2(datasets="all", load=True):
             array = array.squeeze("band", drop=True)
             array.name = dataset
             arrays.append(array)
-    grids = xr.merge(arrays)
-    return grids
+    grid = xr.merge(arrays)
+    return grid
