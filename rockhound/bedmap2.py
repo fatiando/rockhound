@@ -34,7 +34,7 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
     :class:`xarray.Dataset`s.
 
     Each dataset is projected in Antarctic Polar Stereographic projection, latitude of
-    true scale -71 degrees south, datum WGS84.  All heights are in metres relative to
+    true scale -71 degrees south, datum WGS84. All heights are in metres relative to
     sea level as defined by the g104c geoid.
 
     Parameters
