@@ -100,6 +100,8 @@ def fetch_bedmap2(datasets="all", load=True):
             )
             # Replace no data values with nans
             array = array.where(array != array.nodatavals)
+            # Remove "band" dimension and coordinate
+            array = array.squeeze("band", drop=True)
             array.name = dataset
             arrays.append(array)
     grids = xr.merge(arrays)
