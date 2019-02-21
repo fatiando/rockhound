@@ -77,12 +77,12 @@ def fetch_bedmap2(datasets="all", load=True):
         if datasets == "all":
             datasets = DATASETS
         else:
-            raise IOError(
+            raise ValueError(
                 'Argument dataset must be "all" or a list of available datasets.'
             )
     for dataset in datasets:
         if dataset not in DATASETS:
-            raise IOError("Dataset {} not found in bedmap2_tiff.zip".format(dataset))
+            raise ValueError("Dataset {} not found in bedmap2_tiff.zip".format(dataset))
     available_datasets = dict(
         zip(DATASETS, ["bedmap2_{}.tif".format(dataset) for dataset in DATASETS])
     )
