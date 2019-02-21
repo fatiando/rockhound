@@ -79,8 +79,7 @@ def fetch_bedmap2(datasets, load=True):
         zip(DATASETS, ["bedmap2_{}.tif".format(dataset) for dataset in DATASETS])
     )
     available_datasets["geoid"] = "gl04c_geiod_to_WGS84.tif"
-    arrays = []
-    for dataset in datasets:
+    for i, dataset in enumerate(datasets):
         with tempfile.TemporaryDirectory() as tempdir:
             # Decompress the file into a temporary file so we can load it with xr
             # The .tif files inside the zip are located inside a bedmap2_tiff directory
@@ -97,6 +96,8 @@ def fetch_bedmap2(datasets, load=True):
             # Remove "band" dimension and coordinate
             array = array.squeeze("band", drop=True)
             array.name = dataset
-            arrays.append(array)
-    grid = xr.merge(arrays)
+            if i == 0:
+                grid = array.to_dataset()
+            else:
+                grid = xr.merge([grid, array])
     return grid
