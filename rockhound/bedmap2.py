@@ -71,10 +71,10 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
                     os.path.join("bedmap2_tiff", available_datasets[dataset]),
                     path=tempdir
                 )
-            arrays.append(
-                xr.open_rasterio(
-                    os.path.join(tempdir, "bedmap2_tiff", available_datasets[dataset])
-                )
+            array = xr.open_rasterio(
+                os.path.join(tempdir, "bedmap2_tiff", available_datasets[dataset])
             )
-    ds = xr.concat(arrays)
+            array.name = dataset
+            arrays.append(array)
+    ds = xr.merge(arrays)
     return ds
