@@ -10,9 +10,9 @@ import versioneer
 
 NAME = "rockhound"
 FULLNAME = "RockHound"
-AUTHOR = "Leonardo Uieda"
+AUTHOR = "The RockHound Developers"
 AUTHOR_EMAIL = "leouieda@gmail.com"
-MAINTAINER = AUTHOR
+MAINTAINER = "Leonardo Uieda"
 MAINTAINER_EMAIL = AUTHOR_EMAIL
 LICENSE = "BSD License"
 URL = "https://github.com/fatiando/rockhound"
