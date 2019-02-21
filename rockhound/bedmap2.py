@@ -60,7 +60,7 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
 
     Returns
     -------
-    ds : :class:`xarray.Dataset`
+    grids : :class:`xarray.Dataset`
         The loaded Bedmap2 datasets.
     """
     for dataset in datasets:
@@ -79,10 +79,10 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
         with tempfile.TemporaryDirectory() as tempdir:
             # Decompress the file into a temporary file so we can load it with xr
             # The .tif files inside the zip are located inside a bedmap2_tiff directory
-            with ZipFile(fname, 'r') as zip_file:
+            with ZipFile(fname, "r") as zip_file:
                 zip_file.extract(
                     os.path.join("bedmap2_tiff", available_datasets[dataset]),
-                    path=tempdir
+                    path=tempdir,
                 )
             array = xr.open_rasterio(
                 os.path.join(tempdir, "bedmap2_tiff", available_datasets[dataset])
@@ -91,5 +91,5 @@ def fetch_bedmap2(datasets=DATASETS, load=True):
             array = array.where(array != array.nodatavals)
             array.name = dataset
             arrays.append(array)
-    ds = xr.merge(arrays)
-    return ds
+    grids = xr.merge(arrays)
+    return grids
