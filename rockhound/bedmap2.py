@@ -70,9 +70,10 @@ def fetch_bedmap2(datasets, load=True):
     if not load:
         return fname
 
-    for dataset in datasets:
-        if dataset not in DATASETS:
-            raise ValueError("Dataset {} not found in bedmap2_tiff.zip".format(dataset))
+    if not set(datasets).issubset(DATASETS):
+        raise ValueError(
+            "Invalid datasets: {}".format(set(datasets).difference(DATASETS))
+        )
     available_datasets = dict(
         zip(DATASETS, ["bedmap2_{}.tif".format(dataset) for dataset in DATASETS])
     )
