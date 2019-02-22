@@ -25,9 +25,6 @@ def test_bedmap2_datasets_as_str():
     for dataset in DATASETS:
         grid = fetch_bedmap2(dataset)
         assert set(grid.data_vars) == set([dataset])
-    # Test docstrings="all"
-    grid = fetch_bedmap2("all")
-    assert set(grid.data_vars) == set(DATASETS)
 
 
 def test_bedmap2():
