@@ -52,13 +52,13 @@ def test_bedmap2():
         assert getattr(grid, dataset).max() == datasets[dataset][1]
     # Check lakemask_vostok
     grid = fetch_bedmap2(datasets=["lakemask_vostok"])
-    assert grid.lakemask_vostok.shape == (112, 281)
+    assert getattr(grid, "lakemask_vostok").shape == (112, 281)
     assert tuple(grid.dims) == ("x", "y")
-    assert grid.lakemask_vostok.min() == 1.0
-    assert grid.lakemask_vostok.max() == 1.0
+    assert getattr(grid, "lakemask_vostok").min() == 1.0
+    assert getattr(grid, "lakemask_vostok").max() == 1.0
     # Check thickness_uncertainty_5km
     grid = fetch_bedmap2(datasets=["thickness_uncertainty_5km"])
-    assert grid.thickness_uncertainty_5km.shape == (1361, 1361)
+    assert getattr(grid, "thickness_uncertainty_5km").shape == (1361, 1361)
     assert tuple(grid.dims) == ("x", "y")
-    assert grid.thickness_uncertainty_5km.min() == 0.0
-    assert grid.thickness_uncertainty_5km.max() == 65535.0
+    assert getattr(grid, "thickness_uncertainty_5km").min() == 0.0
+    assert getattr(grid, "thickness_uncertainty_5km").max() == 65535.0
