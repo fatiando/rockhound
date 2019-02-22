@@ -74,9 +74,9 @@ def fetch_bedmap2(datasets, load=True):
         raise ValueError(
             "Invalid datasets: {}".format(set(datasets).difference(DATASETS))
         )
-    available_datasets = dict(
-        zip(DATASETS, ["bedmap2_{}.tif".format(dataset) for dataset in DATASETS])
-    )
+    available_datasets = {
+        dataset: "bedmap2_{}.tif".format(dataset) for dataset in DATASETS
+    }
     available_datasets["geoid"] = "gl04c_geiod_to_WGS84.tif"
     for i, dataset in enumerate(datasets):
         with tempfile.TemporaryDirectory() as tempdir:
