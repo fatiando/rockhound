@@ -47,9 +47,7 @@ def fetch_bedmap2(datasets, load=True):
     - ``rockmask``: mask showing rock outcrops
     - ``lakemask_vostok``: mask showing the extent of the lake cavity of Lake Vostok
     - ``grounded_bed_uncertainty``: ice bed uncertainty grid
-      (figure 12 of the manuscript)
     - ``thickness_uncertainty_5km``: ice thickness uncertainty grid
-      (figure 11 of the manuscript)
     - ``coverage``: binary grid showing the distribution of ice thickness data used
       in the grid of ice thickness
     - ``geoid``: values to convert from heights relative to WGS84 datum to heights
