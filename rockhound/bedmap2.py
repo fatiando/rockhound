@@ -53,6 +53,10 @@ def fetch_bedmap2(datasets, load=True):
     - ``geoid``: values to convert from heights relative to WGS84 datum to heights
       relative to EIGEN-GL04C geoid (to convert back to WGS84, add this grid)
 
+    .. warning ::
+        Loading a great number of datasets may require a fair amount of memory that
+        could crash your system. We recommend loading only the needed datasets.
+
     Parameters
     ----------
     datasets : list or str
