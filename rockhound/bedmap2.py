@@ -55,8 +55,9 @@ def fetch_bedmap2(datasets, load=True):
 
     Parameters
     ----------
-    datasets : list
+    datasets : list or str
         Names of the datasets that will be loaded from the Bedmap2 model.
+        If `all`, every dataset will be loaded.
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data in a tiff file.
@@ -71,6 +72,11 @@ def fetch_bedmap2(datasets, load=True):
     if not load:
         return fname
 
+    if isinstance(datasets, str):
+        if datasets == "all":
+            datasets = DATASETS
+        else:
+            datasets = [datasets]
     if not set(datasets).issubset(DATASETS):
         raise ValueError(
             "Invalid datasets: {}".format(set(datasets).difference(DATASETS))

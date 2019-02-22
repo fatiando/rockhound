@@ -5,6 +5,7 @@ import numpy as np
 import pytest
 
 from .. import fetch_bedmap2
+from ..bedmap2 import DATASETS
 
 
 def test_bedmap2_invalid_dataset():
@@ -17,6 +18,16 @@ def test_bedmap2_file_name_only():
     "Only fetch the file name."
     name = fetch_bedmap2(datasets=None, load=False)
     assert name.endswith("bedmap2_tiff.zip")
+
+
+def test_bedmap2_datasets_as_str():
+    "Datasets argument passed as strings"
+    for dataset in DATASETS:
+        grid = fetch_bedmap2(dataset)
+        assert set(grid.data_vars) == set([dataset])
+    # Test docstrings="all"
+    grid = fetch_bedmap2("all")
+    assert set(grid.data_vars) == set(DATASETS)
 
 
 def test_bedmap2():
