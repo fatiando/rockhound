@@ -57,6 +57,10 @@ def fetch_bedmap2(datasets, load=True):
         Loading a great number of datasets may require a fair amount of memory that
         could crash your system. We recommend loading only the needed datasets.
 
+    .. warning ::
+        Loading any dataset along with ``thickness_uncertainty_5km`` would modify the
+        shape of the ``grid`` because it's defined on a different set of points.
+
     Parameters
     ----------
     datasets : list or str
