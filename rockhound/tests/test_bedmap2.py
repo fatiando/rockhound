@@ -27,6 +27,19 @@ def test_bedmap2_datasets_as_str():
         assert set(grid.data_vars) == set([dataset])
 
 
+def test_bedmap2_multiple_datasets():
+    "Load multiple datasets"
+    # Test with two datasets with same shape
+    grid = fetch_bedmap2(["bed", "surface"])
+    assert set(grid.data_vars) == set(["bed", "surface"])
+    # Test with "bed" and "lakemask_vostok"
+    grid = fetch_bedmap2(["bed", "lakemask_vostok"])
+    assert set(grid.data_vars) == set(["bed", "lakemask_vostok"])
+    # Test with "bed" and "thickness_uncertainty_5km"
+    grid = fetch_bedmap2(["bed", "thickness_uncertainty_5km"])
+    assert set(grid.data_vars) == set(["bed", "thickness_uncertainty_5km"])
+
+
 def test_bedmap2():
     "Sanity checks for the grid."
     # Check datasets with shape (6667, 6667)
