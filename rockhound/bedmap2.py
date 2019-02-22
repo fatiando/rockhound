@@ -30,7 +30,7 @@ def fetch_bedmap2(datasets, load=True):
     Bedmap2 is a suite of gridded products describing surface elevation,
     ice-thickness, the sea ﬂoor and subglacial bed elevation of the Antarctic south
     of 60°S [BEDMAP2]_.
-    The datasets are downloaded as `tiff` files and loaded into a
+    The datasets are downloaded as ``tiff`` files and loaded into a
     :class:`xarray.Dataset` object.
 
     Each dataset is projected in Antarctic Polar Stereographic projection, latitude of
