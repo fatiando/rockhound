@@ -34,7 +34,7 @@ def test_bedmap2():
         "geoid": [np.float32(-65.86805), np.float32(36.63612)],
     }
     for dataset in datasets:
-        grid = fetch_bedmap2(datasets=datasets)
+        grid = fetch_bedmap2(datasets=[dataset])
         assert getattr(grid, dataset).shape == (6667, 6667)
         assert tuple(grid.dims) == ("x", "y")
         assert getattr(grid, dataset).min() == datasets[dataset][0]
