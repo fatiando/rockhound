@@ -114,4 +114,10 @@ def fetch_bedmap2(datasets, load=True):
                 grid = array.to_dataset()
             else:
                 grid = xr.merge([grid, array])
+    grid.attrs = {
+        "projection": "Antarctic Polar Stereographic",
+        "true_scale_latitude": -71,
+        "datum": "WGS84",
+        "EPSG": "3031",
+    }
     return grid
