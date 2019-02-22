@@ -59,7 +59,8 @@ def fetch_bedmap2(datasets, load=True):
         Names of the datasets that will be loaded from the Bedmap2 model.
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
-        path to the downloaded data in a tiff file. If False, the *datasets* argument is ignored.
+        path to the downloaded data in a tiff file.
+        If False, the *datasets* argument is ignored.
 
     Returns
     -------
