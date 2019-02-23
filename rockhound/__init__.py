@@ -3,6 +3,7 @@
 from . import version
 from .etopo1 import fetch_etopo1
 from .prem import fetch_prem
+from .bedmap2 import fetch_bedmap2
 
 
 # Get the version number through versioneer
