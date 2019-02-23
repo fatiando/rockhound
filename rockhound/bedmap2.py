@@ -90,7 +90,7 @@ def fetch_bedmap2(datasets, load=True):
     }
     available_datasets["geoid"] = "gl04c_geiod_to_WGS84.tif"
     grid = []
-    for dataset in enumerate(datasets):
+    for dataset in datasets:
         with tempfile.TemporaryDirectory() as tempdir:
             # Decompress the file into a temporary file so we can load it with xr
             # The .tif files inside the zip are located inside a bedmap2_tiff directory
