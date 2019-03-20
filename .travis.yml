@@ -66,6 +66,8 @@ matrix:
               - PYTHON=3.6
               - TEST=true
               - BUILD_DOCS=true
+              # To get all dependencies for rasterio
+              - CONDA_EXTRA_CHANNEL=defaults
 
 # Setup the build environment
 before_install:
