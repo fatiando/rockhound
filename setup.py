@@ -29,7 +29,6 @@ CLASSIFIERS = [
     "Intended Audience :: Education",
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development :: Libraries",
-    "Programming Language :: Python :: 3.5",
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "License :: OSI Approved :: {}".format(LICENSE),
@@ -39,7 +38,7 @@ PACKAGES = find_packages(exclude=["doc"])
 SCRIPTS = []
 PACKAGE_DATA = {"rockhound": ["registry.txt"]}
 INSTALL_REQUIRES = ["pooch", "xarray", "pandas", "rasterio"]
-PYTHON_REQUIRES = ">=3.5"
+PYTHON_REQUIRES = ">=3.6"
 
 if __name__ == "__main__":
     setup(
