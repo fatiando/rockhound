@@ -1,8 +1,8 @@
 """
 Test the Bedmap2 loading function.
 """
-import numpy as np
 import pytest
+import numpy as np
 
 from .. import fetch_bedmap2
 from ..bedmap2 import DATASETS
