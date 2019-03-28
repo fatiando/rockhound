@@ -21,9 +21,7 @@ DATASETS = [
     "coverage",
     "geoid",
 ]
-DATASET_FILES = {
-    dataset: "bedmap2_{}.tif".format(dataset) for dataset in DATASETS
-}
+DATASET_FILES = {dataset: "bedmap2_{}.tif".format(dataset) for dataset in DATASETS}
 DATASET_FILES["geoid"] = "gl04c_geiod_to_WGS84.tif"
 
 
@@ -97,8 +95,7 @@ def fetch_bedmap2(datasets, load=True):
             with ZipFile(fname, "r") as zip_file:
                 # The paths in the zip file aren't following OS conventions
                 zip_file.extract(
-                    "/".join(["bedmap2_tiff", DATASET_FILES[dataset]]),
-                    path=tempdir,
+                    "/".join(["bedmap2_tiff", DATASET_FILES[dataset]]), path=tempdir
                 )
             array = xr.open_rasterio(
                 os.path.join(tempdir, "bedmap2_tiff", DATASET_FILES[dataset])
