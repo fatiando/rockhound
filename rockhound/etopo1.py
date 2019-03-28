@@ -1,6 +1,7 @@
 """
 Load the ETOPO1 Earth Relief dataset.
 """
+import os
 import gzip
 import tempfile
 import shutil
@@ -52,11 +53,17 @@ def fetch_etopo1(version, load=True, **kwargs):
     if not load:
         return fname
 
-    with tempfile.NamedTemporaryFile() as temporary:
-        # Decompress the file into a temporary file so we can load it with xarray
-        with gzip.open(fname) as unzipped:
-            shutil.copyfileobj(unzipped, temporary)
+    # Windows complains about file permissions if trying to open a file with xarray that
+    # is already open. So we can't use the tempfile directly in a 'with' block.
+    temporary = tempfile.NamedTemporaryFile(delete=False)
+    try:
+        with temporary:
+            # Decompress the file into a temporary file so we can load it with xarray
+            with gzip.open(fname) as unzipped:
+                shutil.copyfileobj(unzipped, temporary)
         grid = xr.open_dataset(temporary.name, **kwargs)
+    finally:
+        os.remove(temporary.name)
     # Add more metadata and fix some names
     names = {"ice": "Ice Surface", "bedrock": "Bedrock"}
     grid = grid.rename(z=version, x="longitude", y="latitude")
