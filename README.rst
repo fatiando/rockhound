@@ -10,15 +10,15 @@ RockHound
     ¹ `Merriam Webster dictionary <https://www.merriam-webster.com/dictionary/rock%20hound>`__ |
     ² Not a real dictionary definition.
 
-`Documentation <http://www.fatiando.org/rockhound>`__ |
-`Documentation (dev version) <http://www.fatiando.org/rockhound/dev>`__ |
+`Documentation <https://www.fatiando.org/rockhound>`__ |
+`Documentation (dev version) <https://www.fatiando.org/rockhound/dev>`__ |
 `Contact <https://gitter.im/fatiando/fatiando>`__ |
 Part of the `Fatiando a Terra <https://www.fatiando.org>`__ project
 
-.. image:: http://img.shields.io/pypi/v/rockhound.svg?style=flat-square
+.. image:: https://img.shields.io/pypi/v/rockhound.svg?style=flat-square
     :alt: Latest version on PyPI
     :target: https://pypi.python.org/pypi/rockhound
-.. image:: http://img.shields.io/travis/fatiando/rockhound/master.svg?style=flat-square&label=TravisCI
+.. image:: https://img.shields.io/travis/fatiando/rockhound/master.svg?style=flat-square&label=TravisCI
     :alt: TravisCI build status
     :target: https://travis-ci.org/fatiando/rockhound
 .. image:: https://img.shields.io/azure-devops/build/fatiando/c64572de-afef-44c5-86a8-212dce3e0a5c/8/master.svg?label=Azure&style=flat-square
@@ -145,6 +145,6 @@ of the **BSD 3-clause License**. A copy of this license is provided in
 Documentation for other versions
 --------------------------------
 
-* `Development <http://www.fatiando.org/rockhound/dev>`__ (reflects the *master* branch on
+* `Development <https://www.fatiando.org/rockhound/dev>`__ (reflects the *master* branch on
   Github)
-* `Latest release <http://www.fatiando.org/rockhound/latest>`__
+* `Latest release <https://www.fatiando.org/rockhound/latest>`__
