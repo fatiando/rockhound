@@ -100,6 +100,13 @@ jobs:
   - bash: source continuous-integration/azure/setup-miniconda.sh
     displayName: Setup Miniconda
 
+  # Utilities for using pytest on Azure
+  - bash: |
+      set -x -e
+      source activate testing
+      pip install pytest-azurepipelines
+    displayName: Install pytest-azurepipelines
+
   # Show installed pkg information for postmortem diagnostic
   - bash: |
       set -x -e
@@ -176,6 +183,13 @@ jobs:
   # Setup dependencies and build a conda environment
   - script: continuous-integration/azure/setup-miniconda.bat
     displayName: Setup Miniconda
+
+  # Utilities for using pytest on Azure
+  - bash: |
+      set -x -e
+      source activate testing
+      pip install pytest-azurepipelines
+    displayName: Install pytest-azurepipelines
 
   # Show installed pkg information for postmortem diagnostic
   - bash: |
