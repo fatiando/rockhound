@@ -1,8 +1,9 @@
 """
 Load the Preliminary Reference Earth Model (PREM) dataset.
 """
-import numpy as np
 import pandas as pd
+import numpy as np
+
 from .registry import REGISTRY
 
 

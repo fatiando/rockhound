@@ -18,9 +18,12 @@ Part of the `Fatiando a Terra <https://www.fatiando.org>`__ project
 .. image:: http://img.shields.io/pypi/v/rockhound.svg?style=flat-square
     :alt: Latest version on PyPI
     :target: https://pypi.python.org/pypi/rockhound
-.. image:: http://img.shields.io/travis/fatiando/rockhound/master.svg?style=flat-square&label=Linux|Mac
+.. image:: http://img.shields.io/travis/fatiando/rockhound/master.svg?style=flat-square&label=TravisCI
     :alt: TravisCI build status
     :target: https://travis-ci.org/fatiando/rockhound
+.. image:: https://img.shields.io/azure-devops/build/fatiando/c64572de-afef-44c5-86a8-212dce3e0a5c/8/master.svg?label=Azure&style=flat-square
+    :alt: Azure Pipelines build status
+    :target: https://dev.azure.com/fatiando/rockhound/_build
 .. image:: https://img.shields.io/codecov/c/github/fatiando/rockhound/master.svg?style=flat-square
     :alt: Test coverage status
     :target: https://codecov.io/gh/fatiando/rockhound

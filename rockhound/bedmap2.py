@@ -21,6 +21,8 @@ DATASETS = [
     "coverage",
     "geoid",
 ]
+DATASET_FILES = {dataset: "bedmap2_{}.tif".format(dataset) for dataset in DATASETS}
+DATASET_FILES["geoid"] = "gl04c_geiod_to_WGS84.tif"
 
 
 def fetch_bedmap2(datasets, load=True):
@@ -28,7 +30,7 @@ def fetch_bedmap2(datasets, load=True):
     Fetch the Bedmap2 datasets for Antarctica.
 
     Bedmap2 is a suite of gridded products describing surface elevation,
-    ice-thickness, the sea ﬂoor and subglacial bed elevation of the Antarctic south
+    ice-thickness, the sea floor and subglacial bed elevation of the Antarctic south
     of 60°S [BEDMAP2]_.
     The datasets are downloaded as ``tiff`` files and loaded into a
     :class:`xarray.Dataset` object.
@@ -85,23 +87,22 @@ def fetch_bedmap2(datasets, load=True):
         raise ValueError(
             "Invalid datasets: {}".format(set(datasets).difference(DATASETS))
         )
-    available_datasets = {
-        dataset: "bedmap2_{}.tif".format(dataset) for dataset in DATASETS
-    }
-    available_datasets["geoid"] = "gl04c_geiod_to_WGS84.tif"
     grid = []
     for dataset in datasets:
         with tempfile.TemporaryDirectory() as tempdir:
             # Decompress the file into a temporary file so we can load it with xr
             # The .tif files inside the zip are located inside a bedmap2_tiff directory
             with ZipFile(fname, "r") as zip_file:
+                # The paths in the zip file aren't following OS conventions
                 zip_file.extract(
-                    os.path.join("bedmap2_tiff", available_datasets[dataset]),
-                    path=tempdir,
+                    "/".join(["bedmap2_tiff", DATASET_FILES[dataset]]), path=tempdir
                 )
+            # Make sure the data are loaded into memory and not linked to file
             array = xr.open_rasterio(
-                os.path.join(tempdir, "bedmap2_tiff", available_datasets[dataset])
-            )
+                os.path.join(tempdir, "bedmap2_tiff", DATASET_FILES[dataset])
+            ).load()
+            # Close any files associated with this dataset to make sure can delete them
+            array.close()
             # Replace no data values with nans
             array = array.where(array != array.nodatavals)
             # Remove "band" dimension and coordinate
