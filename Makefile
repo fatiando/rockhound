@@ -25,7 +25,8 @@ test:
 	mkdir -p $(TESTDIR)
 	cd $(TESTDIR); MPLBACKEND='agg' pytest $(PYTEST_ARGS) $(PROJECT)
 	cp $(TESTDIR)/.coverage* .
-	rm -rvf $(TESTDIR)
+	# Make sure always returns 0 to avoid breaking builds in CIs when it fails
+	rm -rvf $(TESTDIR) || true
 
 format:
 	black $(BLACK_FILES)
