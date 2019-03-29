@@ -97,9 +97,12 @@ def fetch_bedmap2(datasets, load=True):
                 zip_file.extract(
                     "/".join(["bedmap2_tiff", DATASET_FILES[dataset]]), path=tempdir
                 )
+            # Make sure the data are loaded into memory and not linked to file
             array = xr.open_rasterio(
                 os.path.join(tempdir, "bedmap2_tiff", DATASET_FILES[dataset])
-            )
+            ).load()
+            # Close any files associated with this dataset to make sure can delete them
+            array.close()
             # Replace no data values with nans
             array = array.where(array != array.nodatavals)
             # Remove "band" dimension and coordinate

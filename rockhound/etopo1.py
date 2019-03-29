@@ -61,7 +61,10 @@ def fetch_etopo1(version, load=True, **kwargs):
             # Decompress the file into a temporary file so we can load it with xarray
             with gzip.open(fname) as unzipped:
                 shutil.copyfileobj(unzipped, temporary)
-        grid = xr.open_dataset(temporary.name, **kwargs)
+        # Make sure the data are loaded into memory and not linked to file
+        grid = xr.open_dataset(temporary.name, **kwargs).load()
+        # Close any files associated with this dataset to make sure can delete them
+        grid.close()
     finally:
         os.remove(temporary.name)
     # Add more metadata and fix some names
