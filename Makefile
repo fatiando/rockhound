@@ -1,6 +1,6 @@
 # Build, package, test, and clean
 PROJECT=rockhound
-TESTDIR=tmp-test-dir-with-unique-name
+TESTDIR=.tmp-test-dir-with-unique-name
 PYTEST_ARGS=--cov-config=../.coveragerc --cov-report=term-missing --cov=$(PROJECT) --doctest-modules -v --pyargs
 LINT_FILES=setup.py $(PROJECT)
 BLACK_FILES=setup.py $(PROJECT) examples
@@ -25,8 +25,6 @@ test:
 	mkdir -p $(TESTDIR)
 	cd $(TESTDIR); MPLBACKEND='agg' pytest $(PYTEST_ARGS) $(PROJECT)
 	cp $(TESTDIR)/.coverage* .
-	# Make sure always returns 0 to avoid breaking builds in CIs when it fails
-	rm -rvf $(TESTDIR) || true
 
 format:
 	black $(BLACK_FILES)
