@@ -6,6 +6,7 @@ import tempfile
 from zipfile import ZipFile
 
 import xarray as xr
+from pooch import Unzip
 
 from .registry import REGISTRY
 
@@ -77,39 +78,27 @@ def fetch_bedmap2(datasets, load=True):
     grid : :class:`xarray.Dataset`
         The loaded Bedmap2 datasets.
     """
-    fname = REGISTRY.fetch("bedmap2_tiff.zip")
     if not load:
-        return fname
-
+        return REGISTRY.fetch("bedmap2_tiff.zip")
+    fnames = REGISTRY.fetch("bedmap2_tiff.zip", processor=Unzip())
     if isinstance(datasets, str):
         datasets = [datasets]
     if not set(datasets).issubset(DATASETS):
         raise ValueError(
             "Invalid datasets: {}".format(set(datasets).difference(DATASETS))
         )
-    grid = []
+    arrays = []
     for dataset in datasets:
-        with tempfile.TemporaryDirectory() as tempdir:
-            # Decompress the file into a temporary file so we can load it with xr
-            # The .tif files inside the zip are located inside a bedmap2_tiff directory
-            with ZipFile(fname, "r") as zip_file:
-                # The paths in the zip file aren't following OS conventions
-                zip_file.extract(
-                    "/".join(["bedmap2_tiff", DATASET_FILES[dataset]]), path=tempdir
-                )
-            # Make sure the data are loaded into memory and not linked to file
-            array = xr.open_rasterio(
-                os.path.join(tempdir, "bedmap2_tiff", DATASET_FILES[dataset])
-            ).load()
-            # Close any files associated with this dataset to make sure can delete them
-            array.close()
-            # Replace no data values with nans
-            array = array.where(array != array.nodatavals)
-            # Remove "band" dimension and coordinate
-            array = array.squeeze("band", drop=True)
-            array.name = dataset
-            grid.append(array)
-    grid = xr.merge(grid)
+        for fname in fnames:
+            if fname.endswith(DATASET_FILES[dataset]):
+                array = xr.open_rasterio(fname)
+                # Replace no data values with nans
+                array = array.where(array != array.nodatavals)
+                # Remove "band" dimension and coordinate
+                array = array.squeeze("band", drop=True)
+                array.name = dataset
+                arrays.append(array)
+    grid = xr.merge(arrays)
     grid.attrs = {
         "projection": "Antarctic Polar Stereographic",
         "true_scale_latitude": -71,
