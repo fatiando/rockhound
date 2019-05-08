@@ -90,7 +90,7 @@ def fetch_bedmap2(datasets, load=True):
     arrays = []
     for dataset in datasets:
         for fname in fnames:
-            if fname.endswith(DATASET_FILES[dataset]):
+            if os.path.basename(fname) == DATASET_FILES[dataset]:
                 array = xr.open_rasterio(fname)
                 # Replace no data values with nans
                 array = array.where(array != array.nodatavals)

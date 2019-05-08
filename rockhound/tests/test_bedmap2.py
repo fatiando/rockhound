@@ -22,9 +22,8 @@ def test_bedmap2_file_name_only():
 
 def test_bedmap2_datasets_as_str():
     "Datasets argument passed as strings"
-    for dataset in DATASETS:
-        grid = fetch_bedmap2(dataset)
-        assert set(grid.data_vars) == set([dataset])
+    grid = fetch_bedmap2("bed")
+    assert set(grid.data_vars) == set(["bed"])
 
 
 def test_bedmap2_multiple_datasets():
