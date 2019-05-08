@@ -5,4 +5,5 @@ include CONTRIBUTING.md
 include MAINTENANCE.md
 include AUTHORS.md
 include versioneer.py
+include requirements.txt
 include rockhound/registry.txt
