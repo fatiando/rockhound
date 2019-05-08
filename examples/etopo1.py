@@ -11,6 +11,7 @@ and make computations.
 import rockhound as rh
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
+import cmocean
 
 # Load both the ice surface and bedrock grids and merge them into a single Dataset
 grid = rh.fetch_etopo1(version="ice")
@@ -27,7 +28,9 @@ trans = ccrs.PlateCarree()
 
 # Setup some common arguments for the colorbar and pseudo-color plot
 cbar_kwargs = dict(pad=0, orientation="horizontal")
-pcolor_args = dict(cmap="terrain", add_colorbar=False, transform=ccrs.PlateCarree())
+pcolor_args = dict(
+    cmap=cmocean.cm.topo, add_colorbar=False, transform=ccrs.PlateCarree()
+)
 
 # Draw the maps
 fig, axes = plt.subplots(1, 2, figsize=(9, 5), subplot_kw=dict(projection=proj))
