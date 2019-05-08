@@ -27,6 +27,7 @@ Dependencies
 Most of the examples in the :ref:`gallery` also use:
 
 * `matplotlib <https://matplotlib.org/>`__
+* `cmocean <https://matplotlib.org/cmocean/>`__ for beautiful colormaps
 * `cartopy <https://scitools.org.uk/cartopy/>`__ for plotting maps
 
 
