@@ -31,6 +31,24 @@ Most of the examples in the :ref:`gallery` also use:
 * `cartopy <https://scitools.org.uk/cartopy/>`__ for plotting maps
 
 
+Installing with conda
+---------------------
+
+You can install RockHound using the `conda package manager <https://conda.io/>`__ that
+comes with the Anaconda distribution::
+
+    conda install rockhound --channel conda-forge
+
+
+Installing with pip
+-------------------
+
+Alternatively, you can also use the `pip package manager
+<https://pypi.org/project/pip/>`__::
+
+    pip install rockhound
+
+
 Installing the latest development version
 -----------------------------------------
 
