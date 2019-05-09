@@ -20,8 +20,10 @@ print(grid)
 # Plot the age grid.
 # We're not using a map projection to speed up the plotting but this NOT recommended.
 plt.figure(figsize=(9, 5))
+ax = plt.subplot(111)
 grid.age.plot.pcolormesh(
-    cmap=cmocean.cm.thermal_r, cbar_kwargs=dict(pad=0.01, aspect=30)
+    cmap=cmocean.cm.thermal_r, cbar_kwargs=dict(pad=0.01, aspect=30), ax=ax
 )
+ax.set_title("Age of Oceanic Lithosphere")
 plt.tight_layout()
 plt.show()

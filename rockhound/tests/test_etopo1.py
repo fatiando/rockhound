@@ -24,9 +24,9 @@ def test_etopo1():
     "Sanity checks for the grid."
     grid = fetch_etopo1(version="ice")
     assert grid.ice.shape == (10801, 21601)
-    assert grid.attrs["title"] == "ETOPO1 Ice Surface relief [meters]"
+    assert grid.attrs["title"] == "ETOPO1 Ice Surface Relief"
     assert tuple(grid.dims) == ("latitude", "longitude")
     grid = fetch_etopo1(version="bedrock")
     assert grid.bedrock.shape == (10801, 21601)
-    assert grid.attrs["title"] == "ETOPO1 Bedrock relief [meters]"
+    assert grid.attrs["title"] == "ETOPO1 Bedrock Relief"
     assert tuple(grid.dims) == ("latitude", "longitude")
