@@ -15,13 +15,13 @@ import cmocean
 
 # Load the ice thickness grid
 bedmap = rh.fetch_bedmap2(datasets=["thickness"])
-# bedmap = bedmap.sel(x=slice(None, 0), y=slice(0, None))
 print(bedmap)
 
-plt.figure(figsize=(8, 9.5))
+plt.figure(figsize=(8, 7))
 ax = plt.subplot(111)
-pc = bedmap.thickness.plot.pcolormesh(ax=ax, cmap=cmocean.cm.ice, add_colorbar=False)
-plt.colorbar(pc, ax=ax, orientation="horizontal", pad=0.05, aspect=50, label="meters")
+pc = bedmap.thickness.plot.pcolormesh(
+    ax=ax, cmap=cmocean.cm.ice, cbar_kwargs=dict(pad=0.01, aspect=30)
+)
 ax.set_title("Bedmap2 Antarctica Ice Thickness")
 plt.tight_layout()
 plt.show()

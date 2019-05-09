@@ -8,18 +8,20 @@ from pooch import Unzip
 
 from .registry import REGISTRY
 
-DATASETS = [
-    "bed",
-    "surface",
-    "thickness",
-    "icemask_grounded_and_shelves",
-    "rockmask",
-    "lakemask_vostok",
-    "grounded_bed_uncertainty",
-    "thickness_uncertainty_5km",
-    "coverage",
-    "geoid",
-]
+DATASETS = {
+    "bed": dict(name="Bedrock Height", units="meters"),
+    "surface": dict(name="Ice Surface Height", units="meters"),
+    "thickness": dict(name="Ice Thickness", units="meters"),
+    "icemask_grounded_and_shelves": dict(
+        name="Mask of Grounding Line and Floating Ice Shelves"
+    ),
+    "rockmask": dict(name="Mask of Rock Outcrops"),
+    "lakemask_vostok": dict(name="Mask for Lake Vostok"),
+    "grounded_bed_uncertainty": dict(name="Ice Bed Uncertainty", units="meters"),
+    "thickness_uncertainty_5km": dict(name="Ice Thickness Uncertainty", units="meters"),
+    "coverage": dict(name="Distribution of Ice Thickness Data (binary)"),
+    "geoid": dict(name="Geoid Height (WGS84)", units="meters"),
+}
 
 
 def fetch_bedmap2(datasets, load=True):
@@ -77,9 +79,9 @@ def fetch_bedmap2(datasets, load=True):
     """
     if isinstance(datasets, str):
         datasets = [datasets]
-    if not set(datasets).issubset(DATASETS):
+    if not set(datasets).issubset(DATASETS.keys()):
         raise ValueError(
-            "Invalid datasets: {}".format(set(datasets).difference(DATASETS))
+            "Invalid datasets: {}".format(set(datasets).difference(DATASETS.keys()))
         )
     fnames = REGISTRY.fetch("bedmap2_tiff.zip", processor=Unzip())
     if not load:
@@ -92,14 +94,23 @@ def fetch_bedmap2(datasets, load=True):
         # Remove "band" dimension and coordinate
         array = array.squeeze("band", drop=True)
         array.name = dataset
+        array.x.attrs["units"] = "meters"
+        array.y.attrs["units"] = "meters"
+        array.attrs["long_name"] = DATASETS[dataset]["name"]
+        if "units" in DATASETS[dataset]:
+            array.attrs["units"] = DATASETS[dataset]["units"]
         arrays.append(array)
     grid = xr.merge(arrays)
-    grid.attrs = {
-        "projection": "Antarctic Polar Stereographic",
-        "true_scale_latitude": -71,
-        "datum": "WGS84",
-        "EPSG": "3031",
-    }
+    grid.attrs.update(
+        {
+            "title": "Bedmap2",
+            "projection": "Antarctic Polar Stereographic",
+            "true_scale_latitude": -71,
+            "datum": "WGS84",
+            "EPSG": "3031",
+            "doi": "10.5194/tc-7-375-2013",
+        }
+    )
     return grid
 
 

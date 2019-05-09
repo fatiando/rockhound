@@ -62,6 +62,8 @@ def fetch_etopo1(version, load=True, **kwargs):
     ice sheets). Each grid is in a separate gzipped netCDF file (grid-line registered
     version). The grids are loaded into :class:`xarray.Dataset` objects.
 
+    The vertical datum is sea level and the horizontal reference is the WGS84 ellipsoid.
+
     If the files aren't already in your data directory, they will be downloaded
     automatically (which may take a while). Each grid is approximately 380Mb.
 
@@ -97,8 +99,10 @@ def fetch_etopo1(version, load=True, **kwargs):
     # Add more metadata and fix some names
     names = {"ice": "Ice Surface", "bedrock": "Bedrock"}
     grid = grid.rename(z=version, x="longitude", y="latitude")
-    grid[version].attrs["long_name"] = "ETOPO1 {} relief [meters]".format(
-        names[version]
-    )
-    grid.attrs["title"] = grid[version].attrs["long_name"]
+    grid[version].attrs["long_name"] = "{} relief".format(names[version])
+    grid[version].attrs["units"] = "meters"
+    grid[version].attrs["vertical_datum"] = "sea level"
+    grid[version].attrs["datum"] = "WGS84"
+    grid.attrs["title"] = "ETOPO1 {} Relief".format(names[version])
+    grid.attrs["doi"] = "10.7289/V5C8276M"
     return grid
