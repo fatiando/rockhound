@@ -1,6 +1,7 @@
 # pylint: disable=missing-docstring
 # Import functions/classes to make the public API
 from . import version
+from .registry import data_location
 from .etopo1 import fetch_etopo1
 from .prem import fetch_prem
 from .bedmap2 import fetch_bedmap2
