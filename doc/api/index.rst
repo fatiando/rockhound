@@ -7,6 +7,8 @@ API Reference
 
 .. currentmodule:: rockhound
 
+Data Fetching and Loading
+-------------------------
 
 .. autosummary::
    :toctree: generated/
@@ -23,4 +25,5 @@ Utilities
 .. autosummary::
    :toctree: generated/
 
+    data_location
     test
