@@ -3,12 +3,53 @@ Load the ETOPO1 Earth Relief dataset.
 """
 import os
 import gzip
-import tempfile
 import shutil
 
 import xarray as xr
 
 from .registry import REGISTRY
+
+
+class Decompress:  # pylint: disable=too-few-public-methods
+    """
+    Decompress the gzip compressed grid after download.
+
+    This is a Pooch processor class that will be used with ``Pooch.fetch``.
+    """
+
+    def __call__(self, fname, action, pooch):
+        """
+        Decompress the given file.
+
+        The output file will be ``fname`` without the ``.gz`` extension.
+
+        Parameters
+        ----------
+        fname : str
+            Full path of the compressed file in local storage.
+        action : str
+            Indicates what action was taken by :meth:`pooch.Pooch.fetch`. One of:
+
+            * ``"download"``: The file didn't exist locally and was downloaded
+            * ``"update"``: The local file was outdated and was re-download
+            * ``"fetch"``: The file exists and is updated so it wasn't downloaded
+
+        pooch : :class:`pooch.Pooch`
+            The instance of :class:`pooch.Pooch` that is calling this.
+
+        Returns
+        -------
+        fname : str
+            The full path to the decompressed file.
+
+        """
+        # Get rid of the .gz
+        decomp = os.path.splitext(fname)[0]
+        if action in ("update", "download") or not os.path.exists(decomp):
+            with open(decomp, "w+b") as output:
+                with gzip.open(fname) as compressed:
+                    shutil.copyfileobj(compressed, output)
+        return decomp
 
 
 def fetch_etopo1(version, load=True, **kwargs):
@@ -49,24 +90,10 @@ def fetch_etopo1(version, load=True, **kwargs):
     }
     if version not in available:
         raise ValueError("Invalid ETOPO1 version '{}'.".format(version))
-    fname = REGISTRY.fetch(available[version])
+    fname = REGISTRY.fetch(available[version], processor=Decompress())
     if not load:
         return fname
-
-    # Windows complains about file permissions if trying to open a file with xarray that
-    # is already open. So we can't use the tempfile directly in a 'with' block.
-    temporary = tempfile.NamedTemporaryFile(delete=False)
-    try:
-        with temporary:
-            # Decompress the file into a temporary file so we can load it with xarray
-            with gzip.open(fname) as unzipped:
-                shutil.copyfileobj(unzipped, temporary)
-        # Make sure the data are loaded into memory and not linked to file
-        grid = xr.open_dataset(temporary.name, **kwargs).load()
-        # Close any files associated with this dataset to make sure can delete them
-        grid.close()
-    finally:
-        os.remove(temporary.name)
+    grid = xr.open_dataset(fname, **kwargs)
     # Add more metadata and fix some names
     names = {"ice": "Ice Surface", "bedrock": "Bedrock"}
     grid = grid.rename(z=version, x="longitude", y="latitude")
