@@ -5,7 +5,6 @@ import pytest
 import numpy as np
 
 from .. import fetch_bedmap2
-from ..bedmap2 import DATASETS
 
 
 def test_bedmap2_invalid_dataset():
@@ -16,15 +15,20 @@ def test_bedmap2_invalid_dataset():
 
 def test_bedmap2_file_name_only():
     "Only fetch the file name."
-    name = fetch_bedmap2(datasets=None, load=False)
-    assert name.endswith("bedmap2_tiff.zip")
+    names = fetch_bedmap2(datasets=["bed"], load=False)
+    assert len(names) == 1
+    assert names[0].endswith("bedmap2_bed.tif")
+    names = fetch_bedmap2(datasets=["thickness", "surface", "geoid"], load=False)
+    assert len(names) == 3
+    assert names[0].endswith("bedmap2_thickness.tif")
+    assert names[1].endswith("bedmap2_surface.tif")
+    assert names[2].endswith("gl04c_geiod_to_WGS84.tif")
 
 
 def test_bedmap2_datasets_as_str():
     "Datasets argument passed as strings"
-    for dataset in DATASETS:
-        grid = fetch_bedmap2(dataset)
-        assert set(grid.data_vars) == set([dataset])
+    grid = fetch_bedmap2("bed")
+    assert set(grid.data_vars) == set(["bed"])
 
 
 def test_bedmap2_multiple_datasets():
