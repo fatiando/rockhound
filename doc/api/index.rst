@@ -14,6 +14,7 @@ API Reference
     fetch_etopo1
     fetch_prem
     fetch_bedmap2
+    fetch_seafloor_age
 
 
 Utilities

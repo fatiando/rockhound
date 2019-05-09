@@ -2,3 +2,7 @@ ETOPO1_Ice_g_gmt4.grd.gz c241db385d89f3d0c22eec8138224db9f2ebee6a1b4d1ecb4ebc6a5
 ETOPO1_Bed_g_gmt4.grd.gz e5dd1e07c9039a966096d658976145b34a7006613ba32c7e898d26dd1dd3e1d9 https://www.ngdc.noaa.gov/mgg/global/relief/ETOPO1/data/bedrock/grid_registered/netcdf/ETOPO1_Bed_g_gmt4.grd.gz
 PREM_1s.csv 71e5d8883e5ee0529c7d8f02c8e68d12c350e993bdbd106a3697c64fa3bf9faa https://ds.iris.edu/files/products/emc/data/PREM/PREM_1s.csv
 bedmap2_tiff.zip f4bb27ce05197e9d29e4249d64a947b93aab264c3b4e6cbf49d6b339fb6c67fe https://secure.antarctica.ac.uk/data/bedmap2/bedmap2_tiff.zip
+age.3.2.nc.bz2 49003831db78f7bb044532daf31fdc49218f75876668ee0c96877f383214b827 https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age/age.3.2.nc.bz2
+age.3.6.nc.bz2 c99358e4a980be15f05df71506d9337dc760d32e5907f9526bc8135224fc1f81 https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age/age.3.6.nc.bz2
+ageerror.3.2.nc.bz2 fd599a02488912e6d3bc53fc1e658f3d116a893201c0c9fb5e496c4020279a35 https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age_error/ageerror.3.2.nc.bz2
+ageerror.3.6.nc.bz2 15a2542717d30f24feeb2ea9d5d73d754b30a3fc92bbf1b704b3ba23d2766d1b https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age_error/ageerror.3.6.nc.bz2
