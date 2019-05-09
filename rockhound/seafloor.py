@@ -53,7 +53,7 @@ class Decompress:  # pylint: disable=too-few-public-methods
         return decomp
 
 
-def fetch_seafloor_age(resolution="6min", load=True, **kwargs):
+def fetch_seafloor_age(*, resolution="6min", load=True, **kwargs):
     """
     Fetch the age of the oceanic lithosphere global grid
 

@@ -52,7 +52,7 @@ class Decompress:  # pylint: disable=too-few-public-methods
         return decomp
 
 
-def fetch_etopo1(version, load=True, **kwargs):
+def fetch_etopo1(version, *, load=True, **kwargs):
     """
     Fetch the ETOPO1 global relief model.
 

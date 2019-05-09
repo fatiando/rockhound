@@ -7,7 +7,7 @@ import numpy as np
 from .registry import REGISTRY
 
 
-def fetch_prem(load=True):
+def fetch_prem(*, load=True):
     r"""
     Fetch the Preliminary Reference Earth Model (PREM).
 
