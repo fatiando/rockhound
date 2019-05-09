@@ -2,8 +2,6 @@
 Load the Bedmap2 datasets for Antarctica.
 """
 import os
-import tempfile
-from zipfile import ZipFile
 
 import xarray as xr
 from pooch import Unzip
@@ -22,8 +20,6 @@ DATASETS = [
     "coverage",
     "geoid",
 ]
-DATASET_FILES = {dataset: "bedmap2_{}.tif".format(dataset) for dataset in DATASETS}
-DATASET_FILES["geoid"] = "gl04c_geiod_to_WGS84.tif"
 
 
 def fetch_bedmap2(datasets, load=True):
@@ -70,34 +66,33 @@ def fetch_bedmap2(datasets, load=True):
         Names of the datasets that will be loaded from the Bedmap2 model.
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
-        path to the downloaded data in a tiff file.
-        If False, the *datasets* argument is ignored.
+        path to the downloaded data tiff files. If False, will return a list with the
+        paths to the files corresponding to *datasets*.
 
     Returns
     -------
     grid : :class:`xarray.Dataset`
         The loaded Bedmap2 datasets.
+
     """
-    if not load:
-        return REGISTRY.fetch("bedmap2_tiff.zip")
-    fnames = REGISTRY.fetch("bedmap2_tiff.zip", processor=Unzip())
     if isinstance(datasets, str):
         datasets = [datasets]
     if not set(datasets).issubset(DATASETS):
         raise ValueError(
             "Invalid datasets: {}".format(set(datasets).difference(DATASETS))
         )
+    fnames = REGISTRY.fetch("bedmap2_tiff.zip", processor=Unzip())
+    if not load:
+        return [get_fname(dataset, fnames) for dataset in datasets]
     arrays = []
     for dataset in datasets:
-        for fname in fnames:
-            if os.path.basename(fname) == DATASET_FILES[dataset]:
-                array = xr.open_rasterio(fname)
-                # Replace no data values with nans
-                array = array.where(array != array.nodatavals)
-                # Remove "band" dimension and coordinate
-                array = array.squeeze("band", drop=True)
-                array.name = dataset
-                arrays.append(array)
+        array = xr.open_rasterio(get_fname(dataset, fnames))
+        # Replace no data values with nans
+        array = array.where(array != array.nodatavals)
+        # Remove "band" dimension and coordinate
+        array = array.squeeze("band", drop=True)
+        array.name = dataset
+        arrays.append(array)
     grid = xr.merge(arrays)
     grid.attrs = {
         "projection": "Antarctic Polar Stereographic",
@@ -106,3 +101,16 @@ def fetch_bedmap2(datasets, load=True):
         "EPSG": "3031",
     }
     return grid
+
+
+def get_fname(dataset, fnames):
+    "Return the file name corresponding to the given dataset"
+    if dataset == "geoid":
+        dataset_name = "gl04c_geiod_to_WGS84.tif"
+    else:
+        dataset_name = "bedmap2_{}.tif".format(dataset)
+    result = None
+    for fname in fnames:
+        if os.path.basename(fname) == dataset_name:
+            result = fname
+    return result
