@@ -8,6 +8,7 @@
     :caption: Documentation
 
     install.rst
+    citing.rst
     registry.rst
     gallery/index.rst
     api/index.rst

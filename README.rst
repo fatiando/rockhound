@@ -92,6 +92,18 @@ Contacting Us
   where you can ask questions and leave comments.
 
 
+Citing RockHound
+----------------
+
+This is research software **made by scientists** (see `AUTHORS.md
+<https://github.com/fatiando/rockhound/blob/master/AUTHORS.md>`__). Citations help us
+justify the effort that goes into building and maintaining this project. If you used
+RockHound for your research, please consider citing us.
+
+See our `CITATION.rst file <https://github.com/fatiando/rockhound/blob/master/CITATION.rst>`__
+to find out more.
+
+
 Contributing
 ------------
 
