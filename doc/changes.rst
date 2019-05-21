@@ -21,5 +21,5 @@ Available models and datasets:
 
 Features:
 
-- Use `Pooch <https://www.fatiando.org/pooch>`__ to download remote files, check if they are not corrupted and decompress
-  files if necessary.
+- Use `Pooch <https://www.fatiando.org/pooch>`__ to download remote files, check if they
+  are not corrupted and decompress files if necessary.
