@@ -5,7 +5,7 @@ channels:
 dependencies:
     - python=3.7
     - pip
-    - pooch>=0.4
+    - pooch>=0.5
     - xarray
     - pandas
     - rasterio
