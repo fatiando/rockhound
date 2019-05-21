@@ -12,3 +12,4 @@
     gallery/index.rst
     api/index.rst
     references.rst
+    changes.rst
