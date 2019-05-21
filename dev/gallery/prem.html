@@ -1,0 +1,391 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>PREM: Preliminary Reference Earth Model &mdash; RockHound</title>
+    
+
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Age of the Oceanic Lithosphere" href="seafloor_age.html" />
+    <link rel="prev" title="ETOPO1 Earth Relief" href="etopo1.html" />
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+            Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-38125837-1', 'auto', {'storage': 'none'});
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RockHound
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing RockHound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../registry.html">Where are my data?</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Models and Datasets</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bedmap2.html">Bedmap2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etopo1.html">ETOPO1 Earth Relief</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PREM: Preliminary Reference Earth Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seafloor_age.html">Age of the Oceanic Lithosphere</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changes.html">Changelog</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://www.fatiando.org"><i class="fa fa-external-link-square fa-fw"></i> Fatiando a Terra</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound/blob/master/CONTRIBUTING.md"><i class="fa fa-users fa-fw"></i> Contributing</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound/blob/master/CODE_OF_CONDUCT.md"><i class="fa fa-gavel fa-fw"></i> Code of Conduct</a></li>
+            
+                <li class="toctree-l1"><a href="https://gitter.im/fatiando/fatiando"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RockHound</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Models and Datasets</a> &raquo;</li>
+        
+      <li>PREM: Preliminary Reference Earth Model</li>
+    
+    
+    <li class="source-link">
+        
+            
+                
+                
+                
+                    
+                
+                <a href="https://github.com/fatiando/rockhound/edit/master/doc/../examples/prem.py"
+                   class="fa fa-github"> Improve this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-gallery-prem-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="prem-preliminary-reference-earth-model">
+<span id="sphx-glr-gallery-prem-py"></span><h1>PREM: Preliminary Reference Earth Model<a class="headerlink" href="#prem-preliminary-reference-earth-model" title="Permalink to this headline">¶</a></h1>
+<p>The Preliminary reference Earth model (PREM) <a class="reference internal" href="../references.html#dziewonsky1981" id="id1">[Dziewonsky1981]</a> is a one-dimensional
+model representing the average Earth properties as a function of planetary radius.  The
+model includes the depth, density, seismic velocities, attenuation (Q) and anisotropic
+parameter (<span class="math notranslate nohighlight">\(\eta\)</span>) on the boundaries of several Earth layers.  The data is loaded
+into <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> objects, which can be used to plot and make computations.</p>
+<img alt="../_images/sphx_glr_prem_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_prem_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>radius   depth   density       Vpv  ...      Vsh      eta   Q_mu  Q_kappa
+0    6371.0     0.0   1.02000   1.45000  ...  0.00000  1.00000    0.0  57823.0
+1    6370.0     1.0   1.02000   1.45000  ...  0.00000  1.00000    0.0  57823.0
+2    6369.0     2.0   1.02000   1.45000  ...  0.00000  1.00000    0.0  57823.0
+3    6368.0     3.0   1.02000   1.45000  ...  0.00000  1.00000    0.0  57823.0
+4    6368.0     3.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+5    6367.0     4.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+6    6366.0     5.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+7    6365.0     6.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+8    6364.0     7.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+9    6363.0     8.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+10   6362.0     9.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+11   6361.0    10.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+12   6360.0    11.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+13   6359.0    12.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+14   6358.0    13.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+15   6357.0    14.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+16   6356.0    15.0   2.60000   5.80000  ...  3.20000  1.00000  600.0  57823.0
+17   6356.0    15.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+18   6355.0    16.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+19   6354.0    17.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+20   6353.0    18.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+21   6352.0    19.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+22   6351.0    20.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+23   6350.0    21.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+24   6349.0    22.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+25   6348.0    23.0   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+26   6346.6    24.4   2.90000   6.80000  ...  3.90000  1.00000  600.0  57823.0
+27   6346.6    24.4   3.38075   8.02206  ...  4.61180  0.90039  600.0  57823.0
+28   6346.0    25.0   3.38068   8.02138  ...  4.61126  0.90062  600.0  57823.0
+29   6345.0    26.0   3.38057   8.02024  ...  4.61037  0.90101  600.0  57823.0
+..      ...     ...       ...       ...  ...      ...      ...    ...      ...
+169  2500.0  3871.0  11.19067   9.38422  ...  0.00000  1.00000    0.0  57823.0
+170  2400.0  3971.0  11.29298   9.48413  ...  0.00000  1.00000    0.0  57823.0
+171  2300.0  4071.0  11.39042   9.57885  ...  0.00000  1.00000    0.0  57823.0
+172  2221.5  4149.5  11.46358   9.64977  ...  0.00000  1.00000    0.0  57823.0
+173  2200.0  4171.0  11.48311   9.66869  ...  0.00000  1.00000    0.0  57823.0
+174  2100.0  4271.0  11.57119   9.75397  ...  0.00000  1.00000    0.0  57823.0
+175  2000.0  4371.0  11.65478   9.83500  ...  0.00000  1.00000    0.0  57823.0
+176  1900.0  4471.0  11.73401   9.91210  ...  0.00000  1.00000    0.0  57823.0
+177  1800.0  4571.0  11.80900   9.98558  ...  0.00000  1.00000    0.0  57823.0
+178  1700.0  4671.0  11.87989  10.05576  ...  0.00000  1.00000    0.0  57823.0
+179  1600.0  4771.0  11.94681  10.12295  ...  0.00000  1.00000    0.0  57823.0
+180  1500.0  4871.0  12.00988  10.18747  ...  0.00000  1.00000    0.0  57823.0
+181  1400.0  4971.0  12.06923  10.24963  ...  0.00000  1.00000    0.0  57823.0
+182  1300.0  5071.0  12.12499  10.30975  ...  0.00000  1.00000    0.0  57823.0
+183  1221.5  5149.5  12.16633  10.35572  ...  0.00000  1.00000    0.0  57823.0
+184  1221.5  5149.5  12.76361  11.02826  ...  3.50431  1.00000   84.6   1327.7
+185  1217.1  5153.9  12.76595  11.02994  ...  3.50549  1.00000   84.6   1327.7
+186  1200.0  5171.0  12.77495  11.03642  ...  3.51002  1.00000   84.6   1327.7
+187  1100.0  5271.0  12.82503  11.07249  ...  3.53522  1.00000   84.6   1327.7
+188  1000.0  5371.0  12.87076  11.10541  ...  3.55823  1.00000   84.6   1327.7
+189   900.0  5471.0  12.91213  11.13520  ...  3.57905  1.00000   84.6   1327.7
+190   800.0  5571.0  12.94914  11.16186  ...  3.59767  1.00000   84.6   1327.7
+191   700.0  5671.0  12.98181  11.18537  ...  3.61411  1.00000   84.6   1327.7
+192   600.0  5771.0  13.01011  11.20576  ...  3.62835  1.00000   84.6   1327.7
+193   500.0  5871.0  13.03406  11.22300  ...  3.64041  1.00000   84.6   1327.7
+194   400.0  5971.0  13.05366  11.23711  ...  3.65027  1.00000   84.6   1327.7
+195   300.0  6071.0  13.06890  11.24809  ...  3.65794  1.00000   84.6   1327.7
+196   200.0  6171.0  13.07979  11.25593  ...  3.66342  1.00000   84.6   1327.7
+197   100.0  6271.0  13.08632  11.26063  ...  3.66670  1.00000   84.6   1327.7
+198     0.0  6371.0  13.08850  11.26220  ...  3.66780  1.00000   84.6   1327.7
+
+[199 rows x 10 columns]
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rockhound</span> <span class="k">as</span> <span class="nn">rh</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Load PREM into a DataFrame</span>
+<span class="n">prem</span> <span class="o">=</span> <a href="../api/generated/rockhound.fetch_prem.html#rockhound.fetch_prem" title="View documentation for rockhound.fetch_prem"><span class="n">rh</span><span class="o">.</span><span class="n">fetch_prem</span></a><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prem</span><span class="p">)</span>
+
+<span class="c1"># Plot density and velocities</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="View documentation for matplotlib.pyplot.subplots"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;PREM: Preliminary Reference Earth Model&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">prem</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Density [g/cm³]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth [km]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">velocity</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Vpv&quot;</span><span class="p">,</span> <span class="s2">&quot;Vph&quot;</span><span class="p">,</span> <span class="s2">&quot;Vsv&quot;</span><span class="p">,</span> <span class="s2">&quot;Vsh&quot;</span><span class="p">]:</span>
+    <span class="n">prem</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">velocity</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Velocity [km/s]&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.328 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-prem-py">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../_downloads/30408e6349670c966a3ede1b57419d24/prem.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">prem.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../_downloads/38cebce1535530b59ef7bec86417b7ed/prem.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">prem.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="seafloor_age.html" class="btn btn-neutral float-right" title="Age of the Oceanic Lithosphere" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="etopo1.html" class="btn btn-neutral float-left" title="ETOPO1 Earth Relief" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, The RockHound Developers
+      <span class="lastupdated">
+        Last updated on May 21, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

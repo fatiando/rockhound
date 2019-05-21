@@ -1,0 +1,12 @@
+rockhound.data\_location
+========================
+
+.. currentmodule:: rockhound
+
+.. autofunction:: data_location
+
+.. include:: backreferences/rockhound.data_location.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

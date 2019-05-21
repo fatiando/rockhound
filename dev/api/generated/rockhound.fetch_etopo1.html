@@ -1,0 +1,332 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>rockhound.fetch_etopo1 &mdash; RockHound</title>
+    
+
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="rockhound.fetch_prem" href="rockhound.fetch_prem.html" />
+    <link rel="prev" title="API Reference" href="../index.html" />
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+            Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-38125837-1', 'auto', {'storage': 'none'});
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RockHound
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing RockHound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../registry.html">Where are my data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Models and Datasets</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#data-fetching-and-loading">Data Fetching and Loading</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rockhound.fetch_etopo1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples-using-rockhound-fetch-etopo1">Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_etopo1</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_prem.html">rockhound.fetch_prem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_bedmap2.html">rockhound.fetch_bedmap2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_seafloor_age.html">rockhound.fetch_seafloor_age</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#utilities">Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">Changelog</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://www.fatiando.org"><i class="fa fa-external-link-square fa-fw"></i> Fatiando a Terra</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound/blob/master/CONTRIBUTING.md"><i class="fa fa-users fa-fw"></i> Contributing</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound/blob/master/CODE_OF_CONDUCT.md"><i class="fa fa-gavel fa-fw"></i> Code of Conduct</a></li>
+            
+                <li class="toctree-l1"><a href="https://gitter.im/fatiando/fatiando"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RockHound</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+      <li>rockhound.fetch_etopo1</li>
+    
+    
+    <li class="source-link">
+        
+            
+                
+                
+                <a href="https://github.com/fatiando/rockhound/issues/new?title=Suggested%20improvement%20for%20api/generated/rockhound.fetch_etopo1&body=Please%20describe%20what%20could%20be%20improved%20about%20this%20page%20or%20the%20typo/mistake%20that%20you%20found%3A"
+                   class="fa fa-github"> Improve this page</a>
+            
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rockhound-fetch-etopo1">
+<h1>rockhound.fetch_etopo1<a class="headerlink" href="#rockhound-fetch-etopo1" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="rockhound.fetch_etopo1">
+<code class="descclassname">rockhound.</code><code class="descname">fetch_etopo1</code><span class="sig-paren">(</span><em>version</em>, <em>*</em>, <em>load=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rockhound/etopo1.html#fetch_etopo1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rockhound.fetch_etopo1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the ETOPO1 global relief model.</p>
+<p>ETOPO1 is a 1 arc-minute global relief model of Earth’s surface that integrates land
+topography and ocean bathymetry <a class="reference internal" href="../../references.html#amanteeakins2009" id="id1">[AmanteEakins2009]</a>. It’s available in two versions:
+“Ice Surface” (top of Antarctic and Greenland ice sheets) and “Bedrock” (base of the
+ice sheets). Each grid is in a separate gzipped netCDF file (grid-line registered
+version). The grids are loaded into <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> objects.</p>
+<p>The vertical datum is sea level and the horizontal reference is the WGS84 ellipsoid.</p>
+<p>If the files aren’t already in your data directory, they will be downloaded
+automatically (which may take a while). Each grid is approximately 380Mb.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>version</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Which version of the dataset to load. Can be <code class="docutils literal notranslate"><span class="pre">&quot;ice&quot;</span></code> for the ice surface
+version, <code class="docutils literal notranslate"><span class="pre">'bedrock'</span></code> for the bedrock version.</p>
+</dd>
+<dt><strong>load</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd><p class="first last">Wether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return the
+path to the downloaded data.</p>
+</dd>
+<dt><strong>kwargs</strong></dt>
+<dd><p class="first last">Keyword arguments will be forwarded to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset" title="(in xarray v0.12.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code></a> function
+that loads the grid into memory.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>grid</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or str</span></dt>
+<dd><p class="first last">The loaded grid or the file path to the downloaded data.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="examples-using-rockhound-fetch-etopo1">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_etopo1</span></code><a class="headerlink" href="#examples-using-rockhound-fetch-etopo1" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="ETOPO1 is a 1 arc-minute global relief model of Earth&#x27;s surface that integrates land topography..."><div class="figure" id="id2">
+<img alt="../../_images/sphx_glr_etopo1_thumb.png" src="../../_images/sphx_glr_etopo1_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/etopo1.html#sphx-glr-gallery-etopo1-py"><span class="std std-ref">ETOPO1 Earth Relief</span></a></span></p>
+</div>
+</div><div style='clear:both'></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rockhound.fetch_prem.html" class="btn btn-neutral float-right" title="rockhound.fetch_prem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, The RockHound Developers
+      <span class="lastupdated">
+        Last updated on May 21, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

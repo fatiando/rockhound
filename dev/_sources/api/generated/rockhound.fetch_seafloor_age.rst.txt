@@ -1,0 +1,12 @@
+rockhound.fetch\_seafloor\_age
+==============================
+
+.. currentmodule:: rockhound
+
+.. autofunction:: fetch_seafloor_age
+
+.. include:: backreferences/rockhound.fetch_seafloor_age.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>
