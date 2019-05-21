@@ -1,12 +1,8 @@
 """
 Load the ETOPO1 Earth Relief dataset.
 """
-import os
-import gzip
-import shutil
-from pooch import Decompress
-
 import xarray as xr
+from pooch import Decompress
 
 from .registry import REGISTRY
 

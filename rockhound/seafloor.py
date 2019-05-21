@@ -2,12 +2,8 @@
 Load the seafloor age, spreading rate, and spreading symmetry grids by
 Müller et al. (2008).
 """
-import os
-import bz2
-import shutil
-from pooch import Decompress
-
 import xarray as xr
+from pooch import Decompress
 
 from .registry import REGISTRY
 
