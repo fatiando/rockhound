@@ -14,10 +14,10 @@ xarray).
 
 Available models and datasets:
 
-- ETOPO1
-- PREM
-- Bedmap2
-- Age of the oceanic lithosphere grids from NOAA NCEI website
+- ETOPO1 [AmanteEakins2009]_
+- PREM [Dziewonsky1981]_
+- Bedmap2 [BEDMAP2]_
+- Age of the oceanic lithosphere [Muller2008]_
 
 Features:
 
