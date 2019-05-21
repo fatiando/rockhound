@@ -5,52 +5,11 @@ Müller et al. (2008).
 import os
 import bz2
 import shutil
+from pooch import Decompress
 
 import xarray as xr
 
 from .registry import REGISTRY
-
-
-class Decompress:  # pylint: disable=too-few-public-methods
-    """
-    Decompress the bzip2 compressed grid after download.
-
-    This is a Pooch processor class that will be used with ``Pooch.fetch``.
-    """
-
-    def __call__(self, fname, action, pooch):
-        """
-        Decompress the given file.
-
-        The output file will be ``fname`` without the ``.bz2`` extension.
-
-        Parameters
-        ----------
-        fname : str
-            Full path of the compressed file in local storage.
-        action : str
-            Indicates what action was taken by :meth:`pooch.Pooch.fetch`. One of:
-
-            * ``"download"``: The file didn't exist locally and was downloaded
-            * ``"update"``: The local file was outdated and was re-download
-            * ``"fetch"``: The file exists and is updated so it wasn't downloaded
-
-        pooch : :class:`pooch.Pooch`
-            The instance of :class:`pooch.Pooch` that is calling this.
-
-        Returns
-        -------
-        fname : str
-            The full path to the decompressed file.
-
-        """
-        # Get rid of the .bz2
-        decomp = os.path.splitext(fname)[0]
-        if action in ("update", "download") or not os.path.exists(decomp):
-            with open(decomp, "w+b") as output:
-                with bz2.open(fname) as compressed:
-                    shutil.copyfileobj(compressed, output)
-        return decomp
 
 
 def fetch_seafloor_age(*, resolution="6min", load=True, **kwargs):

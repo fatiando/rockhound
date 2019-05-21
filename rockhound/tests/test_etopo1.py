@@ -15,9 +15,9 @@ def test_etopo1_invalid_version():
 def test_etopo1_file_name_only():
     "Only fetch the file name."
     name = fetch_etopo1(version="ice", load=False)
-    assert name.endswith("ETOPO1_Ice_g_gmt4.grd")
+    assert name.endswith("ETOPO1_Ice_g_gmt4.grd.gz.decomp")
     name = fetch_etopo1(version="bedrock", load=False)
-    assert name.endswith("ETOPO1_Bed_g_gmt4.grd")
+    assert name.endswith("ETOPO1_Bed_g_gmt4.grd.gz.decomp")
 
 
 def test_etopo1():
