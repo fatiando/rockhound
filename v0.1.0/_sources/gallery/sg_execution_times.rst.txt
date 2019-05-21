@@ -1,0 +1,13 @@
+
+:orphan:
+
+.. _sphx_glr_gallery_sg_execution_times:
+
+Computation times
+=================
+**00:43.598** total execution time for **gallery** files:
+
+- **00:24.598**: :ref:`sphx_glr_gallery_bedmap2.py` (``bedmap2.py``)
+- **00:15.316**: :ref:`sphx_glr_gallery_etopo1.py` (``etopo1.py``)
+- **00:03.327**: :ref:`sphx_glr_gallery_seafloor_age.py` (``seafloor_age.py``)
+- **00:00.357**: :ref:`sphx_glr_gallery_prem.py` (``prem.py``)

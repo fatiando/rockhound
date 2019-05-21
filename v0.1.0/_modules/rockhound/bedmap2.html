@@ -1,0 +1,378 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+        <title>rockhound.bedmap2 &mdash; RockHound</title>
+    
+
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <!-- Google Analytics tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+            Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-38125837-1', 'auto', {'storage': 'none'});
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RockHound
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing RockHound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../registry.html">Where are my data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Models and Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">Changelog</a></li>
+</ul>
+
+            
+          
+
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Getting help and contributing
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://www.fatiando.org"><i class="fa fa-external-link-square fa-fw"></i> Fatiando a Terra</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound/blob/master/CONTRIBUTING.md"><i class="fa fa-users fa-fw"></i> Contributing</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound/blob/master/CODE_OF_CONDUCT.md"><i class="fa fa-gavel fa-fw"></i> Code of Conduct</a></li>
+            
+                <li class="toctree-l1"><a href="https://gitter.im/fatiando/fatiando"><i class="fa fa-comment fa-fw"></i> Contact</a></li>
+            
+                <li class="toctree-l1"><a href="https://github.com/fatiando/rockhound"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+        </ul>
+    
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RockHound</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../rockhound.html">rockhound</a> &raquo;</li>
+        
+      <li>rockhound.bedmap2</li>
+    
+    
+    <li class="source-link">
+        
+        
+    </li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for rockhound.bedmap2</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Load the Bedmap2 datasets for Antarctica.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">pooch</span> <span class="k">import</span> <span class="n">Unzip</span>
+
+<span class="kn">from</span> <span class="nn">.registry</span> <span class="k">import</span> <span class="n">REGISTRY</span>
+
+<span class="n">DATASETS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;bed&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bedrock Height&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;surface&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ice Surface Height&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;thickness&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ice Thickness&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;icemask_grounded_and_shelves&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mask of Grounding Line and Floating Ice Shelves&quot;</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;rockmask&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mask of Rock Outcrops&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;lakemask_vostok&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mask for Lake Vostok&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;grounded_bed_uncertainty&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ice Bed Uncertainty&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;thickness_uncertainty_5km&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Ice Thickness Uncertainty&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;coverage&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Distribution of Ice Thickness Data (binary)&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;geoid&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Geoid Height (WGS84)&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="fetch_bedmap2"><a class="viewcode-back" href="../../api/generated/rockhound.fetch_bedmap2.html#rockhound.fetch_bedmap2">[docs]</a><span class="k">def</span> <span class="nf">fetch_bedmap2</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetch the Bedmap2 datasets for Antarctica.</span>
+
+<span class="sd">    Bedmap2 is a suite of gridded products describing surface elevation,</span>
+<span class="sd">    ice-thickness, the sea floor and subglacial bed elevation of the Antarctic south</span>
+<span class="sd">    of 60°S [BEDMAP2]_.</span>
+<span class="sd">    The datasets are downloaded as ``tiff`` files and loaded into a</span>
+<span class="sd">    :class:`xarray.Dataset` object.</span>
+
+<span class="sd">    Each dataset is projected in Antarctic Polar Stereographic projection, latitude of</span>
+<span class="sd">    true scale -71 degrees south, datum WGS84. All heights are in metres relative to</span>
+<span class="sd">    sea level as defined by the g104c geoid.</span>
+
+<span class="sd">    The available datasets are:</span>
+
+<span class="sd">    - ``bed``: bedrock height</span>
+<span class="sd">    - ``surface``: ice surface height</span>
+<span class="sd">    - ``thickness``: ice thickness</span>
+<span class="sd">    - ``icemask_grounded_and_shelves``: mask showing the grounding line and the extent</span>
+<span class="sd">      of the floating ice shelves</span>
+<span class="sd">    - ``rockmask``: mask showing rock outcrops</span>
+<span class="sd">    - ``lakemask_vostok``: mask showing the extent of the lake cavity of Lake Vostok</span>
+<span class="sd">    - ``grounded_bed_uncertainty``: ice bed uncertainty grid</span>
+<span class="sd">    - ``thickness_uncertainty_5km``: ice thickness uncertainty grid</span>
+<span class="sd">    - ``coverage``: binary grid showing the distribution of ice thickness data used</span>
+<span class="sd">      in the grid of ice thickness</span>
+<span class="sd">    - ``geoid``: values to convert from heights relative to WGS84 datum to heights</span>
+<span class="sd">      relative to EIGEN-GL04C geoid (to convert back to WGS84, add this grid)</span>
+
+<span class="sd">    .. warning ::</span>
+<span class="sd">        Loading a great number of datasets may require a fair amount of memory that</span>
+<span class="sd">        could crash your system. We recommend loading only the needed datasets.</span>
+
+<span class="sd">    .. warning ::</span>
+<span class="sd">        Loading any dataset along with ``thickness_uncertainty_5km`` would modify the</span>
+<span class="sd">        shape of the ``grid`` because it&#39;s defined on a different set of points.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    datasets : list or str</span>
+<span class="sd">        Names of the datasets that will be loaded from the Bedmap2 model.</span>
+<span class="sd">    load : bool</span>
+<span class="sd">        Wether to load the data into an :class:`xarray.Dataset` or just return the</span>
+<span class="sd">        path to the downloaded data tiff files. If False, will return a list with the</span>
+<span class="sd">        paths to the files corresponding to *datasets*.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    grid : :class:`xarray.Dataset`</span>
+<span class="sd">        The loaded Bedmap2 datasets.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">datasets</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">DATASETS</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Invalid datasets: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">DATASETS</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="p">)</span>
+    <span class="n">fnames</span> <span class="o">=</span> <span class="n">REGISTRY</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;bedmap2_tiff.zip&quot;</span><span class="p">,</span> <span class="n">processor</span><span class="o">=</span><span class="n">Unzip</span><span class="p">())</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">get_fname</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">fnames</span><span class="p">)</span> <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">]</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">get_fname</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">fnames</span><span class="p">))</span>
+        <span class="c1"># Replace no data values with nans</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">array</span> <span class="o">!=</span> <span class="n">array</span><span class="o">.</span><span class="n">nodatavals</span><span class="p">)</span>
+        <span class="c1"># Remove &quot;band&quot; dimension and coordinate</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="s2">&quot;band&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">array</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">dataset</span>
+        <span class="n">array</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;meters&quot;</span>
+        <span class="n">array</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;meters&quot;</span>
+        <span class="n">array</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;long_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DATASETS</span><span class="p">[</span><span class="n">dataset</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;units&quot;</span> <span class="ow">in</span> <span class="n">DATASETS</span><span class="p">[</span><span class="n">dataset</span><span class="p">]:</span>
+            <span class="n">array</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DATASETS</span><span class="p">[</span><span class="n">dataset</span><span class="p">][</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
+        <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span>
+    <span class="n">grid</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Bedmap2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;Antarctic Polar Stereographic&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;true_scale_latitude&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">71</span><span class="p">,</span>
+            <span class="s2">&quot;datum&quot;</span><span class="p">:</span> <span class="s2">&quot;WGS84&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;EPSG&quot;</span><span class="p">:</span> <span class="s2">&quot;3031&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.5194/tc-7-375-2013&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">grid</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_fname</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">fnames</span><span class="p">):</span>
+    <span class="s2">&quot;Return the file name corresponding to the given dataset&quot;</span>
+    <span class="k">if</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s2">&quot;geoid&quot;</span><span class="p">:</span>
+        <span class="n">dataset_name</span> <span class="o">=</span> <span class="s2">&quot;gl04c_geiod_to_WGS84.tif&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset_name</span> <span class="o">=</span> <span class="s2">&quot;bedmap2_</span><span class="si">{}</span><span class="s2">.tif&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">==</span> <span class="n">dataset_name</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">fname</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, The RockHound Developers
+      <span class="lastupdated">
+        Last updated on May 21, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

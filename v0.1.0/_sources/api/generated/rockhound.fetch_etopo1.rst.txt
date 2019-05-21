@@ -1,0 +1,12 @@
+rockhound.fetch\_etopo1
+=======================
+
+.. currentmodule:: rockhound
+
+.. autofunction:: fetch_etopo1
+
+.. include:: backreferences/rockhound.fetch_etopo1.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>
