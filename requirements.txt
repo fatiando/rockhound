@@ -1,4 +1,4 @@
-pooch>=0.4
+pooch>=0.5
 xarray
 pandas
 rasterio

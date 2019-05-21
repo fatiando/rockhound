@@ -11,8 +11,8 @@ def test_seafloor_age_file_name_only():
     "Make sure the correct file names are being returned"
     names = fetch_seafloor_age(load=False)
     assert len(names) == 2
-    assert names[0].endswith("age.3.6.nc")
-    assert names[1].endswith("ageerror.3.6.nc")
+    assert names[0].endswith("age.3.6.nc.bz2.decomp")
+    assert names[1].endswith("ageerror.3.6.nc.bz2.decomp")
 
 
 def test_seafloor_age_invalid_resolution():
