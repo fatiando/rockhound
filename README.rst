@@ -39,6 +39,9 @@ Part of the `Fatiando a Terra <https://www.fatiando.org>`__ project
 .. image:: https://img.shields.io/gitter/room/fatiando/fatiando.svg?style=flat-square
     :alt: Chat room on Gitter
     :target: https://gitter.im/fatiando/fatiando
+.. image:: https://img.shields.io/badge/doi-10.5281%2Fzenodo.3086002-blue.svg?style=flat-square
+    :alt: Digital Object Identifier for the Zenodo archive
+    :target: https://doi.org/10.5281/zenodo.3086002
 
 
 .. placeholder-for-doc-index
@@ -87,6 +90,18 @@ Contacting Us
   on any open issue or pull request.
 * We have `chat room on Gitter <https://gitter.im/fatiando/fatiando>`__
   where you can ask questions and leave comments.
+
+
+Citing RockHound
+----------------
+
+This is research software **made by scientists** (see `AUTHORS.md
+<https://github.com/fatiando/rockhound/blob/master/AUTHORS.md>`__). Citations help us
+justify the effort that goes into building and maintaining this project. If you used
+RockHound for your research, please consider citing us.
+
+See our `CITATION.rst file <https://github.com/fatiando/rockhound/blob/master/CITATION.rst>`__
+to find out more.
 
 
 Contributing
@@ -148,3 +163,4 @@ Documentation for other versions
 * `Development <https://www.fatiando.org/rockhound/dev>`__ (reflects the *master* branch on
   Github)
 * `Latest release <https://www.fatiando.org/rockhound/latest>`__
+* `v0.1.0 <https://www.fatiando.org/rockhound/v0.1.0>`__
