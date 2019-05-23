@@ -18,6 +18,9 @@ Part of the `Fatiando a Terra <https://www.fatiando.org>`__ project
 .. image:: https://img.shields.io/pypi/v/rockhound.svg?style=flat-square
     :alt: Latest version on PyPI
     :target: https://pypi.python.org/pypi/rockhound
+.. image:: https://img.shields.io/conda/vn/conda-forge/rockhound.svg?style=flat-square
+    :alt: Latest version on conda-forge
+    :target: https://github.com/conda-forge/rockhound-feedstock
 .. image:: https://img.shields.io/travis/fatiando/rockhound/master.svg?style=flat-square&label=TravisCI
     :alt: TravisCI build status
     :target: https://travis-ci.org/fatiando/rockhound
