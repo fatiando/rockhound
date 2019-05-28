@@ -24,7 +24,7 @@ DATASETS = {
 }
 
 
-def fetch_bedmap2(datasets, *, load=True):
+def fetch_bedmap2(datasets, *, load=True, chunks=100, **kwargs):
     """
     Fetch the Bedmap2 datasets for Antarctica.
 
@@ -70,6 +70,12 @@ def fetch_bedmap2(datasets, *, load=True):
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data tiff files. If False, will return a list with the
         paths to the files corresponding to *datasets*.
+    chunks : int, tuple or dict
+        Chunk sizes along each dimension. This argument is passed to the
+        :func:`xarray.open_rasterio` function in order to return a Dask array.
+        This helps to read the dataset without loading it entirely into memory.
+    kwargs : dict
+        Extra parameters passed to the :func:`xarray.open_rasterio` function.
 
     Returns
     -------
@@ -88,7 +94,7 @@ def fetch_bedmap2(datasets, *, load=True):
         return [get_fname(dataset, fnames) for dataset in datasets]
     arrays = []
     for dataset in datasets:
-        array = xr.open_rasterio(get_fname(dataset, fnames))
+        array = xr.open_rasterio(get_fname(dataset, fnames), chunks=chunks, **kwargs)
         # Replace no data values with nans
         array = array.where(array != array.nodatavals)
         # Remove "band" dimension and coordinate
