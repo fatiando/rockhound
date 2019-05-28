@@ -72,7 +72,8 @@ def fetch_bedmap2(datasets, *, load=True, chunks=100, **kwargs):
         paths to the files corresponding to *datasets*.
     chunks : int, tuple or dict
         Chunk sizes along each dimension. This argument is passed to the
-        :func:`xarray.open_rasterio` function in order to return a Dask array.
+        :func:`xarray.open_rasterio` function in order to obtain Dask arrays inside the
+        returned :class:`xarray.Dataset`.
         This helps to read the dataset without loading it entirely into memory.
     kwargs : dict
         Extra parameters passed to the :func:`xarray.open_rasterio` function.
