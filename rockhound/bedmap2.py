@@ -55,8 +55,11 @@ def fetch_bedmap2(datasets, *, load=True, chunks=1000, **kwargs):
       relative to EIGEN-GL04C geoid (to convert back to WGS84, add this grid)
 
     .. warning ::
-        Loading a great number of datasets may require a fair amount of memory that
-        could crash your system. We recommend loading only the needed datasets.
+        Loading datasets into memory may require a fair amount of memory.
+        In order to prevent it the function loads the datasets as Dask arrays if
+        ``chunks`` is not ``None``.
+        Be careful when doing operations that loads the entire datasets into memory,
+        like plotting or performing some computations.
 
     .. warning ::
         Loading any dataset along with ``thickness_uncertainty_5km`` would modify the
