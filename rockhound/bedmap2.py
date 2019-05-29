@@ -24,7 +24,7 @@ DATASETS = {
 }
 
 
-def fetch_bedmap2(datasets, *, load=True, chunks=100, **kwargs):
+def fetch_bedmap2(datasets, *, load=True, chunks=1000, **kwargs):
     """
     Fetch the Bedmap2 datasets for Antarctica.
 
