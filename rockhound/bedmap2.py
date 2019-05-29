@@ -76,7 +76,7 @@ def fetch_bedmap2(datasets, *, load=True, chunks=100, **kwargs):
         `Dask arrays <https://docs.dask.org/en/latest/array.html>`_ inside the
         returned :class:`xarray.Dataset`.
         This helps to read the dataset without loading it entirely into memory.
-    kwargs : dict
+    **kwargs
         Extra parameters passed to the :func:`xarray.open_rasterio` function.
 
     Returns
