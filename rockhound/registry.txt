@@ -6,3 +6,4 @@ age.3.2.nc.bz2 49003831db78f7bb044532daf31fdc49218f75876668ee0c96877f383214b827 
 age.3.6.nc.bz2 c99358e4a980be15f05df71506d9337dc760d32e5907f9526bc8135224fc1f81 https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age/age.3.6.nc.bz2
 ageerror.3.2.nc.bz2 fd599a02488912e6d3bc53fc1e658f3d116a893201c0c9fb5e496c4020279a35 https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age_error/ageerror.3.2.nc.bz2
 ageerror.3.6.nc.bz2 15a2542717d30f24feeb2ea9d5d73d754b30a3fc92bbf1b704b3ba23d2766d1b https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age_error/ageerror.3.6.nc.bz2
+mannville_demo_data.zip 5e60e02306b15ce7bcb6ec35278566696a6b37627ce095360cdba26ef3f99fdf https://github.com/JustinGOSSES/predictatops/raw/master/demo/mannville_demo_data.zip
