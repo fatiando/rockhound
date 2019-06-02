@@ -1,5 +1,3 @@
-#### SHA256(mannville_demo_data.zip)= 5e60e02306b15ce7bcb6ec35278566696a6b37627ce095360cdba26ef3f99fdf
-
 """
 Load the Mannville Group Well Logs dataset from Alberta, Canada.
 """
@@ -8,20 +6,21 @@ import numpy as np
 
 from .registry import REGISTRY
 
-# DATASETS = {
-#     "bed": dict(name="Bedrock Height", units="meters"),
-#     "surface": dict(name="Ice Surface Height", units="meters"),
-#     "thickness": dict(name="Ice Thickness", units="meters"),
-#     "icemask_grounded_and_shelves": dict(
-#         name="Mask of Grounding Line and Floating Ice Shelves"
-#     ),
-#     "rockmask": dict(name="Mask of Rock Outcrops"),
-#     "lakemask_vostok": dict(name="Mask for Lake Vostok"),
-#     "grounded_bed_uncertainty": dict(name="Ice Bed Uncertainty", units="meters"),
-#     "thickness_uncertainty_5km": dict(name="Ice Thickness Uncertainty", units="meters"),
-#     "coverage": dict(name="Distribution of Ice Thickness Data (binary)"),
-#     "geoid": dict(name="Geoid Height (WGS84)", units="meters"),
-# }
+DATASETS = {
+    "facies": dict(name="well log data and facies ",units="various")
+    "bed": dict(name="Bedrock Height", units="meters"),
+    # "surface": dict(name="Ice Surface Height", units="meters"),
+    # "thickness": dict(name="Ice Thickness", units="meters"),
+    # "icemask_grounded_and_shelves": dict(
+    #     name="Mask of Grounding Line and Floating Ice Shelves"
+    # ),
+    # "rockmask": dict(name="Mask of Rock Outcrops"),
+    # "lakemask_vostok": dict(name="Mask for Lake Vostok"),
+    # "grounded_bed_uncertainty": dict(name="Ice Bed Uncertainty", units="meters"),
+    # "thickness_uncertainty_5km": dict(name="Ice Thickness Uncertainty", units="meters"),
+    # "coverage": dict(name="Distribution of Ice Thickness Data (binary)"),
+    # "geoid": dict(name="Geoid Height (WGS84)", units="meters"),
+}
 
 def fetch_prem(*, load=True):
     r"""
@@ -98,26 +97,29 @@ def fetch_prem(*, load=True):
 
 
 
-    fname = REGISTRY.fetch("mannville_demo_data.zip", processor=Unzip())
+    fname = REGISTRY.fetch("mcmurry_facies_dataframe.h5.zip", processor=Unzip())
     if not load:
         return fname
 
     ##### Insert here all the code to load to take the unzipped files and process into single dataframe for the called dataset
 
+    data = pd.read_hdf(fname)
 
-    data = np.loadtxt(fname, delimiter=",")
-    columns = [
-        ##### Replace these with real ones
-        # "radius",
-        # "depth",
-        # "density",
-        # "Vpv",
-        # "Vph",
-        # "Vsv",
-        # "Vsh",
-        # "eta",
-        # "Q_mu",
-        # "Q_kappa",
-    ]
-    mannville = pd.DataFrame(data=data, columns=columns)
-    return mannville
+    # data = np.loadtxt(fname, delimiter=",")
+    
+    
+    # columns = [
+    #     ##### Replace these with real ones
+    #     # "radius",
+    #     # "depth",
+    #     # "density",
+    #     # "Vpv",
+    #     # "Vph",
+    #     # "Vsv",
+    #     # "Vsh",
+    #     # "eta",
+    #     # "Q_mu",
+    #     # "Q_kappa",
+    # ]
+    ##mannville = pd.DataFrame(data=data, columns=columns)
+    return data
