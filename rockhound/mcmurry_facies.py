@@ -4,11 +4,13 @@ Load the Mannville Group Well Logs dataset from Alberta, Canada.
 import pandas as pd
 import numpy as np
 
+from pooch import Unzip
 from .registry import REGISTRY
 
-DATASETS = {
-    "facies": dict(name="well log data and facies ",units="various")
-    "bed": dict(name="Bedrock Height", units="meters"),
+
+# DATASETS = {
+#     "facies": dict(name="well log data and facies ",units="various")
+#     "bed": dict(name="Bedrock Height", units="meters"),
     # "surface": dict(name="Ice Surface Height", units="meters"),
     # "thickness": dict(name="Ice Thickness", units="meters"),
     # "icemask_grounded_and_shelves": dict(
@@ -20,9 +22,9 @@ DATASETS = {
     # "thickness_uncertainty_5km": dict(name="Ice Thickness Uncertainty", units="meters"),
     # "coverage": dict(name="Distribution of Ice Thickness Data (binary)"),
     # "geoid": dict(name="Geoid Height (WGS84)", units="meters"),
-}
+# }
 
-def fetch_prem(*, load=True):
+def fetch_mcmurray_facies(*, load=True):
     r"""
     Fetch the Preliminary Reference Earth Model (PREM).
 
@@ -88,12 +90,12 @@ def fetch_prem(*, load=True):
         # - ``eta``, ``Q_mu`` and ``Q_kappa`` (dimensionless).
     """
 
-    if isinstance(datasets, str):
-        datasets = [datasets]
-    if not set(datasets).issubset(DATASETS.keys()):
-        raise ValueError(
-            "Invalid datasets: {}".format(set(datasets).difference(DATASETS.keys()))
-        )
+    # if isinstance(datasets, str):
+    #     datasets = [datasets]
+    # if not set(datasets).issubset(DATASETS.keys()):
+    #     raise ValueError(
+    #         "Invalid datasets: {}".format(set(datasets).difference(DATASETS.keys()))
+    #     )
 
 
 
