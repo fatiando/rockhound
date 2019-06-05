@@ -1,34 +1,12 @@
-"""
-Load the Mannville Group Well Logs dataset from Alberta, Canada.
-"""
-import pandas as pd
-import numpy as np
+r"""
+mcmurray_facies: Preprocessed well log and facies data for facies predictions
+============================================================================
 
-from pooch import Unzip
-from .registry import REGISTRY
+    This is a preprocessed dataframe of well log information focused on facies prediction. 
 
+    The preprocessed data is coming from here: https://github.com/JustinGOSSES/McMurray-Wabiskaw-preprocessed-datasets
 
-# DATASETS = {
-#     "facies": dict(name="well log data and facies ",units="various")
-#     "bed": dict(name="Bedrock Height", units="meters"),
-    # "surface": dict(name="Ice Surface Height", units="meters"),
-    # "thickness": dict(name="Ice Thickness", units="meters"),
-    # "icemask_grounded_and_shelves": dict(
-    #     name="Mask of Grounding Line and Floating Ice Shelves"
-    # ),
-    # "rockmask": dict(name="Mask of Rock Outcrops"),
-    # "lakemask_vostok": dict(name="Mask for Lake Vostok"),
-    # "grounded_bed_uncertainty": dict(name="Ice Bed Uncertainty", units="meters"),
-    # "thickness_uncertainty_5km": dict(name="Ice Thickness Uncertainty", units="meters"),
-    # "coverage": dict(name="Distribution of Ice Thickness Data (binary)"),
-    # "geoid": dict(name="Geoid Height (WGS84)", units="meters"),
-# }
-
-def fetch_mcmurray_facies(*, load=True):
-    r"""
-    Fetch the Preliminary Reference Earth Model (PREM).
-
-    is a collection of over 2000 wells made public by the Alberta Geological Survey’s 
+    The original dataset, unprocessed, comes from a collection of over 2000 wells made public by the Alberta Geological Survey’s 
     Alberta Energy Regulator. To quote their webpage, “In 1986, Alberta Geological Survey 
     began a project to map the McMurray Formation and the overlying Wabiskaw Member of 
     the Clearwater Formation in the Athabasca Oil Sands Area. The data that accompany this
@@ -67,7 +45,6 @@ def fetch_mcmurray_facies(*, load=True):
     If for some reason the well data is not found at the links above, you should 
     be able to find it https://github.com/JustinGOSSES/MannvilleGroup_Strat_Hackathon/tree/master/SPE_006_originalData
 
-
     If the file isn't already in your data directory, it will be downloaded
     automatically.
 
@@ -79,7 +56,7 @@ def fetch_mcmurray_facies(*, load=True):
 
     Returns
     -------
-    prem : :class:`pandas.DataFrame` or str
+    mcmurray_facies : :class:`pandas.DataFrame` or str
         The loaded data or the file path to the downloaded data.
         The :class:`pandas.DataFrame` contains the following data:
 
@@ -88,40 +65,16 @@ def fetch_mcmurray_facies(*, load=True):
         # - ``density`` in g/cm³.
         # - ``Vpv``, ``Vph``, ``Vsv`` and ``Vsh`` in km/s.
         # - ``eta``, ``Q_mu`` and ``Q_kappa`` (dimensionless).
-    """
+        ##### EDIT THESE TO REFLECT FINAL DATAFRAME !!!!!!!!!!!!
+"""
+import rockhound as rh
+import matplotlib.pyplot as plt
 
-    # if isinstance(datasets, str):
-    #     datasets = [datasets]
-    # if not set(datasets).issubset(DATASETS.keys()):
-    #     raise ValueError(
-    #         "Invalid datasets: {}".format(set(datasets).difference(DATASETS.keys()))
-    #     )
+# Load PREM into a DataFrame
+facies = rh.fetch_mcmurray_facies()
+print("first few rows of facies dataframe",facies.head())
+print("facies columns",facies.columns)
 
-
-
-    fname = REGISTRY.fetch("mcmurry_facies_dataframe.h5.zip", processor=Unzip())
-    if not load:
-        return fname
-
-    ##### Insert here all the code to load to take the unzipped files and process into single dataframe for the called dataset
-
-    data = pd.read_hdf(fname)
-
-    # data = np.loadtxt(fname, delimiter=",")
-    
-    
-    # columns = [
-    #     ##### Replace these with real ones
-    #     # "radius",
-    #     # "depth",
-    #     # "density",
-    #     # "Vpv",
-    #     # "Vph",
-    #     # "Vsv",
-    #     # "Vsh",
-    #     # "eta",
-    #     # "Q_mu",
-    #     # "Q_kappa",
-    # ]
-    ##mannville = pd.DataFrame(data=data, columns=columns)
-    return data
+# Example Plots
+facies.plot(kind='scatter',x='GR',y='DPHI',color='red')
+plt.show()
