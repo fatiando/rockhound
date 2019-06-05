@@ -56,7 +56,7 @@ def fetch_bedmap2(datasets, *, load=True, chunks=1000, **kwargs):
 
     .. warning ::
         Loading datasets into memory may require a fair amount of memory.
-        In order to prevent it the function loads the datasets as Dask arrays if
+        In order to prevent this, the function loads the datasets as Dask arrays if
         ``chunks`` is not ``None``.
         Be careful when doing operations that loads the entire datasets into memory,
         like plotting or performing some computations.
