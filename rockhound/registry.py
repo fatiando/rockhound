@@ -6,7 +6,7 @@ import pooch
 
 
 REGISTRY = pooch.create(
-  path=pooch.os_cache("rockhound"), base_url="", env="ROCKHOUND_DATA_DIR"
+   path=pooch.os_cache("rockhound"), base_url="", env="ROCKHOUND_DATA_DIR"
 )
 REGISTRY.load_registry(os.path.join(os.path.dirname(__file__), "registry.txt"))
 
