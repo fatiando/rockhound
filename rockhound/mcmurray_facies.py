@@ -97,17 +97,10 @@ def fetch_mcmurray_facies(*, load=True):
             data = "could not read hdf as the conversion of fname to a stringified version didn't work well. Oops."
             print("could not read hdf as the conversion of fname to a stringified version didn't work well. Oops.")
 
-    ##### REPLACE THESE AFTER INPUT DATA IS CHANGED FOR REFERENCE ONLY
-    # # columns = ['CALI', 'COND', 'DELT', 'DEPT', 'DPHI', 'DT', 'GR', 'ILD', 'ILM',
-    #    'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP', 'UWI', 'trainOrTest',
-    #    'SitID', 'lat', 'lng', 'TopHelper_HorID', 'TopTarget_HorID',
-    #    'TopHelper_DEPTH', 'TopTarget_DEPTH', 'TopHelper_HorID_Qual',
-    #    'TopTarget_Qual', 'Neighbors_Obj', 'NN1_topTarget_DEPTH',
-    #    'NN1_TopHelper_DEPTH', 'NN1_thickness',
-    #    'topTarget_Depth_predBy_NN1thick',
-    #    'diff_Top_Depth_Real_v_predBy_NN1thick',
-    #    'diff_TopTarget_DEPTH_v_rowDEPT', 'diff_TopHelper_DEPTH_v_rowDEPT',
-    #    'class_DistFrPick_TopTarget', 'class_DistFrPick_TopHelper',
-    #    'DistFrom_NN1ThickPredTopDepth_toRowDept', 'NewWell', 'LastBitWell']
+    ##### FOR REFERENCE ONLY
+    # columns = ['CALI', 'COND', 'DELT', 'DEPT', 'DPHI', 'DT', 'GR', 'ILD', 'ILM',
+    #    'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP', 'UWI', 'SitID',
+    #    'lat', 'lng', 'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW',
+    #    'lithName']
 
     return data

@@ -70,10 +70,17 @@ mcmurray_facies: Preprocessed well log and facies data for facies predictions
 import rockhound as rh
 import matplotlib.pyplot as plt
 
-# Load PREM into a DataFrame
+##### Load mcmurray_facies into a DataFrame
 facies = rh.fetch_mcmurray_facies()
 print("first few rows of facies dataframe",facies.head())
 print("facies columns",facies.columns)
+
+
+##### FOR REFERENCE ONLY
+    # columns = ['CALI', 'COND', 'DELT', 'DEPT', 'DPHI', 'DT', 'GR', 'ILD', 'ILM',
+    #    'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP', 'UWI', 'SitID',
+    #    'lat', 'lng', 'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW',
+    #    'lithName']
 
 # Example Plots
 facies.plot(kind='scatter',x='GR',y='DPHI',color='red')

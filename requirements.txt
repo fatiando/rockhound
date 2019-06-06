@@ -1,4 +1,5 @@
-pooch
+pooch>=0.5
 xarray
 pandas
 rasterio
+tables
