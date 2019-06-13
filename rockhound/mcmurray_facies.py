@@ -2,8 +2,6 @@
 Load the Mannville Group Well Logs dataset from Alberta, Canada.
 """
 import pandas as pd
-import numpy as np
-
 from pooch import Unzip
 from .registry import REGISTRY
 
