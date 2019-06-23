@@ -1,8 +1,10 @@
 """
 Load the Mannville Group Well Logs dataset from Alberta, Canada.
 """
+import tarfile
 import pandas as pd
-from pooch import Unzip
+
+# from pooch import Untar
 from .registry import REGISTRY
 
 
@@ -74,29 +76,25 @@ def fetch_mcmurray_facies(*, load=True):
          'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW','lithName']
     """
 
-    fname = REGISTRY.fetch("mcmurray_facies_dataframe.h5.zip", processor=Unzip())
+    fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz")
     if not load:
         return fname
 
     ##### Insert here all the code to load to take the unzipped files and process into
     ##### single dataframe for the called dataset
     ##### These try and excepts are here as some versions of pandas don't work with
-    ##### generic buffers, which fname may be depending on your OS, when reading H5 files
-    #####  into pandas. We get around this, but turning the generic buffer fname into
-    ####  a string. This works on MacOS. It may not work on your OS.
-    ##### IT HAS NOT BEEN TESTED IN ANY SIGNIFICANT MANNER AT THIS TIME
+    ##### generic buffers, which fname may be depending on your OS.
+    ##### We get around this by saving as CSV zipped via tar with xz compression.
     try:
-        data = pd.read_hdf(fname)
+        test_test = tarfile.open(fname, "r:xz")
+        test_test.extractall("mcmurray_facies_v1")
+        data = pd.read_csv("mcmurray_facies_v1/mcmurray_facies_v1.csv", engine="python")
     except NotImplementedError:
         try:
-            data = pd.read_hdf(str(fname[0]))
+            data = pd.read_csv(str(fname[0]))
         except NotImplementedError:
             data = "could not read hdf as the conversion of fname to a stringified version \
                  didn't work well. Oops."
-            print(
-                "PyTables called by Pandas could not handle generic buffer. Tried to convert \
-                path to string. However, conversion of fname to a stringified version didn't \
-                work well. Oops."
-            )
+            print(data)
 
     return data
