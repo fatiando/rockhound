@@ -7,7 +7,7 @@ from ..mcmurray_facies import fetch_mcmurray_facies
 def test_mcmurray_facies_file_name_only():
     """Only fetch the file name."""
     fname = fetch_mcmurray_facies(load=False)
-    assert "mcmurray_facies_dataframe.h5.zip" in fname[0]
+    assert "mcmurray_facies_v1.tar.gz" in fname
 
 
 def test_mcmurray_facies():
@@ -15,7 +15,7 @@ def test_mcmurray_facies():
     mcmurray_facies = fetch_mcmurray_facies()
     assert len(mcmurray_facies) == 328204
     columns = str(
-        [
+        ['Unnamed: 0',
             "CALI",
             "COND",
             "DELT",
