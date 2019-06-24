@@ -15,7 +15,8 @@ def test_mcmurray_facies():
     mcmurray_facies = fetch_mcmurray_facies()
     assert len(mcmurray_facies) == 328204
     columns = str(
-        ['Unnamed: 0',
+        [
+            "Unnamed: 0",
             "CALI",
             "COND",
             "DELT",
