@@ -23,6 +23,7 @@ Dependencies
 * `xarray <https://xarray.pydata.org/>`__
 * `pandas <https://pandas.pydata.org>`__
 * `rasterio <https://rasterio.readthedocs.io>`__
+* `dask <https://dask.org/>`__
 
 Most of the examples in the :ref:`gallery` also use:
 
