@@ -24,7 +24,7 @@ DATASETS = {
 }
 
 
-def fetch_bedmap2(datasets, *, load=True):
+def fetch_bedmap2(datasets, *, load=True, chunks=1000, **kwargs):
     """
     Fetch the Bedmap2 datasets for Antarctica.
 
@@ -55,8 +55,11 @@ def fetch_bedmap2(datasets, *, load=True):
       relative to EIGEN-GL04C geoid (to convert back to WGS84, add this grid)
 
     .. warning ::
-        Loading a great number of datasets may require a fair amount of memory that
-        could crash your system. We recommend loading only the needed datasets.
+        Loading datasets into memory may require a fair amount of memory.
+        In order to prevent this, the function loads the datasets as Dask arrays if
+        ``chunks`` is not ``None``.
+        Be careful when doing operations that loads the entire datasets into memory,
+        like plotting or performing some computations.
 
     .. warning ::
         Loading any dataset along with ``thickness_uncertainty_5km`` would modify the
@@ -70,6 +73,14 @@ def fetch_bedmap2(datasets, *, load=True):
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data tiff files. If False, will return a list with the
         paths to the files corresponding to *datasets*.
+    chunks : int, tuple or dict
+        Chunk sizes along each dimension. This argument is passed to the
+        :func:`xarray.open_rasterio` function in order to obtain
+        `Dask arrays <https://docs.dask.org/en/latest/array.html>`_ inside the
+        returned :class:`xarray.Dataset`.
+        This helps to read the dataset without loading it entirely into memory.
+    **kwargs
+        Extra parameters passed to the :func:`xarray.open_rasterio` function.
 
     Returns
     -------
@@ -88,7 +99,7 @@ def fetch_bedmap2(datasets, *, load=True):
         return [get_fname(dataset, fnames) for dataset in datasets]
     arrays = []
     for dataset in datasets:
-        array = xr.open_rasterio(get_fname(dataset, fnames))
+        array = xr.open_rasterio(get_fname(dataset, fnames), chunks=chunks, **kwargs)
         # Replace no data values with nans
         array = array.where(array != array.nodatavals)
         # Remove "band" dimension and coordinate
