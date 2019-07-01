@@ -1,11 +1,9 @@
 """
 Load the Mannville Group Well Logs dataset from Alberta, Canada.
 """
-# import tarfile
-from pooch import Unzip
-import pandas as pd
 
-# from pooch import Untar
+import pandas as pd
+from pooch import Untar
 from .registry import REGISTRY
 
 
@@ -95,33 +93,74 @@ def fetch_mcmurray_facies(abbreviations_only=True, load=True):
 
 Continue adding in optionally from here: https://www.apps.slb.com/cmd/ChannelItem.aspx?code=SN
     """
-    spelled_out_columns = ["Unnamed: 0", 'CALI=Caliper', 'COND=Fluid Conductivity',
-    'DELT=Travel Time Interval between Successive Shots',
-     'DEPT=Depth', 'DPHI=Density Porosity',
-     'DT=Delta-T also called Slowness or Interval Transit Time',
-      'GR=Gamma Ray', 'ILD=Induction Deep Resistivity', 'ILM=Induction Medium Resistivity',
-      'NPHI=Thermal Neutron Porosity (original Ratio Method) in Selected Lithology',
-       'PHID=Porosity-LDT NGT Tools', 'RHOB=Bulk Density',
-       'SFL=Spherically Focused Log Resitivity',
-        'SFLU=SFL Resistivity Unaveraged', 'SN=Short Normal Resistivity (16 inch spacing)',
-         'SP=Spontaneous Potential', 'UWI=Unique Well Identifier',
-          'SitID=Site Identification Number',
-         'lat=latitude', 'lng=longitude', 'Depth=Depth', 'LithID=Lithology Identity Number',
-        'W_Tar=Weight Percent Tar', 'SW=Water Saturation', 'VSH=Volume of Shale',
-         'PHI=Porosity',
-         'RW=Connate Water Resistivity', 'lithName=Lithology Name']
-    abbreviated_columns = ["Unnamed: 0", 'CALI', 'COND', 'DELT', 'DEPT', 'DPHI', 'DT', 'GR',
-     'ILD', 'ILM', 'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP', 'UWI', 'SitID', 'lat',
-     'lng', 'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW', 'lithName']
+    spelled_out_columns = [
+        "Unnamed: 0",
+        "CALI=Caliper",
+        "COND=Fluid Conductivity",
+        "DELT=Travel Time Interval between Successive Shots",
+        "DEPT=Depth",
+        "DPHI=Density Porosity",
+        "DT=Delta-T also called Slowness or Interval Transit Time",
+        "GR=Gamma Ray",
+        "ILD=Induction Deep Resistivity",
+        "ILM=Induction Medium Resistivity",
+        "NPHI=Thermal Neutron Porosity (original Ratio Method) in Selected Lithology",
+        "PHID=Porosity-LDT NGT Tools",
+        "RHOB=Bulk Density",
+        "SFL=Spherically Focused Log Resitivity",
+        "SFLU=SFL Resistivity Unaveraged",
+        "SN=Short Normal Resistivity (16 inch spacing)",
+        "SP=Spontaneous Potential",
+        "UWI=Unique Well Identifier",
+        "SitID=Site Identification Number",
+        "lat=latitude",
+        "lng=longitude",
+        "Depth=Depth",
+        "LithID=Lithology Identity Number",
+        "W_Tar=Weight Percent Tar",
+        "SW=Water Saturation",
+        "VSH=Volume of Shale",
+        "PHI=Porosity",
+        "RW=Connate Water Resistivity",
+        "lithName=Lithology Name",
+    ]
+    abbreviated_columns = [
+        "Unnamed: 0",
+        "CALI",
+        "COND",
+        "DELT",
+        "DEPT",
+        "DPHI",
+        "DT",
+        "GR",
+        "ILD",
+        "ILM",
+        "NPHI",
+        "PHID",
+        "RHOB",
+        "SFL",
+        "SFLU",
+        "SN",
+        "SP",
+        "UWI",
+        "SitID",
+        "lat",
+        "lng",
+        "Depth",
+        "LithID",
+        "W_Tar",
+        "SW",
+        "VSH",
+        "PHI",
+        "RW",
+        "lithName",
+    ]
 
-    # fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz")
-    fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz", processor=Unzip())
+    fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz", processor=Untar())
     if not load:
         return fname
 
     try:
-        # test_test = tarfile.open(fname, "r:xz")
-        # test_test.extractall("mcmurray_facies_v1")
         data = pd.read_csv("mcmurray_facies_v1/mcmurray_facies_v1.csv", engine="python")
     except NotImplementedError:
         try:
@@ -130,9 +169,12 @@ Continue adding in optionally from here: https://www.apps.slb.com/cmd/ChannelIte
             data = "could not read hdf as the conversion of fname to a stringified version \
                  didn't work well. Oops."
             print(data)
+    try:
+        if abbreviations_only:
+            data.columns = abbreviated_columns
+        else:
+            data.columns = spelled_out_columns
+    except EOFError:
+        print("list(data.columns)", list(data.columns))
 
-    if abbreviations_only:
-        data.rename(columns=abbreviated_columns)
-    else:
-        data.rename(columns=spelled_out_columns)
     return data

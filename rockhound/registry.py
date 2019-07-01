@@ -26,6 +26,6 @@ def data_location():
     -------
     path : str
         The local data storage location.
-        
+
     """
     return str(REGISTRY.abspath)
