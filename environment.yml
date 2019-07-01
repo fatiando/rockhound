@@ -9,6 +9,7 @@ dependencies:
     - xarray
     - pandas
     - rasterio
+    - dask
     # Development requirements
     - matplotlib
     - cmocean
