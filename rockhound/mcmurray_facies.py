@@ -157,13 +157,15 @@ Continue adding in optionally from here: https://www.apps.slb.com/cmd/ChannelIte
     ]
 
     fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz", processor=Untar())
+    print("fname", fname)
     if not load:
         return fname
 
     try:
-        data = pd.read_csv("mcmurray_facies_v1/mcmurray_facies_v1.csv", engine="python")
+        data = pd.read_csv(fname[0])
     except NotImplementedError:
         try:
+            print("fname", fname)
             data = pd.read_csv(str(fname[0]))
         except NotImplementedError:
             data = "could not read hdf as the conversion of fname to a stringified version \
@@ -174,7 +176,7 @@ Continue adding in optionally from here: https://www.apps.slb.com/cmd/ChannelIte
             data.columns = abbreviated_columns
         else:
             data.columns = spelled_out_columns
-    except EOFError:
-        print("list(data.columns)", list(data.columns))
+    except NotImplementedError:
+        print("could not switch column names so using original", list(data.columns))
 
     return data
