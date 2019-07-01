@@ -16,6 +16,7 @@ mcmurray_facies: Preprocessed well log and facies data for facies predictions
     curves as LAS files and tops in txt files and xls files. There is a word doc and a text
     file that describes the files and associated metadata.
 
+    [Wynne1995]_
     _Wynne, D.A., Attalla, M., Berezniuk, T., Brulotte, M., Cotterill, D.K., Strobl, R.
     and Wightman, D. (1995): Athabasca Oil Sands data McMurray/Wabiskaw oil sands deposit
      - electronic data; Alberta Research Council, ARC/AGS Special Report 6._
@@ -66,15 +67,30 @@ mcmurray_facies: Preprocessed well log and facies data for facies predictions
         columns : ['CALI', 'COND', 'DELT', 'DEPT', 'DPHI', 'DT', 'GR', 'ILD', 'ILM', \
             'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP', 'UWI', 'SitID','lat', \
                  'lng', 'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW','lithName']
+
+        columns of dataframe if abbreviationsOnly=False : ['CALI=Caliper',
+         'COND=Fluid Conductivity', 'DELT=Travel Time Interval between Successive Shots',
+        'DEPT=Depth', 'DPHI=Density Porosity',
+        'DT=Delta-T also called Slowness or Interval Transit Time',
+        'GR=Gamma Ray', 'ILD=Induction Deep Resistivity', 'ILM=Induction Medium Resistivity',
+      'NPHI=Thermal Neutron Porosity (original Ratio Method) in Selected Lithology',
+       'PHID=Porosity-LDT NGT Tools', 'RHOB=Bulk Density',
+       'SFL=Spherically Focused Log Resitivity',
+        'SFLU=SFL Resistivity Unaveraged', 'SN=Short Normal Resistivity (16 inch spacing)',
+         'SP=Spontaneous Potential', 'UWI=Unique Well Identifier',
+         'SitID=Site Identification Number',
+         'lat=latitude', 'lng=longitude','Depth=Depth', 'LithID=Lithology Identity Number',
+        'W_Tar=Weight Percent Tar', 'SW=Water Saturation', 'VSH=Volume of Shale', 'PHI=Porosity',
+         'RW=Connate Water Resistivity','lithName=Lithology Name']
 """
 import matplotlib.pyplot as plt
 import rockhound as rh
 
 # Load mcmurray_facies into a DataFrame
-FACIES = rh.fetch_mcmurray_facies()
-print("first few rows of facies dataframe", FACIES.head())
-print("facies columns", FACIES.columns)
+facies = rh.fetch_mcmurray_facies(abbreviations_only=True)
+print("first few rows of facies dataframe", facies.head())
+print("facies columns", facies.columns)
 
 # Example Plots
-FACIES.plot(kind="scatter", x="GR", y="DPHI", color="red")
+facies.plot(kind="scatter", x="GR", y="DPHI", color="red")
 plt.show()

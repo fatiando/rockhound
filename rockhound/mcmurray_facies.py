@@ -1,14 +1,15 @@
 """
 Load the Mannville Group Well Logs dataset from Alberta, Canada.
 """
-import tarfile
+# import tarfile
+from pooch import Unzip
 import pandas as pd
 
 # from pooch import Untar
 from .registry import REGISTRY
 
 
-def fetch_mcmurray_facies(*, load=True):
+def fetch_mcmurray_facies(abbreviations_only=True, load=True):
     r"""
     This is a preprocessed dataframe of well log information focused on facies prediction.
 
@@ -24,6 +25,7 @@ def fetch_mcmurray_facies(*, load=True):
      files and tops in txt files and xls files. There is a word doc and a text file that
      describes the files and associated metadata.
 
+    [Wynne1995]_
     _Wynne, D.A., Attalla, M., Berezniuk, T., Brulotte, M., Cotterill, D.K., Strobl, R.
     and Wightman, D. (1995): Athabasca Oil Sands data McMurray/Wabiskaw oil sands deposit
      - electronic data; Alberta Research Council, ARC/AGS Special Report 6._
@@ -71,23 +73,55 @@ def fetch_mcmurray_facies(*, load=True):
         The loaded data or the file path to the downloaded data.
         The :class:`pandas.DataFrame` contains the following data:
 
-        columns : ['CALI', 'COND', 'DELT', 'DEPT', 'DPHI', 'DT', 'GR', 'ILD', 'ILM',
-        'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP', 'UWI', 'SitID','lat', 'lng',
-         'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW','lithName']
-    """
+        - columns of dataframe if abbreviationsOnly=True : ['CALI', 'COND', 'DELT', 'DEPT',
+        'DPHI', 'DT', 'GR', 'ILD', 'ILM', 'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP',
+         'UWI', 'SitID','lat', 'lng', 'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW',
+         'lithName']
 
-    fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz")
+        - columns of dataframe if abbreviationsOnly=False : ['CALI=Caliper',
+         'COND=Fluid Conductivity', 'DELT=Travel Time Interval between Successive Shots',
+        'DEPT=Depth', 'DPHI=Density Porosity',
+        'DT=Delta-T also called Slowness or Interval Transit Time',
+        'GR=Gamma Ray', 'ILD=Induction Deep Resistivity', 'ILM=Induction Medium Resistivity',
+      'NPHI=Thermal Neutron Porosity (original Ratio Method) in Selected Lithology',
+       'PHID=Porosity-LDT NGT Tools', 'RHOB=Bulk Density',
+       'SFL=Spherically Focused Log Resitivity',
+        'SFLU=SFL Resistivity Unaveraged', 'SN=Short Normal Resistivity (16 inch spacing)',
+         'SP=Spontaneous Potential', 'UWI=Unique Well Identifier',
+         'SitID=Site Identification Number',
+         'lat=latitude', 'lng=longitude','Depth=Depth', 'LithID=Lithology Identity Number',
+        'W_Tar=Weight Percent Tar', 'SW=Water Saturation', 'VSH=Volume of Shale', 'PHI=Porosity',
+         'RW=Connate Water Resistivity','lithName=Lithology Name']
+
+Continue adding in optionally from here: https://www.apps.slb.com/cmd/ChannelItem.aspx?code=SN
+    """
+    spelled_out_columns = ["Unnamed: 0", 'CALI=Caliper', 'COND=Fluid Conductivity',
+    'DELT=Travel Time Interval between Successive Shots',
+     'DEPT=Depth', 'DPHI=Density Porosity',
+     'DT=Delta-T also called Slowness or Interval Transit Time',
+      'GR=Gamma Ray', 'ILD=Induction Deep Resistivity', 'ILM=Induction Medium Resistivity',
+      'NPHI=Thermal Neutron Porosity (original Ratio Method) in Selected Lithology',
+       'PHID=Porosity-LDT NGT Tools', 'RHOB=Bulk Density',
+       'SFL=Spherically Focused Log Resitivity',
+        'SFLU=SFL Resistivity Unaveraged', 'SN=Short Normal Resistivity (16 inch spacing)',
+         'SP=Spontaneous Potential', 'UWI=Unique Well Identifier',
+          'SitID=Site Identification Number',
+         'lat=latitude', 'lng=longitude', 'Depth=Depth', 'LithID=Lithology Identity Number',
+        'W_Tar=Weight Percent Tar', 'SW=Water Saturation', 'VSH=Volume of Shale',
+         'PHI=Porosity',
+         'RW=Connate Water Resistivity', 'lithName=Lithology Name']
+    abbreviated_columns = ["Unnamed: 0", 'CALI', 'COND', 'DELT', 'DEPT', 'DPHI', 'DT', 'GR',
+     'ILD', 'ILM', 'NPHI', 'PHID', 'RHOB', 'SFL', 'SFLU', 'SN', 'SP', 'UWI', 'SitID', 'lat',
+     'lng', 'Depth', 'LithID', 'W_Tar', 'SW', 'VSH', 'PHI', 'RW', 'lithName']
+
+    # fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz")
+    fname = REGISTRY.fetch("mcmurray_facies_v1.tar.gz", processor=Unzip())
     if not load:
         return fname
 
-    ##### Insert here all the code to load to take the unzipped files and process into
-    ##### single dataframe for the called dataset
-    ##### These try and excepts are here as some versions of pandas don't work with
-    ##### generic buffers, which fname may be depending on your OS.
-    ##### We get around this by saving as CSV zipped via tar with xz compression.
     try:
-        test_test = tarfile.open(fname, "r:xz")
-        test_test.extractall("mcmurray_facies_v1")
+        # test_test = tarfile.open(fname, "r:xz")
+        # test_test.extractall("mcmurray_facies_v1")
         data = pd.read_csv("mcmurray_facies_v1/mcmurray_facies_v1.csv", engine="python")
     except NotImplementedError:
         try:
@@ -97,4 +131,8 @@ def fetch_mcmurray_facies(*, load=True):
                  didn't work well. Oops."
             print(data)
 
+    if abbreviations_only:
+        data.rename(columns=abbreviated_columns)
+    else:
+        data.rename(columns=spelled_out_columns)
     return data
