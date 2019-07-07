@@ -10,14 +10,14 @@ from .registry import REGISTRY
 def fetch_mcmurray_facies(abbreviations_only=True, load=True):
     r"""
 
-    This is a preprocessed dataframe of well log & core information focused on facies prediction.
-    
+    Fetches a preprocessed dataframe of well log & core information focused on facies prediction.
+
     **What is this Dataset**
     The dataset consists of well log curves, in other words 1D geophysical measurements made
     with a variety of different tool types pulled slowly up a well, and lithology IDs, which
     are basically visible interpretations of the lithology made by geologists looking at core.
-    Core is a cylinder of rock taken as the well is drilled. 
-    
+    Core is a cylinder of rock taken as the well is drilled.
+
     **For What Analysis**
     Cores are expensive to collect, so they are not collected on every well. Well log
     curves are cheaper, so a number of well logs are collected on every well. A
@@ -39,7 +39,7 @@ def fetch_mcmurray_facies(abbreviations_only=True, load=True):
 
     [Wynne1995]_
     Wynne, D.A., Attalla, M., Berezniuk, T., Brulotte, M., Cotterill, D.K., Strobl, R.
-    and Wightman, D. (1995): Athabasca Oil Sands data McMurray/Wabiskaw oil sands deposit 
+    and Wightman, D. (1995): Athabasca Oil Sands data McMurray/Wabiskaw oil sands deposit
     - electronic data; Alberta Research Council, ARC/AGS Special Report 6.
 
     Please go to the links below for more information and the original dataset:
@@ -68,12 +68,12 @@ def fetch_mcmurray_facies(abbreviations_only=True, load=True):
 
     Additionally, all wells in the original dataset that didn't have facies are excluded here.
 
-    **Notes on Returns** 
+    **Notes on Returns**
     Depending on whether the abbreviations_only argument is set to True or False, the columns
     of the dataframe returned will either be the standard abbreviations for well log curve
     names or the abbreviations and the full spelled out names. Default value is True.
 
-    You can find the long names for most any well log curve abbreviation here: 
+    You can find the long names for most any well log curve abbreviation here:
     https://www.apps.slb.com/cmd/ChannelItem.aspx?code=SN
 
     When this function runs, if the file isn't already in your data directory, it will be
@@ -112,7 +112,6 @@ def fetch_mcmurray_facies(abbreviations_only=True, load=True):
         'W_Tar=Weight Percent Tar', 'SW=Water Saturation', 'VSH=Volume of Shale',
         'PHI=Porosity', 'RW=Connate Water Resistivity','lithName=Lithology Name']
 
-        
     """
     spelled_out_columns = [
         "Unnamed: 0",
