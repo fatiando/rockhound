@@ -6,6 +6,8 @@ from .etopo1 import fetch_etopo1
 from .prem import fetch_prem
 from .bedmap2 import fetch_bedmap2
 from .seafloor import fetch_seafloor_age
+from .iasp91 import fetch_iasp91
+from .ak135f import fetch_ak135f
 
 
 # Get the version number through versioneer

@@ -20,6 +20,7 @@ Available models and datasets:
 - ETOPO1 [AmanteEakins2009]_
 - PREM [Dziewonsky1981]_
 - Bedmap2 [BEDMAP2]_
+- IASP91 [Kennett1991]_
 - Age of the oceanic lithosphere [Muller2008]_
 
 Features:
