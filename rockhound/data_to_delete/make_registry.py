@@ -14,4 +14,4 @@ import os
 
 #%%
 
-pooch.make_registry('dat', 'dat/dat.txt')
+pooch.make_registry("dat", "dat/dat.txt")

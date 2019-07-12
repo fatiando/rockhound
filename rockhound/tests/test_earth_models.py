@@ -1,7 +1,7 @@
 """
 Test the PREM loading function.
 """
-from ..prem import fetch_prem
+from ..earth_models import fetch_prem
 
 
 def test_prem_file_name_only():
