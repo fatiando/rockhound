@@ -7,6 +7,12 @@ from .earth_models import fetch_prem
 from .earth_models import fetch_ak135f
 from .earth_models import fetch_iasp91
 from .earth_models import fetch_mean
+from .earth_models import fetch_pema
+from .earth_models import fetch_pemc
+from .earth_models import fetch_pemo
+from .earth_models import fetch_mc35
+from .earth_models import fetch_stw105
+from .earth_models import fetch_tna_sna
 from .bedmap2 import fetch_bedmap2
 from .seafloor import fetch_seafloor_age
 

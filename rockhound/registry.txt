@@ -9,3 +9,9 @@ age.3.2.nc.bz2 49003831db78f7bb044532daf31fdc49218f75876668ee0c96877f383214b827 
 age.3.6.nc.bz2 c99358e4a980be15f05df71506d9337dc760d32e5907f9526bc8135224fc1f81 https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age/age.3.6.nc.bz2
 ageerror.3.2.nc.bz2 fd599a02488912e6d3bc53fc1e658f3d116a893201c0c9fb5e496c4020279a35 https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age_error/ageerror.3.2.nc.bz2
 ageerror.3.6.nc.bz2 15a2542717d30f24feeb2ea9d5d73d754b30a3fc92bbf1b704b3ba23d2766d1b https://www.ngdc.noaa.gov/mgg/ocean_age/data/2008/grids/age_error/ageerror.3.6.nc.bz2
+PEMA.csv d5a035ba99f8fb33f078b91f5105f8271bec903a9927b25e412679606f92e030 http://ds.iris.edu/files/products/emc/data/PEMA/PEMA.csv
+PEMC.csv a504ede73811dd3dafd5eeff006d2e250c55dfd4e847fd0c4886d85ef459b7c8 http://ds.iris.edu/files/products/emc/data/PEMC/PEMC.csv
+PEMO.csv d0560ce0b248c1855cfb8467bd6f914e1785071fb9e9823b434875a2cee69bf0 http://ds.iris.edu/files/products/emc/data/PEMO/PEMO.csv
+MC35.csv 812f1e7e78b6a37349430ceefcf1bd850dd7bf4b00f1cf84fb271aa3de540cdb http://ds.iris.edu/files/products/emc/data/MC35/MC35.csv
+STW105.txt 6fd4470bfef52c98274458eefe83e848dee47a192e2a8a46ec7816d8ff06269c http://ds.iris.edu/files/products/emc/data/STW105/STW105.txt
+StartingVsModel_TNA-SNA-average_IDV.csv be95900fdd200ac5c00618963857c57912812e5696b13854123035e99d7ba9e6 http://ds.iris.edu/files/products/emc/data/GYPSUM/StartingVsModel_TNA-SNA-average_IDV.csv

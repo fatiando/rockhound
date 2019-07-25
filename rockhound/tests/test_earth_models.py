@@ -2,6 +2,7 @@
 Test the PREM loading function.
 """
 from ..earth_models import fetch_prem
+from ..earth_models import fetch_ak135f
 
 
 def test_prem_file_name_only():
@@ -34,3 +35,8 @@ def test_prem():
     assert prem["Q_mu"].max() == 600
     assert prem["Q_kappa"].min() == 1327.7
     assert prem["Q_kappa"].max() == 57823
+    
+def test_ak135f_file_name_only():
+    "Only fetch the file name."
+    fname = fetch_ak135f(load=False)
+    assert fname.endswith("PREM_1s.csv")
