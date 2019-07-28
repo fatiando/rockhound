@@ -66,7 +66,7 @@ ax.set_ylabel("Depth [km]")
 ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
-#load MEAN into a DataFrame
+# load MEAN into a DataFrame
 mean = rh.fetch_mean()
 
 # Plot density and velocities
@@ -85,7 +85,7 @@ ax.legend()
 ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
-#load PEMA into a DataFrame
+# load PEMA into a DataFrame
 pema = rh.fetch_pema()
 
 # Plot density and velocities
@@ -104,7 +104,7 @@ ax.legend()
 ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
-#load PEMC into a DataFrame
+# load PEMC into a DataFrame
 pemc = rh.fetch_pemc()
 
 # Plot density and velocities
@@ -123,7 +123,7 @@ ax.legend()
 ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
-#load PEMO into a DataFrame
+# load PEMO into a DataFrame
 pemo = rh.fetch_pemo()
 
 # Plot density and velocities
@@ -142,7 +142,7 @@ ax.legend()
 ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
-#load MC35 into a DataFrame
+# load MC35 into a DataFrame
 mc35 = rh.fetch_mc35()
 
 # Plot density and velocities
@@ -156,7 +156,7 @@ ax.set_ylabel("Depth [km]")
 ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
-#load STW105 into a DataFrame
+# load STW105 into a DataFrame
 stw105 = rh.fetch_stw105()
 
 # Plot density and velocities
@@ -176,18 +176,18 @@ ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
 fig, ax = plt.subplots()
-#ax = axes[0]
-stw105.plot("eta", "radius", legend=False, ax=ax) ## Some QC required?
+# ax = axes[0]
+stw105.plot("eta", "radius", legend=False, ax=ax)  ## Some QC required?
 ax.invert_yaxis()
 #%%
-#load MC35 into a DataFrame
+# load MC35 into a DataFrame
 tna_sna = rh.fetch_tna_sna()
 
 # Plot density and velocities
 fig, ax = plt.subplots(1, 1, figsize=(9, 5))
 fig.suptitle("TNA/SNA")
 tna_sna.plot("Vs", "radius", legend=False, ax=ax, label="Vs")
-#ax.invert_yaxis()
+# ax.invert_yaxis()
 ax.grid()
 ax.legend()
 ax.set_ylabel("Radius [km]")
@@ -195,21 +195,21 @@ ax.set_xlabel("Velocity [km/s]")
 plt.show()
 
 #%%
-#import pandas as pd
-#fname = '/home/chet/Desktop/fatiando/rockhound/rockhound/data_to_delete/dat/STW105.txt'#REGISTRY.fetch("STW105.txt")
+# import pandas as pd
+# fname = '/home/chet/Desktop/fatiando/rockhound/rockhound/data_to_delete/dat/STW105.txt'#REGISTRY.fetch("STW105.txt")
 ##if not load:
 #    #return fname
 ##stw105 = pd.read_fwf(fname)
 ##stw105 = pd.read_csv(fname, sep=None, skiprows=4)
-#data = np.loadtxt(fname, skiprows=3)
-#columns = ["radius", 
-#           "density", 
-#           "Vpv", 
-#           "Vsv", 
-#           "Q_kappa", 
-#           "Q_mu", 
-#           "Vph", 
-#           "Vsh", 
+# data = np.loadtxt(fname, skiprows=3)
+# columns = ["radius",
+#           "density",
+#           "Vpv",
+#           "Vsv",
+#           "Q_kappa",
+#           "Q_mu",
+#           "Vph",
+#           "Vsh",
 #           "eta"]
-#stw105 = pd.DataFrame(data, columns=columns)
-#return stw105
+# stw105 = pd.DataFrame(data, columns=columns)
+# return stw105

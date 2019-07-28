@@ -8,7 +8,6 @@ import xarray as xr
 from .registry import REGISTRY
 
 
-
 def fetch_prem(*, load=True):
     r"""
     Fetch the Preliminary Reference Earth Model (PREM).
@@ -94,7 +93,7 @@ def fetch_ak135f(*, load=True):
     if not load:
         return fname
     data = np.loadtxt(fname, delimiter=",", skiprows=2)
-    columns = ["depth", "density", "Vp", "Vs", "Q_mu", "Q_kappa"]
+    columns = ["depth", "density", "Vp", "Vs", "Q_kappa", "Q_mu"]
     ak135f = pd.DataFrame(data=data, columns=columns)
     return ak135f
 
@@ -134,6 +133,7 @@ def fetch_iasp91(*, load=True):
     iasp91 = pd.DataFrame(data=data, columns=columns)
     return iasp91
 
+
 def fetch_mean(*, load=True):
     r"""
     Fetch the MEAN Earth model.
@@ -169,9 +169,10 @@ def fetch_mean(*, load=True):
     data = xr.open_dataset(fname)
     mean = data.to_dataframe()
     mean.reset_index(inplace=True)
-    mean.columns = ['radius', 'density', 'Vp', 'Vs', 'Q_kappa', 'Q_mu']
-    
+    mean.columns = ["radius", "density", "Vp", "Vs", "Q_kappa", "Q_mu"]
+
     return mean
+
 
 def fetch_pema(*, load=True):
     r"""
@@ -204,9 +205,12 @@ def fetch_pema(*, load=True):
     fname = REGISTRY.fetch("PEMA.csv")
     if not load:
         return fname
-    pema = pd.read_csv(fname)#np.loadtxt(fname, delimiter=",", skiprows=2)
+    pema = pd.read_csv(
+        fname, header=None
+    )  # np.loadtxt(fname, delimiter=",", skiprows=2)
     pema.columns = ["radius", "depth", "density", "Vp", "Vs"]
     return pema
+
 
 def fetch_pemc(*, load=True):
     r"""
@@ -239,9 +243,10 @@ def fetch_pemc(*, load=True):
     fname = REGISTRY.fetch("PEMC.csv")
     if not load:
         return fname
-    pemc = pd.read_csv(fname)
+    pemc = pd.read_csv(fname, header=None)
     pemc.columns = ["radius", "depth", "density", "Vp", "Vs"]
     return pemc
+
 
 def fetch_pemo(*, load=True):
     r"""
@@ -274,9 +279,10 @@ def fetch_pemo(*, load=True):
     fname = REGISTRY.fetch("PEMO.csv")
     if not load:
         return fname
-    pemo = pd.read_csv(fname)
+    pemo = pd.read_csv(fname, header=None)
     pemo.columns = ["radius", "depth", "density", "Vp", "Vs"]
     return pemo
+
 
 def fetch_mc35(*, load=True):
     r"""
@@ -308,9 +314,10 @@ def fetch_mc35(*, load=True):
     fname = REGISTRY.fetch("MC35.csv")
     if not load:
         return fname
-    mc35 = pd.read_csv(fname)
+    mc35 = pd.read_csv(fname, header=None)
     mc35.columns = ["depth", "Vs"]
     return mc35
+
 
 def fetch_stw105(*, load=True):
     r"""
@@ -345,17 +352,20 @@ def fetch_stw105(*, load=True):
     if not load:
         return fname
     data = np.loadtxt(fname, skiprows=3)
-    columns = ["radius", 
-               "density", 
-               "Vpv", 
-               "Vsv", 
-               "Q_kappa", 
-               "Q_mu", 
-               "Vph", 
-               "Vsh", 
-               "eta"]
+    columns = [
+        "radius",
+        "density",
+        "Vpv",
+        "Vsv",
+        "Q_kappa",
+        "Q_mu",
+        "Vph",
+        "Vsh",
+        "eta",
+    ]
     stw105 = pd.DataFrame(data, columns=columns)
     return stw105
+
 
 def fetch_tna_sna(*, load=True):
     r"""
@@ -393,20 +403,21 @@ def fetch_tna_sna(*, load=True):
     tna_sna = pd.read_csv(fname, names=names, skiprows=2)
     return tna_sna
 
+
 #%%
-    
-#fname = REGISTRY.fetch("STW105.txt")
-#if not load:
+
+# fname = REGISTRY.fetch("STW105.txt")
+# if not load:
 #    return fname
-#data = np.loadtxt(fname, skiprows=3)
-#columns = ["radius", 
-#           "density", 
-#           "Vpv", 
-#           "Vsv", 
-#           "Q_kappa", 
-#           "Q_mu", 
-#           "Vph", 
-#           "Vsh", 
+# data = np.loadtxt(fname, skiprows=3)
+# columns = ["radius",
+#           "density",
+#           "Vpv",
+#           "Vsv",
+#           "Q_kappa",
+#           "Q_mu",
+#           "Vph",
+#           "Vsh",
 #           "eta"]
-#stw105 = pd.DataFrame(data, columns=columns)
+# stw105 = pd.DataFrame(data, columns=columns)
 ##return stw105
