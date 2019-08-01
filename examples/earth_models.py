@@ -179,7 +179,7 @@ fig, ax = plt.subplots()
 # ax = axes[0]
 stw105.plot("eta", "radius", legend=False, ax=ax)  ## Some QC required?
 ax.invert_yaxis()
-#%%
+
 # load MC35 into a DataFrame
 tna_sna = rh.fetch_tna_sna()
 
@@ -193,23 +193,3 @@ ax.legend()
 ax.set_ylabel("Radius [km]")
 ax.set_xlabel("Velocity [km/s]")
 plt.show()
-
-#%%
-# import pandas as pd
-# fname = '/home/chet/Desktop/fatiando/rockhound/rockhound/data_to_delete/dat/STW105.txt'#REGISTRY.fetch("STW105.txt")
-##if not load:
-#    #return fname
-##stw105 = pd.read_fwf(fname)
-##stw105 = pd.read_csv(fname, sep=None, skiprows=4)
-# data = np.loadtxt(fname, skiprows=3)
-# columns = ["radius",
-#           "density",
-#           "Vpv",
-#           "Vsv",
-#           "Q_kappa",
-#           "Q_mu",
-#           "Vph",
-#           "Vsh",
-#           "eta"]
-# stw105 = pd.DataFrame(data, columns=columns)
-# return stw105
