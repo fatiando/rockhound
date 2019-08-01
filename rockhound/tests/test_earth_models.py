@@ -103,20 +103,6 @@ def test_mean_file_name_only():
 def test_mean():
     "Sanity checks for the mean DataFrame"
     mean = fetch_mean()
-    #    assert mean.shape == (180, 6)
-    #    assert mean["radius"].min() == 0
-    #    assert mean["radius"].max() == 6371.0
-    #    assert mean["density"].min() == 2.72
-    #    assert mean["density"].max() == 13.0122
-    #    assert mean["Vp"].min() == 5.8
-    #    assert mean["Vp"].max() == 13.6908
-    #    assert mean["Vs"].min() == 0
-    #    assert mean["Vs"].max() == 7.3015
-    #    assert mean["Q_kappa"].min() == 99999
-    #    assert mean["Q_kappa"].max() == 99999
-    #    assert mean["Q_mu"].min() == 0
-    #    assert mean["Q_mu"].max() == 312
-
     assert mean.shape == (180, 6)
     npt.assert_almost_equal(mean["radius"].min(), 0, decimal=6)
     npt.assert_almost_equal(mean["radius"][0], 6371.0, decimal=6)
