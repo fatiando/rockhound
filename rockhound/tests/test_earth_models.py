@@ -1,6 +1,8 @@
 """
 Test the PREM loading function.
 """
+import numpy.testing as npt
+
 from ..earth_models import fetch_prem
 from ..earth_models import fetch_ak135f
 from ..earth_models import fetch_iasp91
@@ -11,9 +13,6 @@ from ..earth_models import fetch_pemo
 from ..earth_models import fetch_mc35
 from ..earth_models import fetch_stw105
 from ..earth_models import fetch_tna_sna
-
-import numpy.testing as npt
-import numpy as np
 
 
 def test_prem_file_name_only():
@@ -59,6 +58,7 @@ def test_ak135f():
     ak135f = fetch_ak135f()
     assert ak135f.shape == (145, 6)
     assert ak135f["depth"].min() == 0
+    assert ak135f["depth"][0] == 0
     assert ak135f["depth"].max() == 6371.0
     assert ak135f["density"].min() == 1.02
     assert ak135f["density"].max() == 13.0122
@@ -83,8 +83,10 @@ def test_iasp91():
     iasp91 = fetch_iasp91()
     assert iasp91.shape == (152, 4)
     assert iasp91["depth"].min() == 0
+    assert iasp91["depth"][0] == 0
     assert iasp91["depth"].max() == 6371.0
     assert iasp91["radius"].min() == 0
+    assert iasp91["radius"][0] == 6371.0
     assert iasp91["radius"].max() == 6371.0
     assert iasp91["Vp"].min() == 5.8
     assert iasp91["Vp"].max() == 13.6908
@@ -117,6 +119,7 @@ def test_mean():
 
     assert mean.shape == (180, 6)
     npt.assert_almost_equal(mean["radius"].min(), 0, decimal=6)
+    npt.assert_almost_equal(mean["radius"][0], 6371.0, decimal=6)
     npt.assert_almost_equal(mean["radius"].max(), 6371.0, decimal=6)
     npt.assert_almost_equal(mean["density"].min(), 2.72, decimal=6)
     npt.assert_almost_equal(mean["density"].max(), 13.0122, decimal=6)
@@ -141,8 +144,10 @@ def test_pema():
     pema = fetch_pema()
     assert pema.shape == (191, 5)
     assert pema["radius"].min() == 0
+    assert pema["radius"][0] == 6371.0
     assert pema["radius"].max() == 6371.0
     assert pema["depth"].min() == 0
+    assert pema["depth"][0] == 0
     assert pema["depth"].max() == 6371.0
     assert pema["density"].min() == 1.03
     assert pema["density"].max() == 13.012
@@ -163,8 +168,10 @@ def test_pemc():
     pemc = fetch_pemc()
     assert pemc.shape == (190, 5)
     assert pemc["radius"].min() == 0
+    assert pemc["radius"][0] == 6371.0
     assert pemc["radius"].max() == 6371.0
     assert pemc["depth"].min() == 0
+    assert pemc["depth"][0] == 0
     assert pemc["depth"].max() == 6371.0
     assert pemc["density"].min() == 2.72
     assert pemc["density"].max() == 13.012
@@ -185,8 +192,10 @@ def test_pemo():
     pemo = fetch_pemo()
     assert pemo.shape == (191, 5)
     assert pemo["radius"].min() == 0
+    assert pemo["radius"][0] == 6371.0
     assert pemo["radius"].max() == 6371.0
     assert pemo["depth"].min() == 0
+    assert pemo["depth"][0] == 0
     assert pemo["depth"].max() == 6371.0
     assert pemo["density"].min() == 1.03
     assert pemo["density"].max() == 13.012
@@ -207,6 +216,7 @@ def test_mc35():
     mc35 = fetch_mc35()
     assert mc35.shape == (151, 2)
     assert mc35["depth"].min() == 0
+    assert mc35["depth"][0] == 0
     assert mc35["depth"].max() == 2885.3
     assert mc35["Vs"].min() == 3
     assert mc35["Vs"].max() == 7.24338
@@ -223,6 +233,7 @@ def test_stw105():
     stw105 = fetch_stw105()
     assert stw105.shape == (750, 9)
     assert stw105["radius"].min() == 0
+    assert stw105["radius"][0] == 6.371e06
     assert stw105["radius"].max() == 6.371e06
     assert stw105["density"].min() == 1020
     assert stw105["density"].max() == 13088.48
@@ -253,6 +264,7 @@ def test_tna_sna():
     tna_sna = fetch_tna_sna()
     assert tna_sna.shape == (221, 2)
     assert tna_sna["radius"].min() == 3480
+    assert tna_sna["radius"][0] == 6371.0
     assert tna_sna["radius"].max() == 6371.0
     assert tna_sna["Vs"].min() == 3.2
     assert tna_sna["Vs"].max() == 7.29
