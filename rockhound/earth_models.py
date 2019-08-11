@@ -141,7 +141,7 @@ def fetch_mean(*, load=True):
     Fetch the MEAN Earth model.
 
     The MEAN Earth model is a variant of the IASP91 Earth model.
-    MEAN [Marone 2004]_ is a one-dimensional earth model representing average Earth properties as
+    MEAN [Marone2004]_ is a one-dimensional earth model representing average Earth properties as
     a function of Earth radius. This model has parameters for radius, density, P-wave velocity,
     S-wave velocity, and attenuation (Q).It's available through IRIS Data Services Products
     [IRIS2011]_ in a nc file (netCDF). The data is loaded into :class:`pandas.DataFrame` objects.
