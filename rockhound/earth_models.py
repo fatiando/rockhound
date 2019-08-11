@@ -65,10 +65,11 @@ def fetch_ak135f(*, load=True):
 
     The ak135-f Earth model [Kennett1995]_ is a variant of the ak135 Earth model
     with the density and Q model from [Montagner1996]_ added.
-    The ak135-f Earth model is a one-dimensional model representing the average Earth properties as a 
+    The ak135-f Earth model is a one-dimensional model representing average Earth properties as a
     function of depth. The model includes the depth, density, seismic velocities and attenuation (Q)
-    on the boundaries of several Earth layers. It's available through IRIS Data Services Products 
-    [IRIS2011]_ in a csv file (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.
+    on the boundaries of several Earth layers. It's available through IRIS Data Services Products
+    [IRIS2011]_ in a csv file (comma-separated values). The data is loaded into
+    :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
@@ -102,11 +103,11 @@ def fetch_ak135f(*, load=True):
 def fetch_iasp91(*, load=True):
     r"""
     Fetch the IASP91 Earth model.
-    
-    iasp91 [Kennett1991]_ is a widely used one-dimensional model representing Earth properties as
-    a function of depth. This model has parameters for depth, radius, P-wave 
-    velocity and S-wave velocity. It's available through IRIS Data Services Products [IRIS2011]_ in a csv file
-    (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.
+
+    IASP91 [Kennett1991]_ is a widely used one-dimensional model representing average Earth
+    properties as a function of depth. This model has parameters for depth, radius, P-wave
+    velocity and S-wave velocity. It's available through IRIS Data Services Products [IRIS2011]_ in
+    a csv file (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
@@ -138,12 +139,12 @@ def fetch_iasp91(*, load=True):
 def fetch_mean(*, load=True):
     r"""
     Fetch the MEAN Earth model.
-    
+
     The MEAN Earth model is a variant of the IASP91 Earth model.
-    MEAN [Marone 2004]_ is a one-dimensional earth model representing Earth properties as
-    a function of Earth radius. This model has parameters for radius, density, P-wave 
-    velocity, S-wave velocity, and attenuation (Q).It's available through IRIS Data Services Products [IRIS2011]_ in a nc file
-    (netCDF). The data is loaded into :class:`pandas.DataFrame` objects.
+    MEAN [Marone 2004]_ is a one-dimensional earth model representing average Earth properties as
+    a function of Earth radius. This model has parameters for radius, density, P-wave velocity,
+    S-wave velocity, and attenuation (Q).It's available through IRIS Data Services Products
+    [IRIS2011]_ in a nc file (netCDF). The data is loaded into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
@@ -181,12 +182,12 @@ def fetch_pema(*, load=True):
     Fetch the PEM-A (Average Parametric Earth Model) model.
 
 
-    The PEM-A Earth model [Dziewonsky1975]_ is a weighted average of both the 
-    PEM-O Earth model and the PEM-C Earth model. It is a one-dimensional model 
-    representing the average Earth properties as a function of depth. The model
-    includes the radius, depth, density, P-wave velocity, and S-wave velocity on the boundaries of 
+    The PEM-A Earth model [Dziewonsky1975]_ is a weighted average of both the
+    PEM-O Earth model and the PEM-C Earth model. It is a one-dimensional model
+    representing average Earth properties as a function of depth. The model
+    includes the radius, depth, density, P-wave velocity, and S-wave velocity on the boundaries of
     several Earth layers. It's available through IRIS Data Services Products [IRIS2011]_
-    in a csv file (comma-separated values). The data is loaded into 
+    in a csv file (comma-separated values). The data is loaded into
     :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
@@ -220,10 +221,11 @@ def fetch_pemc(*, load=True):
     r"""
     Fetch the PEM-C (Continental Parametric Earth Model) model.
 
-    The PEM-C Earth model [Dziewonsky1975]_ is a one-dimensional model representing the average continental Earth properties as a 
-    function of depth. The model includes the radius, depth, density, P-wave velocity, and S-wave velocity on the boundaries of several Earth layers.
-    It's available through IRIS Data Services Products [IRIS2011]_ in a csv file (comma-separated values). 
-    The data is loaded into :class:`pandas.DataFrame` objects.
+    The PEM-C Earth model [Dziewonsky1975]_ is a one-dimensional model representing average
+    continental Earth properties as a function of depth. The model includes the radius, depth,
+    density, P-wave velocity, and S-wave velocity on the boundaries of several Earth layers.
+    It's available through IRIS Data Services Products [IRIS2011]_ in a csv file
+    (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
@@ -256,9 +258,10 @@ def fetch_pemo(*, load=True):
     r"""
     Fetch the PEM-O (Oceanic Parametric Earth Model) model.
 
-    The PEM-O Earth model [Dziewonsky1975]_ is a one-dimensional model representing average oceanic Earth properties as a 
-    function of radius and depth. The model includes radius, depth, density, P-wave velocitiy, and S-wave velocity on the boundaries of several Earth layers.
-    It's available through IRIS Data Services Products [IRIS2011]_ in a csv file (comma-separated values). 
+    The PEM-O Earth model [Dziewonsky1975]_ is a one-dimensional model representing average oceanic
+    Earth properties as a function of radius and depth. The model includes radius, depth, density,
+    P-wave velocitiy, and S-wave velocity on the boundaries of several Earth layers. It's available
+    through IRIS Data Services Products [IRIS2011]_ in a csv file (comma-separated values).
     The data is loaded into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
@@ -292,10 +295,11 @@ def fetch_mc35(*, load=True):
     r"""
     Fetch the MC35 Earth model.
 
-    The MC35 Earth model [VanderLee1997]_ is a one-dimensional model based off of the PEM-C. This model represents the average Earth properties as a 
-    function of depth. The model includes the depth and S-wave velocities on the boundaries of several Earth layers.
-    It's available through IRIS Data Services Products [IRIS2011]_ in a csv file (comma-separated values). 
-    The data is loaded into :class:`pandas.DataFrame` objects.
+    The MC35 Earth model [VanderLee1997]_ is a one-dimensional model based off of the PEM-C. This
+    model represents average Earth properties as a function of depth. The model includes the depth
+    and S-wave velocities on the boundaries of several Earth layers.It's available through IRIS
+    Data Services Products [IRIS2011]_ in a csv file (comma-separated values). The data is loaded
+    into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
@@ -327,10 +331,10 @@ def fetch_stw105(*, load=True):
     r"""
     Fetch the STW105 Earth model.
 
-    The STW105 Earth model [Kustowski2008]_ is a one-dimensional model representing the average Earth properties as a 
-    function of depth. The model includes the radius, density, seismic velocities, attenuation (Q), and
-    anisotropic parameter (:math:`\eta`) on the boundaries of several Earth layers.
-    It's available through IRIS Data Services Products [IRIS2011]_ in a txt file (text). 
+    The STW105 Earth model [Kustowski2008]_ is a one-dimensional model representing average Earth
+    properties as a function of depth. The model includes the radius, density, seismic velocities,
+    attenuation (Q), and anisotropic parameter (:math:`\eta`) on the boundaries of several Earth
+    layers. It's available through IRIS Data Services Products [IRIS2011]_ in a txt file (text).
     The data is loaded into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
@@ -376,10 +380,11 @@ def fetch_tna_sna(*, load=True):
     r"""
     Fetch the TNA/SNA (Tectonic North America/Shield North America) Earth model.
 
-    The TNA/SNA Earth model [Simmons2010]_ is a one-dimensional model based off of the S velocity models of [Grand1984}_. This model represents average Earth properties as a 
-    function of depth. The model includes radius and S-wave velocities on the boundaries of several Earth layers.
-    It's available through IRIS Data Services Products [IRIS2011]_ in a csv file (comma-separated values). 
-    The data is loaded into :class:`pandas.DataFrame` objects.
+    The TNA/SNA Earth model [Simmons2010]_ is a one-dimensional model based off of the S velocity
+    models of [Grand1984]_. This model represents average Earth properties as a function of depth.
+    The model includes radius and S-wave velocities on the boundaries of several Earth layers.
+    It's available through IRIS Data Services Products [IRIS2011]_ in a csv file
+    (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
