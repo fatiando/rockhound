@@ -1,5 +1,5 @@
 pooch>=0.5
 xarray
 pandas
-rasterio==1.0.24
+rasterio
 dask
