@@ -9,7 +9,7 @@ dependencies:
     - xarray
     - pandas
     - rasterio
-    - gdal=2.4.2
+    - gdal<3.0.0
     - dask
     # Development requirements
     - matplotlib

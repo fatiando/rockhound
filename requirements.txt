@@ -2,5 +2,5 @@ pooch>=0.5
 xarray
 pandas
 rasterio
-gdal==2.4.2
+gdal<3.0.0
 dask
