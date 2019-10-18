@@ -20,15 +20,6 @@ Available models and datasets:
 - ETOPO1 [AmanteEakins2009]_
 - PREM [Dziewonsky1981]_
 - Bedmap2 [BEDMAP2]_
-- ak135-f [Kennett1995]_
-- IASP91 [Kennett1991]_
-- MEAN [Marone2004]_
-- PEM-A [Dziewonsky1975]_
-- PEM-C [Dziewonsky1975]_
-- PEM-O [Dziewonsky1975]_
-- MC35 [VanderLee1997]_
-- STW105 [Kustowski2008]_
-- TNA/SNA [Simmons2010]_
 - Age of the oceanic lithosphere [Muller2008]_
 
 Features:

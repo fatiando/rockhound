@@ -3,22 +3,21 @@
 from . import version
 from .registry import data_location
 from .etopo1 import fetch_etopo1
-from .earth_models import fetch_prem
-from .earth_models import fetch_ak135f
-from .earth_models import fetch_iasp91
-from .earth_models import fetch_mean
-from .earth_models import fetch_pema
-from .earth_models import fetch_pemc
-from .earth_models import fetch_pemo
-from .earth_models import fetch_mc35
-from .earth_models import fetch_stw105
-from .earth_models import fetch_tna_sna
+from .earth_models import (
+    fetch_prem,
+    fetch_ak135f,
+    fetch_iasp91,
+    fetch_mean,
+    fetch_pema,
+    fetch_pemc,
+    fetch_pemo,
+    fetch_mc35,
+    fetch_stw105,
+    fetch_tna_sna,
+)
+
 from .bedmap2 import fetch_bedmap2
 from .seafloor import fetch_seafloor_age
-
-# from .iasp91 import fetch_iasp91
-# from .ak135f import fetch_ak135f
-
 
 # Get the version number through versioneer
 __version__ = version.full_version
