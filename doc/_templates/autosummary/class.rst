@@ -4,11 +4,19 @@
 
 .. autoclass:: {{ objname }}
 
-.. include:: backreferences/{{ fullname }}.examples
+.. rubric:: Methods Summary
 
-.. raw:: html
-
-     <div style='clear:both'></div>
+.. autosummary::
+    {% for item in members %}
+    {% if item in ['__call__'] %}
+        {{ objname }}.{{ item }}
+    {% endif %}
+    {% endfor %}
+    {% for item in methods %}
+    {% if item != '__init__' %}
+        {{ objname }}.{{ item }}
+    {% endif %}
+    {% endfor %}
 
 {% for item in methods %}
 {% if item != '__init__' %}
@@ -16,7 +24,8 @@
 {% endif %}
 {% endfor %}
 
+.. include:: backreferences/{{ fullname }}.examples
+
 .. raw:: html
 
      <div style='clear:both'></div>
-
