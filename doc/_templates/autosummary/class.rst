@@ -18,6 +18,8 @@
     {% endif %}
     {% endfor %}
 
+ ---
+
 {% for item in methods %}
 {% if item != '__init__' %}
 .. automethod:: {{ objname }}.{{ item }}
