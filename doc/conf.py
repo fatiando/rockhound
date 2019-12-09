@@ -22,7 +22,7 @@ extensions = [
     'sphinx.ext.extlinks',
     "sphinx.ext.intersphinx",
     'matplotlib.sphinxext.plot_directive',
-    'numpydoc',
+    'sphinx.ext.napoleon',
     'sphinx_gallery.gen_gallery',
 ]
 
