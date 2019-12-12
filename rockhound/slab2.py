@@ -17,7 +17,7 @@ DATASETS = {
 ZONES = {"alaska": dict(fname_indicator="alu"), "calabria": dict(fname_indicator="cal")}
 
 
-def fetch_slab2(zone, datasets, *, load=True, **kwargs):
+def fetch_slab2(zone, *, load=True, **kwargs):
     """
     Load the Slab2 model for a given subduction zone.
 
@@ -28,19 +28,10 @@ def fetch_slab2(zone, datasets, *, load=True, **kwargs):
     catalogs, CMT solutions, active seismic profiles, global plate boundaries,
     bathymetry and sediment thickness information [BEDMAP2]_.
 
-    The available slab datasets are:
-    - ``depth``: depth
-    - ``dip``: dip
-    - ``strike``: strike
-    - ``thickness``: thickness
-    - ``depth_uncertainty``: depth uncertainty
-
     Parameters
     ----------
     zone : str
         subduction zone to fech the model.
-    datasets : list or str
-        Names of the datasets that will be loaded from the Slab2 model.
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data. If False, will return a list with the paths to the
@@ -54,12 +45,6 @@ def fetch_slab2(zone, datasets, *, load=True, **kwargs):
     grid : :class:`xarray.Dataset` or str
         The loaded grid or the file path to the downloaded data.
     """
-    if isinstance(datasets, str):
-        datasets = [datasets]
-    if not set(datasets).issubset(DATASETS.keys()):
-        raise ValueError(
-            "Invalid datasets: {}".format(set(datasets).difference(DATASETS.keys()))
-        )
     if zone not in ZONES:
         raise ValueError(
             "Invalid slab zone: {}".format(set(zone).difference(ZONES.keys()))
@@ -68,12 +53,12 @@ def fetch_slab2(zone, datasets, *, load=True, **kwargs):
         REGISTRY.fetch(
             "{}_slab2_{}.grd".format(ZONES[zone]["fname_indicator"], dataset)
         )
-        for dataset in datasets
+        for dataset in DATASETS
     ]
     if not load:
         return fnames
     arrays = [xr.open_dataarray(f) for f in fnames]
-    for array, dataset in zip(arrays, datasets):
+    for array, dataset in zip(arrays, DATASETS):
         array.name = dataset
     ds = xr.merge(arrays)
     return ds
