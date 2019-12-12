@@ -21,12 +21,19 @@ def fetch_slab2(zone, datasets, *, load=True, **kwargs):
     """
     Load the Slab2 model for a given subduction zone.
 
-    The available datasets are:
-    - ``depth``: slab depth
-    - ``dip``: slab dip
-    - ``strike``: slab strike
-    - ``thickness``: slab thickness
-    - ``depth_uncertainty``: slab depth uncertainty
+    Slab2 is a three-dimensional compilation of global subduction geometries,
+    separated into regional models for each major subduction zone.
+    Each model is based on a probabilistic non-linear fit to data from a combined
+    catalog consisting of several independent data sets - historic earthquake
+    catalogs, CMT solutions, active seismic profiles, global plate boundaries,
+    bathymetry and sediment thickness information [BEDMAP2]_.
+
+    The available slab datasets are:
+    - ``depth``: depth
+    - ``dip``: dip
+    - ``strike``: strike
+    - ``thickness``: thickness
+    - ``depth_uncertainty``: depth uncertainty
 
     Parameters
     ----------
