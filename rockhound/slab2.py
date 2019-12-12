@@ -8,8 +8,8 @@ from .registry import REGISTRY
 
 DATASETS = {
     "depth": dict(name="Slab depth", units="meters"),
-    "dip": dict(name="Slab dip", units=""),
-    "strike": dict(name="Slab strike", unit="meters"),
+    "dip": dict(name="Slab dip", units="degree"),
+    "strike": dict(name="Slab strike", unit="degree"),
     "thickness": dict(name="Slab thickness", unit="meters"),
     "depth_uncertainty": dict(name="Slab depth uncertainty", unit="meters"),
 }
@@ -61,4 +61,7 @@ def fetch_slab2(zone, *, load=True, **kwargs):
     for array, dataset in zip(arrays, DATASETS):
         array.name = dataset
     ds = xr.merge(arrays)
+    ds["thickness"] *= 1000
+    ds["depth"] *= 1000
+    ds["depth_uncertainty"] *= 1000
     return ds
