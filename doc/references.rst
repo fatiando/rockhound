@@ -6,4 +6,4 @@ References
 .. [IRIS2011] IRIS DMC (2011), Data Services Products: EMC, A repository of Earth models, doi:10.17611/DP/EMC.1.
 .. [BEDMAP2] Fretwell, P. et al. (2013). Bedmap2: improved ice bed, surface and thickness datasets for Antarctica. The Cryosphere. doi:10.5194/tc-7-375-2013
 .. [Muller2008] Müller, R. D., Sdrolias, M., Gaina, C., & Roest, W. R. (2008). Age, spreading rates, and spreading asymmetry of the world’s ocean crust. Geochemistry, Geophysics, Geosystems, 9(4). doi:10.1029/2007GC001743
-.. [SLAB2] Hayes, G. P., Moore, G. L., Portner, D. E., Hearne, M., Flamme, H., Furtney, M., & Smoczyk, G. M. (2008). Slab2, a comprehensive subduction zone geometry model. Science, 362(6410), 58-61. doi:10.1126/science.aat4723
+.. [SLAB2] Hayes, G., 2018, Slab2 - A Comprehensive Subduction Zone Geometry Model: U.S. Geological Survey data release, https://doi.org/10.5066/F7PV6JNV.
