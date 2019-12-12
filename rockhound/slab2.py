@@ -9,12 +9,15 @@ from .registry import REGISTRY
 DATASETS = {
     "depth": dict(name="Slab depth", units="meters"),
     "dip": dict(name="Slab dip", units="degree"),
-    "strike": dict(name="Slab strike", unit="degree"),
-    "thickness": dict(name="Slab thickness", unit="meters"),
-    "depth_uncertainty": dict(name="Slab depth uncertainty", unit="meters"),
+    "strike": dict(name="Slab strike", units="degree"),
+    "thickness": dict(name="Slab thickness", units="meters"),
+    "depth_uncertainty": dict(name="Slab depth uncertainty", units="meters"),
 }
 
-ZONES = {"alaska": dict(fname_indicator="alu"), "calabria": dict(fname_indicator="cal")}
+ZONES = {
+    "alaska": dict(fname_indicator="alu", name="Alaska"),
+    "calabria": dict(fname_indicator="cal", name="Calabria"),
+}
 
 
 def fetch_slab2(zone, *, load=True, **kwargs):
@@ -57,11 +60,30 @@ def fetch_slab2(zone, *, load=True, **kwargs):
     ]
     if not load:
         return fnames
-    arrays = [xr.open_dataarray(f) for f in fnames]
+    arrays = [xr.open_dataarray(f).rename(x="longitude", y="latitude") for f in fnames]
     for array, dataset in zip(arrays, DATASETS):
         array.name = dataset
+        # Change long_name and add units of each array
+        array.attrs["long_name"] = DATASETS[dataset]["name"]
+        array.attrs["units"] = DATASETS[dataset]["units"]
+    # Merge arrays into a single xr.Dataset
     ds = xr.merge(arrays)
+    # Change units of thickness, depth and depth_uncertainty to meters
     ds["thickness"] *= 1000
     ds["depth"] *= 1000
     ds["depth_uncertainty"] *= 1000
+    # Change long_name and units of longitude and latitude coords
+    ds.longitude.attrs["long_name"] = "Longitude"
+    ds.longitude.attrs["units"] = "degrees"
+    ds.latitude.attrs["long_name"] = "Latitude"
+    ds.latitude.attrs["units"] = "degrees"
+    # Add attributes to the xr.Dataset
+    ds.attrs.update(
+        {
+            "title": "Slab2 model - Zone: {}".format(ZONES[zone]["name"]),
+            "zone": ZONES[zone]["name"],
+            "datum": "WGS84",
+            "doi": "10.5066/F7PV6JNV.",
+        }
+    )
     return ds
