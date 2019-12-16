@@ -74,9 +74,7 @@ def fetch_slab2(zone, *, load=True, **kwargs):
         The loaded grid or the file path to the downloaded data.
     """
     if zone not in ZONES:
-        raise ValueError(
-            "Invalid slab zone: {}".format(set(zone).difference(ZONES.keys()))
-        )
+        raise ValueError("Invalid slab zone: {}".format(zone))
     fnames = [
         REGISTRY.fetch(
             "{}_slab2_{}.grd".format(ZONES[zone]["fname_indicator"], dataset)
