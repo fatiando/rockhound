@@ -11,17 +11,22 @@ More information at the
 import rockhound as rh
 import matplotlib.pyplot as plt
 import cmocean
+import cartopy.crs as ccrs
 
 # Load a geometry of the Alaska subduction zone
-grid = rh.fetch_slab2(zone="alaska")
+grid = rh.fetch_slab2(zone="south_america")
 print(grid)
 
-# Plot the age grid.
-# We're not using a map projection to speed up the plotting but this NOT recommended.
-plt.figure(figsize=(9, 8))
-ax = plt.subplot(111)
-grid.depth.plot.pcolormesh(
-    cmap=cmocean.cm.thermal_r, cbar_kwargs=dict(pad=0.01, aspect=30), ax=ax
+# Plot the sibductin zones using cartopy
+plt.figure(figsize=(10, 5))
+ax = plt.axes(projection=ccrs.Robinson())
+pc = grid.depth.plot.pcolormesh(
+    cmap=cmocean.cm.thermal_r,
+    cbar_kwargs=dict(pad=0.01, aspect=30),
+    ax=ax,
+    transform=ccrs.PlateCarree(),
 )
-plt.tight_layout()
+# make the map global rather than have it zoom in to the extents of any plotted data
+ax.set_global()
+ax.coastlines()
 plt.show()
