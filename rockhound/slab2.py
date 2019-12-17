@@ -49,8 +49,9 @@ def fetch_slab2(zone, *, load=True, **kwargs):
     """
     Load the Slab2 model for a given subduction zone.
 
-    Slab2 is a three-dimensional compilation of global subduction geometries,
-    separated into regional models for each major subduction zone.
+    Slab2 is a three-dimensional compilation of global subduction geometries (depth,
+    dip, strike and thickness), separated into regional models for each major
+    subduction zone.
     Each model is based on a probabilistic non-linear fit to data from a combined
     catalog consisting of several independent data sets - historic earthquake
     catalogs, CMT solutions, active seismic profiles, global plate boundaries,
@@ -59,7 +60,35 @@ def fetch_slab2(zone, *, load=True, **kwargs):
     Parameters
     ----------
     zone : str
-        subduction zone to fech the model.
+        Subduction zone to fech the model.
+        Available zones:
+            - `alaska`: Alaska
+            - `calabria`: Calabria
+            - `caribbean`: Caribbean
+            - `cascadia`: Cascadia
+            - `central_america`: Central America
+            - `cotabalo`: Cotabalo
+            - `halmahera`: Halmahera
+            - `hellenic`: Hellenic Arc
+            - `himalaya`: Himalaya
+            - `hindu_kush`: Hindu Kush
+            - `izu_bonin`: Izu-Bonin
+            - `kamchatka`: Kamchatka-Kuril Islands-Japan
+            - `kermadec`: Kermadec
+            - `makran`: Makran
+            - `manila_trench`: Manila Trench
+            - `muertos_trough`: Muertos Trough
+            - `new_guinea`: New Guinea
+            - `pamir`: Pamir
+            - `philippines`: Philippines
+            - `puysegur`: Puysegur
+            - `ryukyu`: Ryukyu
+            - `scotia_sea`: Scotia Sea
+            - `solomon_islands`: Solomon Islands
+            - `south_america`: South America
+            - `sulawesi`: Sulawesi
+            - `sumatra_java`: Sumatra-Java
+            - `vanuatu`: Vanuatu
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data. If False, will return a list with the paths to the
