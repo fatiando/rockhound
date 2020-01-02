@@ -32,23 +32,23 @@ def test_slab2():
     Test if loaded files are correct
     """
     for zone in ZONES:
-        ds = fetch_slab2(zone)
-        assert ds.title == "Slab2 model - Zone: {}".format(ZONES[zone]["name"])
-        assert ds.datum == "WGS84"
-        assert ds.zone == ZONES[zone]["name"]
-        assert ds.doi == "10.5066/F7PV6JNV"
+        dataset = fetch_slab2(zone)
+        assert dataset.title == "Slab2 model - Zone: {}".format(ZONES[zone]["name"])
+        assert dataset.datum == "WGS84"
+        assert dataset.zone == ZONES[zone]["name"]
+        assert dataset.doi == "10.5066/F7PV6JNV"
         # Sanity checks for longitude and latitude
-        assert ds.longitude.long_name == "Longitude"
-        assert ds.longitude.units == "degrees"
-        assert ds.longitude.min() == ds.longitude.actual_range[0]
-        assert ds.longitude.max() == ds.longitude.actual_range[1]
-        assert ds.latitude.long_name == "Latitude"
-        assert ds.latitude.units == "degrees"
-        assert ds.latitude.min() == ds.latitude.actual_range[0]
-        assert ds.latitude.max() == ds.latitude.actual_range[1]
+        assert dataset.longitude.long_name == "Longitude"
+        assert dataset.longitude.units == "degrees"
+        assert dataset.longitude.min() == dataset.longitude.actual_range[0]
+        assert dataset.longitude.max() == dataset.longitude.actual_range[1]
+        assert dataset.latitude.long_name == "Latitude"
+        assert dataset.latitude.units == "degrees"
+        assert dataset.latitude.min() == dataset.latitude.actual_range[0]
+        assert dataset.latitude.max() == dataset.latitude.actual_range[1]
         # Sanity checks for data
-        for dataset in DATASETS:
-            assert ds[dataset].long_name == DATASETS[dataset]["name"]
-            assert ds[dataset].units == DATASETS[dataset]["units"]
-            assert ds[dataset].min() == ds[dataset].actual_range[0]
-            assert ds[dataset].max() == ds[dataset].actual_range[1]
+        for element in DATASETS:
+            assert dataset[element].long_name == DATASETS[element]["name"]
+            assert dataset[element].units == DATASETS[element]["units"]
+            assert dataset[element].min() == dataset[element].actual_range[0]
+            assert dataset[element].max() == dataset[element].actual_range[1]
