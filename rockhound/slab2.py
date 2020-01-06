@@ -133,7 +133,8 @@ def fetch_slab2(zone, *, load=True, **kwargs):
     ds.attrs.update(
         {
             "title": "Slab2 model - Zone: {}".format(ZONES[zone]["name"]),
-            "zone": ZONES[zone]["name"],
+            "zone": zone,
+            "zone_full_name": ZONES[zone]["name"],
             "datum": "WGS84",
             "doi": "10.5066/F7PV6JNV.",
         }
