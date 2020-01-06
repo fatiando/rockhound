@@ -139,4 +139,10 @@ def fetch_slab2(zone, *, load=True, **kwargs):
             "doi": "10.5066/F7PV6JNV",
         }
     )
+    # Change unit of  actual_range attribute
+    ds.depth.attrs["actual_range"] = ds.depth.attrs["actual_range"] * 1000
+    ds.thickness.attrs["actual_range"] = ds.thickness.attrs["actual_range"] * 1000
+    ds.depth_uncertainty.attrs["actual_range"] = (
+        ds.depth_uncertainty.attrs["actual_range"] * 1000
+    )
     return ds
