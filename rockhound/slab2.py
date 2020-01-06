@@ -136,7 +136,7 @@ def fetch_slab2(zone, *, load=True, **kwargs):
             "zone": zone,
             "zone_full_name": ZONES[zone]["name"],
             "datum": "WGS84",
-            "doi": "10.5066/F7PV6JNV.",
+            "doi": "10.5066/F7PV6JNV",
         }
     )
     return ds
