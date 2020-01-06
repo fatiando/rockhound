@@ -53,7 +53,7 @@ for zone in zones:
         cmap=cmocean.cm.thermal_r,
         ax=ax,
         transform=ccrs.PlateCarree(),
-        add_colorbar=False
+        add_colorbar=False,
     )
 # make the map global rather than have it zoom in to the extents of any plotted data
 ax.set_global()
