@@ -35,7 +35,8 @@ def test_slab2():
         dataset = fetch_slab2(zone)
         assert dataset.title == "Slab2 model - Zone: {}".format(ZONES[zone]["name"])
         assert dataset.datum == "WGS84"
-        assert dataset.zone == ZONES[zone]["name"]
+        assert dataset.zone == zone
+        assert dataset.zone_full_name == ZONES[zone]["name"]
         assert dataset.doi == "10.5066/F7PV6JNV"
         # Sanity checks for longitude and latitude
         assert dataset.longitude.long_name == "Longitude"
