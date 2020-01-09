@@ -3,6 +3,7 @@ Test the Slab2 loading function.
 """
 import os
 import pytest
+import numpy.testing as npt
 
 from .. import fetch_slab2
 from ..slab2 import ZONES, DATASETS
@@ -51,5 +52,9 @@ def test_slab2():
         for element in DATASETS:
             assert dataset[element].long_name == DATASETS[element]["name"]
             assert dataset[element].units == DATASETS[element]["units"]
-            assert dataset[element].min() == dataset[element].actual_range[0]
-            assert dataset[element].max() == dataset[element].actual_range[1]
+            npt.assert_allclose(
+                dataset[element].min(), dataset[element].actual_range[0]
+            )
+            npt.assert_allclose(
+                dataset[element].max(), dataset[element].actual_range[1]
+            )
