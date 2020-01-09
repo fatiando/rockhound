@@ -13,40 +13,12 @@ import matplotlib.pyplot as plt
 import cmocean
 import cartopy.crs as ccrs
 
+from rockhound.slab2 import ZONES
+
 plt.figure(figsize=(10, 5))
 ax = plt.axes(projection=ccrs.Robinson())
 
-zones = {
-    "alaska",
-    "calabria",
-    "caribbean",
-    "cascadia",
-    "central_america",
-    "cotabalo",
-    "halmahera",
-    "hellenic",
-    "himalaya",
-    "hindu_kush",
-    "izu_bonin",
-    "kamchatka",
-    "kermadec",
-    "makran",
-    "manila_trench",
-    "muertos_trough",
-    "new_guinea",
-    "pamir",
-    "philippines",
-    "puysegur",
-    "ryukyu",
-    "scotia_sea",
-    "solomon_islands",
-    "south_america",
-    "sulawesi",
-    "sumatra_java",
-    "vanuatu",
-}
-# Load a geometry of the Alaska subduction zone
-for zone in zones:
+for zone in ZONES:
     grid = rh.fetch_slab2(zone)
 
     pc = grid.depth.plot.pcolormesh(
@@ -54,8 +26,14 @@ for zone in zones:
         ax=ax,
         transform=ccrs.PlateCarree(),
         add_colorbar=False,
+        vmin=-701160.33935547,
+        vmax=-1399.69277382,
     )
-# make the map global rather than have it zoom in to the extents of any plotted data
+
+ax.set_title("Slab2 - A comprehensive subduction zone geometry model")
+cb = plt.colorbar(
+    pc, ax=ax, label="Depth (meters)", pad=0.05, aspect=40, orientation="horizontal"
+)
 ax.set_global()
 ax.coastlines()
 plt.show()
