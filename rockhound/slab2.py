@@ -1,7 +1,6 @@
 """
 Load the subduction geometry for a given zone.
 """
-import os
 import xarray as xr
 
 from .registry import REGISTRY
@@ -45,7 +44,7 @@ ZONES = {
 }
 
 
-def fetch_slab2(zone, *, load=True, **kwargs):
+def fetch_slab2(zone, *, load=True):
     """
     Load the Slab2 model for a given subduction zone.
 
@@ -119,18 +118,18 @@ def fetch_slab2(zone, *, load=True, **kwargs):
         array.attrs["long_name"] = DATASETS[dataset]["name"]
         array.attrs["units"] = DATASETS[dataset]["units"]
     # Merge arrays into a single xr.Dataset
-    ds = xr.merge(arrays)
+    grid = xr.merge(arrays)
     # Change units of thickness, depth and depth_uncertainty to meters
-    ds["thickness"] *= 1000
-    ds["depth"] *= 1000
-    ds["depth_uncertainty"] *= 1000
+    grid["thickness"] *= 1000
+    grid["depth"] *= 1000
+    grid["depth_uncertainty"] *= 1000
     # Change long_name and units of longitude and latitude coords
-    ds.longitude.attrs["long_name"] = "Longitude"
-    ds.longitude.attrs["units"] = "degrees"
-    ds.latitude.attrs["long_name"] = "Latitude"
-    ds.latitude.attrs["units"] = "degrees"
+    grid.longitude.attrs["long_name"] = "Longitude"
+    grid.longitude.attrs["units"] = "degrees"
+    grid.latitude.attrs["long_name"] = "Latitude"
+    grid.latitude.attrs["units"] = "degrees"
     # Add attributes to the xr.Dataset
-    ds.attrs.update(
+    grid.attrs.update(
         {
             "title": "Slab2 model - Zone: {}".format(ZONES[zone]["name"]),
             "zone": zone,
@@ -140,9 +139,9 @@ def fetch_slab2(zone, *, load=True, **kwargs):
         }
     )
     # Change unit of  actual_range attribute
-    ds.depth.attrs["actual_range"] = ds.depth.attrs["actual_range"] * 1000
-    ds.thickness.attrs["actual_range"] = ds.thickness.attrs["actual_range"] * 1000
-    ds.depth_uncertainty.attrs["actual_range"] = (
-        ds.depth_uncertainty.attrs["actual_range"] * 1000
+    grid.depth.attrs["actual_range"] = grid.depth.attrs["actual_range"] * 1000
+    grid.thickness.attrs["actual_range"] = grid.thickness.attrs["actual_range"] * 1000
+    grid.depth_uncertainty.attrs["actual_range"] = (
+        grid.depth_uncertainty.attrs["actual_range"] * 1000
     )
-    return ds
+    return grid
