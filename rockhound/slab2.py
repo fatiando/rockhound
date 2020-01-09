@@ -54,7 +54,7 @@ def fetch_slab2(zone, *, load=True):
     Each model is based on a probabilistic non-linear fit to data from a combined
     catalog consisting of several independent data sets - historic earthquake
     catalogs, CMT solutions, active seismic profiles, global plate boundaries,
-    bathymetry and sediment thickness information [BEDMAP2]_.
+    bathymetry and sediment thickness information [SLAB2]_.
 
     Parameters
     ----------
