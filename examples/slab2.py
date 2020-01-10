@@ -38,7 +38,7 @@ for grid in subduction_zones:
         vmax=vmax,
     )
 
-ax.set_title("Slab2 - A comprehensive subduction zone geometry model")
+ax.set_title("Slab2: Geometry model for subduction zones")
 cb = plt.colorbar(
     pc, ax=ax, label="Depth (meters)", pad=0.05, aspect=40, orientation="horizontal"
 )
