@@ -91,7 +91,7 @@ def fetch_slab2(zone, *, load=True):
         - ``vanuatu``: Vanuatu
 
     load : bool
-        Wether to load the data into an :class:`xarray.Dataset` or just return the
+        Whether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data. If False, will return a list with the paths to the
         subduction grids, respectively.
     kwargs
