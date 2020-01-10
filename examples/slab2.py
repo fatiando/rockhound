@@ -15,9 +15,6 @@ import cartopy.crs as ccrs
 
 from rockhound.slab2 import ZONES
 
-plt.figure(figsize=(10, 5))
-ax = plt.axes(projection=ccrs.Robinson())
-
 # Fetch all Slab2 subduction zones and add them inside a list
 subduction_zones = []
 for zone in ZONES:
@@ -28,6 +25,9 @@ vmax = max([grid.depth.actual_range[1] for grid in subduction_zones])
 vmin = min([grid.depth.actual_range[0] for grid in subduction_zones])
 
 # Plot the depth of each subducting plate inside Slab2 with the same colorscale
+plt.figure(figsize=(10, 5))
+ax = plt.axes(projection=ccrs.Robinson())
+
 for grid in subduction_zones:
     pc = grid.depth.plot.pcolormesh(
         cmap=cmocean.cm.thermal_r,
