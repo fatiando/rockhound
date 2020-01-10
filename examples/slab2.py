@@ -18,16 +18,24 @@ from rockhound.slab2 import ZONES
 plt.figure(figsize=(10, 5))
 ax = plt.axes(projection=ccrs.Robinson())
 
+# Fetch all Slab2 subduction zones and add them inside a list
+subduction_zones = []
 for zone in ZONES:
-    grid = rh.fetch_slab2(zone)
+    subduction_zones.append(rh.fetch_slab2(zone))
 
+# Get min and max values of the subducting plates' depths
+vmax = max([grid.depth.actual_range[1] for grid in subduction_zones])
+vmin = min([grid.depth.actual_range[0] for grid in subduction_zones])
+
+# Plot the depth of each subducting plate inside Slab2 with the same colorscale
+for grid in subduction_zones:
     pc = grid.depth.plot.pcolormesh(
         cmap=cmocean.cm.thermal_r,
         ax=ax,
         transform=ccrs.PlateCarree(),
         add_colorbar=False,
-        vmin=-701160.33935547,
-        vmax=-1399.69277382,
+        vmin=vmin,
+        vmax=vmax,
     )
 
 ax.set_title("Slab2 - A comprehensive subduction zone geometry model")
