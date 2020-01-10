@@ -70,7 +70,7 @@ def fetch_bedmap2(datasets, *, load=True, chunks=1000, **kwargs):
     datasets : list or str
         Names of the datasets that will be loaded from the Bedmap2 model.
     load : bool
-        Wether to load the data into an :class:`xarray.Dataset` or just return the
+        Whether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data tiff files. If False, will return a list with the
         paths to the files corresponding to *datasets*.
     chunks : int, tuple or dict

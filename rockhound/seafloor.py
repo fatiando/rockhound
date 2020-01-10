@@ -26,7 +26,7 @@ def fetch_seafloor_age(*, resolution="6min", load=True, **kwargs):
     resolution : str
         Which resolution grid to load. Must be ``"6min"`` or ``"2min"``.
     load : bool
-        Wether to load the data into an :class:`xarray.Dataset` or just return the
+        Whether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data. If False, will return a list with the paths to the
         age and age uncertainty grids, respectively.
     kwargs

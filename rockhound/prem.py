@@ -24,7 +24,7 @@ def fetch_prem(*, load=True):
     Parameters
     ----------
     load : bool
-        Wether to load the data into a :class:`pandas.DataFrame` or just return the
+        Whether to load the data into a :class:`pandas.DataFrame` or just return the
         path to the downloaded data.
 
     Returns
