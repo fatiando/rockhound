@@ -120,9 +120,10 @@ def fetch_slab2(zone, *, load=True):
     # Merge arrays into a single xr.Dataset
     grid = xr.merge(arrays)
     # Change units of thickness, depth and depth_uncertainty to meters
-    grid["thickness"] *= 1000
-    grid["depth"] *= 1000
-    grid["depth_uncertainty"] *= 1000
+    # Also change units of the actual_range attribute to meters
+    for field in ("thickness", "depth", "depth_uncertainty"):
+        grid[field] *= 1000
+        grid[field].attrs["actual_range"] *= 1000
     # Change long_name and units of longitude and latitude coords
     grid.longitude.attrs["long_name"] = "Longitude"
     grid.longitude.attrs["units"] = "degrees"
@@ -137,11 +138,5 @@ def fetch_slab2(zone, *, load=True):
             "datum": "WGS84",
             "doi": "10.5066/F7PV6JNV",
         }
-    )
-    # Change unit of  actual_range attribute
-    grid.depth.attrs["actual_range"] = grid.depth.attrs["actual_range"] * 1000
-    grid.thickness.attrs["actual_range"] = grid.thickness.attrs["actual_range"] * 1000
-    grid.depth_uncertainty.attrs["actual_range"] = (
-        grid.depth_uncertainty.attrs["actual_range"] * 1000
     )
     return grid
