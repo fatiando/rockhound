@@ -61,33 +61,35 @@ def fetch_slab2(zone, *, load=True):
     zone : str
         Subduction zone to fech the model.
         Available zones:
-            - `alaska`: Alaska
-            - `calabria`: Calabria
-            - `caribbean`: Caribbean
-            - `cascadia`: Cascadia
-            - `central_america`: Central America
-            - `cotabalo`: Cotabalo
-            - `halmahera`: Halmahera
-            - `hellenic`: Hellenic Arc
-            - `himalaya`: Himalaya
-            - `hindu_kush`: Hindu Kush
-            - `izu_bonin`: Izu-Bonin
-            - `kamchatka`: Kamchatka-Kuril Islands-Japan
-            - `kermadec`: Kermadec
-            - `makran`: Makran
-            - `manila_trench`: Manila Trench
-            - `muertos_trough`: Muertos Trough
-            - `new_guinea`: New Guinea
-            - `pamir`: Pamir
-            - `philippines`: Philippines
-            - `puysegur`: Puysegur
-            - `ryukyu`: Ryukyu
-            - `scotia_sea`: Scotia Sea
-            - `solomon_islands`: Solomon Islands
-            - `south_america`: South America
-            - `sulawesi`: Sulawesi
-            - `sumatra_java`: Sumatra-Java
-            - `vanuatu`: Vanuatu
+
+        - ``alaska``: Alaska
+        - ``calabria``: Calabria
+        - ``caribbean``: Caribbean
+        - ``cascadia``: Cascadia
+        - ``central_america``: Central America
+        - ``cotabalo``: Cotabalo
+        - ``halmahera``: Halmahera
+        - ``hellenic``: Hellenic Arc
+        - ``himalaya``: Himalaya
+        - ``hindu_kush``: Hindu Kush
+        - ``izu_bonin``: Izu-Bonin
+        - ``kamchatka``: Kamchatka-Kuril Islands-Japan
+        - ``kermadec``: Kermadec
+        - ``makran``: Makran
+        - ``manila_trench``: Manila Trench
+        - ``muertos_trough``: Muertos Trough
+        - ``new_guinea``: New Guinea
+        - ``pamir``: Pamir
+        - ``philippines``: Philippines
+        - ``puysegur``: Puysegur
+        - ``ryukyu``: Ryukyu
+        - ``scotia_sea``: Scotia Sea
+        - ``solomon_islands``: Solomon Islands
+        - ``south_america``: South America
+        - ``sulawesi``: Sulawesi
+        - ``sumatra_java``: Sumatra-Java
+        - ``vanuatu``: Vanuatu
+
     load : bool
         Wether to load the data into an :class:`xarray.Dataset` or just return the
         path to the downloaded data. If False, will return a list with the paths to the
