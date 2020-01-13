@@ -27,7 +27,6 @@ vmin = min([grid.depth.actual_range[0] for grid in subduction_zones])
 # Plot the depth of each subducting plate inside Slab2 with the same colorscale
 plt.figure(figsize=(10, 5))
 ax = plt.axes(projection=ccrs.Robinson())
-
 for grid in subduction_zones:
     pc = grid.depth.plot.pcolormesh(
         cmap=cmocean.cm.thermal_r,
@@ -37,10 +36,15 @@ for grid in subduction_zones:
         vmin=vmin,
         vmax=vmax,
     )
-
 ax.set_title("Slab2: Geometry model for subduction zones")
-cb = plt.colorbar(
-    pc, ax=ax, label="Depth (meters)", pad=0.05, aspect=40, orientation="horizontal"
+plt.colorbar(
+    pc,
+    ax=ax,
+    label="Depth (meters)",
+    pad=0.05,
+    aspect=40,
+    shrink=0.7,
+    orientation="horizontal",
 )
 ax.set_global()
 ax.coastlines()
