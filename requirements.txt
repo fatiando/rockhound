@@ -3,3 +3,4 @@ xarray
 pandas
 rasterio
 dask
+netcdf4
