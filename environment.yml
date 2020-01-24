@@ -10,6 +10,7 @@ dependencies:
     - pandas
     - rasterio
     - dask
+    - netcdf4
     # Development requirements
     - matplotlib
     - cmocean
