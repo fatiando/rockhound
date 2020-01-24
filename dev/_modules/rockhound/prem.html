@@ -210,19 +210,21 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">.registry</span> <span class="k">import</span> <span class="n">REGISTRY</span>
+<span class="kn">from</span> <span class="nn">.registry</span> <span class="kn">import</span> <span class="n">REGISTRY</span>
 
 
 <div class="viewcode-block" id="fetch_prem"><a class="viewcode-back" href="../../api/generated/rockhound.fetch_prem.html#rockhound.fetch_prem">[docs]</a><span class="k">def</span> <span class="nf">fetch_prem</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fetch the Preliminary Reference Earth Model (PREM).</span>
 
-<span class="sd">    The Preliminary reference Earth model [Dziewonsky1981]_ is a one-dimensional model</span>
-<span class="sd">    representing the average Earth properties as a function of planetary radius.</span>
-<span class="sd">    The model includes the depth, density, seismic velocities, attenuation (Q) and</span>
-<span class="sd">    anisotropic parameter (:math:`\eta`) on the boundaries of several Earth layers.</span>
-<span class="sd">    It&#39;s available through IRIS Data Services Products [IRIS2011]_ in a csv file</span>
-<span class="sd">    (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.</span>
+<span class="sd">    The Preliminary reference Earth model [Dziewonsky1981]_ is</span>
+<span class="sd">    a one-dimensional model representing the average Earth properties as</span>
+<span class="sd">    a function of planetary radius. The model includes the depth, density,</span>
+<span class="sd">    seismic velocities, attenuation (Q) and anisotropic parameter</span>
+<span class="sd">    (:math:`\eta`) on the boundaries of several Earth layers. It&#39;s available</span>
+<span class="sd">    through IRIS Data Services Products [IRIS2011]_ in a csv file</span>
+<span class="sd">    (comma-separated values). The data is loaded into :class:`pandas.DataFrame`</span>
+<span class="sd">    objects.</span>
 
 <span class="sd">    If the file isn&#39;t already in your data directory, it will be downloaded</span>
 <span class="sd">    automatically.</span>
@@ -230,8 +232,8 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    load : bool</span>
-<span class="sd">        Wether to load the data into a :class:`pandas.DataFrame` or just return the</span>
-<span class="sd">        path to the downloaded data.</span>
+<span class="sd">        Wether to load the data into a :class:`pandas.DataFrame` or just return</span>
+<span class="sd">        the path to the downloaded data.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -274,9 +276,9 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>

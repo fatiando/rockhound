@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Reference" href="../api/index.html" />
+    <link rel="next" title="Slab2 - A Comprehensive Subduction Zone Geometry Model" href="slab2.html" />
     <link rel="prev" title="PREM: Preliminary Reference Earth Model" href="prem.html" />
     <!-- Google Analytics tracking code -->
     <script>
@@ -116,6 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="etopo1.html">ETOPO1 Earth Relief</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prem.html">PREM: Preliminary Reference Earth Model</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Age of the Oceanic Lithosphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slab2.html">Slab2 - A Comprehensive Subduction Zone Geometry Model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
@@ -220,13 +221,14 @@
            <div itemprop="articleBody">
             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-gallery-seafloor-age-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-seafloor-age-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="age-of-the-oceanic-lithosphere">
 <span id="sphx-glr-gallery-seafloor-age-py"></span><h1>Age of the Oceanic Lithosphere<a class="headerlink" href="#age-of-the-oceanic-lithosphere" title="Permalink to this headline">¶</a></h1>
-<p>Global grids of the age of the oceanic lithosphere produced by <a class="reference internal" href="../references.html#muller2008" id="id1">[Muller2008]</a>.
-Available in 2 and 6 arc-minute resolutions and include grids of the age uncertainty.
+<p>Global grids of the age of the oceanic lithosphere produced by <a class="reference internal" href="../references.html#muller2008" id="id1"><span>[Muller2008]</span></a>.
+Available in 2 and 6 arc-minute resolutions and include grids of the age
+uncertainty.
 More information at the
 <a class="reference external" href="https://www.ngdc.noaa.gov/mgg/ocean_age/ocean_age_2008.html">NOAA NCEI</a> and
 <a class="reference external" href="http://www.earthbyte.org/age-spreading-rates-and-spreading-asymmetry-of-the-worlds-ocean-crust/">EarthByte</a>
@@ -236,8 +238,8 @@ websites.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
 Dimensions:      (latitude: 1801, longitude: 3601)
 Coordinates:
-  * longitude    (longitude) float32 -180.0 -179.9 -179.8 ... 179.8 179.9 180.0
   * latitude     (latitude) float32 -90.0 -89.9 -89.8 -89.7 ... 89.8 89.9 90.0
+  * longitude    (longitude) float32 -180.0 -179.9 -179.8 ... 179.8 179.9 180.0
 Data variables:
     age          (latitude, longitude) float32 nan nan nan ... 55.42 55.42 55.42
     uncertainty  (latitude, longitude) float32 nan nan nan ... 15.0 15.0 15.0
@@ -258,25 +260,28 @@ Attributes:
 <span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
 <span class="c1"># Plot the age grid.</span>
-<span class="c1"># We&#39;re not using a map projection to speed up the plotting but this NOT recommended.</span>
+<span class="c1"># We&#39;re not using a map projection to speed up the plotting but this NOT</span>
+<span class="c1"># recommended.</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">thermal_r</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">thermal_r</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Age of Oceanic Lithosphere&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="View documentation for matplotlib.axes.Axes.set_title"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span></a><span class="p">(</span><span class="s2">&quot;Age of Oceanic Lithosphere&quot;</span><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="View documentation for matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.415 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.669 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-seafloor-age-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/c7a28cba1a622cf6fb920aed3f868200/seafloor_age.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">seafloor_age.py</span></code></a></div>
-<div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/f56ebb1a416c0311896f27bb166a84f7/seafloor_age.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">seafloor_age.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../_downloads/beab3755eb75522c1eb402503dd37624/seafloor_age.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">seafloor_age.py</span></code></a></p>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/a2135be10f945c57ba867efb19e43873/seafloor_age.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">seafloor_age.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 
 
@@ -287,7 +292,7 @@ Attributes:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="slab2.html" class="btn btn-neutral float-right" title="Slab2 - A Comprehensive Subduction Zone Geometry Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="prem.html" class="btn btn-neutral float-left" title="PREM: Preliminary Reference Earth Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -299,9 +304,9 @@ Attributes:
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>

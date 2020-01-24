@@ -210,9 +210,9 @@
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">pooch</span> <span class="k">import</span> <span class="n">Unzip</span>
+<span class="kn">from</span> <span class="nn">pooch</span> <span class="kn">import</span> <span class="n">Unzip</span>
 
-<span class="kn">from</span> <span class="nn">.registry</span> <span class="k">import</span> <span class="n">REGISTRY</span>
+<span class="kn">from</span> <span class="nn">.registry</span> <span class="kn">import</span> <span class="n">REGISTRY</span>
 
 <span class="n">DATASETS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;bed&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bedrock Height&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">),</span>
@@ -230,52 +230,66 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="fetch_bedmap2"><a class="viewcode-back" href="../../api/generated/rockhound.fetch_bedmap2.html#rockhound.fetch_bedmap2">[docs]</a><span class="k">def</span> <span class="nf">fetch_bedmap2</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="fetch_bedmap2"><a class="viewcode-back" href="../../api/generated/rockhound.fetch_bedmap2.html#rockhound.fetch_bedmap2">[docs]</a><span class="k">def</span> <span class="nf">fetch_bedmap2</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fetch the Bedmap2 datasets for Antarctica.</span>
 
 <span class="sd">    Bedmap2 is a suite of gridded products describing surface elevation,</span>
-<span class="sd">    ice-thickness, the sea floor and subglacial bed elevation of the Antarctic south</span>
-<span class="sd">    of 60°S [BEDMAP2]_.</span>
+<span class="sd">    ice-thickness, the sea floor and subglacial bed elevation of the Antarctic</span>
+<span class="sd">    south of 60°S [BEDMAP2]_.</span>
 <span class="sd">    The datasets are downloaded as ``tiff`` files and loaded into a</span>
 <span class="sd">    :class:`xarray.Dataset` object.</span>
 
-<span class="sd">    Each dataset is projected in Antarctic Polar Stereographic projection, latitude of</span>
-<span class="sd">    true scale -71 degrees south, datum WGS84. All heights are in metres relative to</span>
-<span class="sd">    sea level as defined by the g104c geoid.</span>
+<span class="sd">    Each dataset is projected in Antarctic Polar Stereographic projection,</span>
+<span class="sd">    latitude of true scale -71 degrees south, datum WGS84. All heights are in</span>
+<span class="sd">    metres relative to sea level as defined by the g104c geoid.</span>
 
 <span class="sd">    The available datasets are:</span>
 
 <span class="sd">    - ``bed``: bedrock height</span>
 <span class="sd">    - ``surface``: ice surface height</span>
 <span class="sd">    - ``thickness``: ice thickness</span>
-<span class="sd">    - ``icemask_grounded_and_shelves``: mask showing the grounding line and the extent</span>
-<span class="sd">      of the floating ice shelves</span>
+<span class="sd">    - ``icemask_grounded_and_shelves``: mask showing the grounding line and the</span>
+<span class="sd">      extent of the floating ice shelves</span>
 <span class="sd">    - ``rockmask``: mask showing rock outcrops</span>
-<span class="sd">    - ``lakemask_vostok``: mask showing the extent of the lake cavity of Lake Vostok</span>
+<span class="sd">    - ``lakemask_vostok``: mask showing the extent of the lake cavity of Lake</span>
+<span class="sd">      Vostok</span>
 <span class="sd">    - ``grounded_bed_uncertainty``: ice bed uncertainty grid</span>
 <span class="sd">    - ``thickness_uncertainty_5km``: ice thickness uncertainty grid</span>
-<span class="sd">    - ``coverage``: binary grid showing the distribution of ice thickness data used</span>
-<span class="sd">      in the grid of ice thickness</span>
-<span class="sd">    - ``geoid``: values to convert from heights relative to WGS84 datum to heights</span>
-<span class="sd">      relative to EIGEN-GL04C geoid (to convert back to WGS84, add this grid)</span>
+<span class="sd">    - ``coverage``: binary grid showing the distribution of ice thickness data</span>
+<span class="sd">      used in the grid of ice thickness</span>
+<span class="sd">    - ``geoid``: values to convert from heights relative to WGS84 datum to</span>
+<span class="sd">      heights relative to EIGEN-GL04C geoid (to convert back to WGS84, add this</span>
+<span class="sd">      grid)</span>
 
 <span class="sd">    .. warning ::</span>
-<span class="sd">        Loading a great number of datasets may require a fair amount of memory that</span>
-<span class="sd">        could crash your system. We recommend loading only the needed datasets.</span>
+<span class="sd">        Loading datasets into memory may require a fair amount of memory.</span>
+<span class="sd">        In order to prevent this, the function loads the datasets as Dask</span>
+<span class="sd">        arrays if ``chunks`` is not ``None``.</span>
+<span class="sd">        Be careful when doing operations that loads the entire datasets into</span>
+<span class="sd">        memory, like plotting or performing some computations.</span>
 
 <span class="sd">    .. warning ::</span>
-<span class="sd">        Loading any dataset along with ``thickness_uncertainty_5km`` would modify the</span>
-<span class="sd">        shape of the ``grid`` because it&#39;s defined on a different set of points.</span>
+<span class="sd">        Loading any dataset along with ``thickness_uncertainty_5km`` would</span>
+<span class="sd">        modify the shape of the ``grid`` because it&#39;s defined on a different</span>
+<span class="sd">        set of points.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    datasets : list or str</span>
 <span class="sd">        Names of the datasets that will be loaded from the Bedmap2 model.</span>
 <span class="sd">    load : bool</span>
-<span class="sd">        Wether to load the data into an :class:`xarray.Dataset` or just return the</span>
-<span class="sd">        path to the downloaded data tiff files. If False, will return a list with the</span>
-<span class="sd">        paths to the files corresponding to *datasets*.</span>
+<span class="sd">        Wether to load the data into an :class:`xarray.Dataset` or just return</span>
+<span class="sd">        the path to the downloaded data tiff files. If False, will return</span>
+<span class="sd">        a list with the paths to the files corresponding to *datasets*.</span>
+<span class="sd">    chunks : int, tuple or dict</span>
+<span class="sd">        Chunk sizes along each dimension. This argument is passed to the</span>
+<span class="sd">        :func:`xarray.open_rasterio` function in order to obtain</span>
+<span class="sd">        `Dask arrays &lt;https://docs.dask.org/en/latest/array.html&gt;`_ inside the</span>
+<span class="sd">        returned :class:`xarray.Dataset`.</span>
+<span class="sd">        This helps to read the dataset without loading it entirely into memory.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Extra parameters passed to the :func:`xarray.open_rasterio` function.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -294,7 +308,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="n">get_fname</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">fnames</span><span class="p">)</span> <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">]</span>
     <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
-        <span class="n">array</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">get_fname</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">fnames</span><span class="p">))</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">get_fname</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">fnames</span><span class="p">),</span> <span class="n">chunks</span><span class="o">=</span><span class="n">chunks</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="c1"># Replace no data values with nans</span>
         <span class="n">array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">array</span> <span class="o">!=</span> <span class="n">array</span><span class="o">.</span><span class="n">nodatavals</span><span class="p">)</span>
         <span class="c1"># Remove &quot;band&quot; dimension and coordinate</span>
@@ -343,9 +357,9 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>

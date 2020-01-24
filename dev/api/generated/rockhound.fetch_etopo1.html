@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_prem.html">rockhound.fetch_prem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_bedmap2.html">rockhound.fetch_bedmap2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_seafloor_age.html">rockhound.fetch_seafloor_age</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_slab2.html">rockhound.fetch_slab2</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utilities">Utilities</a></li>
@@ -227,52 +228,40 @@
 <h1>rockhound.fetch_etopo1<a class="headerlink" href="#rockhound-fetch-etopo1" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="rockhound.fetch_etopo1">
-<code class="descclassname">rockhound.</code><code class="descname">fetch_etopo1</code><span class="sig-paren">(</span><em>version</em>, <em>*</em>, <em>load=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rockhound/etopo1.html#fetch_etopo1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rockhound.fetch_etopo1" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">rockhound.</code><code class="sig-name descname">fetch_etopo1</code><span class="sig-paren">(</span><em class="sig-param">version</em>, <em class="sig-param">*</em>, <em class="sig-param">load=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rockhound/etopo1.html#fetch_etopo1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rockhound.fetch_etopo1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch the ETOPO1 global relief model.</p>
-<p>ETOPO1 is a 1 arc-minute global relief model of Earth’s surface that integrates land
-topography and ocean bathymetry <a class="reference internal" href="../../references.html#amanteeakins2009" id="id1">[AmanteEakins2009]</a>. It’s available in two versions:
-“Ice Surface” (top of Antarctic and Greenland ice sheets) and “Bedrock” (base of the
-ice sheets). Each grid is in a separate gzipped netCDF file (grid-line registered
-version). The grids are loaded into <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> objects.</p>
-<p>The vertical datum is sea level and the horizontal reference is the WGS84 ellipsoid.</p>
+<p>ETOPO1 is a 1 arc-minute global relief model of Earth’s surface that
+integrates land topography and ocean bathymetry <a class="reference internal" href="../../references.html#amanteeakins2009" id="id1"><span>[AmanteEakins2009]</span></a>. It’s
+available in two versions: “Ice Surface” (top of Antarctic and Greenland
+ice sheets) and “Bedrock” (base of the ice sheets). Each grid is in
+a separate gzipped netCDF file (grid-line registered version). The grids
+are loaded into <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> objects.</p>
+<p>The vertical datum is sea level and the horizontal reference is the WGS84
+ellipsoid.</p>
 <p>If the files aren’t already in your data directory, they will be downloaded
 automatically (which may take a while). Each grid is approximately 380Mb.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>version</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
-<dd><p class="first last">Which version of the dataset to load. Can be <code class="docutils literal notranslate"><span class="pre">&quot;ice&quot;</span></code> for the ice surface
-version, <code class="docutils literal notranslate"><span class="pre">'bedrock'</span></code> for the bedrock version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Which version of the dataset to load. Can be <code class="docutils literal notranslate"><span class="pre">&quot;ice&quot;</span></code> for the ice
+surface version, <code class="docutils literal notranslate"><span class="pre">'bedrock'</span></code> for the bedrock version.</p></li>
+<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Wether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return
+the path to the downloaded data.</p></li>
+<li><p><strong>kwargs</strong> – Keyword arguments will be forwarded to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset" title="(in xarray v0.14.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code></a>
+function that loads the grid into memory.</p></li>
+</ul>
 </dd>
-<dt><strong>load</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
-<dd><p class="first last">Wether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return the
-path to the downloaded data.</p>
-</dd>
-<dt><strong>kwargs</strong></dt>
-<dd><p class="first last">Keyword arguments will be forwarded to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset" title="(in xarray v0.12.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code></a> function
-that loads the grid into memory.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>grid</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or str) – The loaded grid or the file path to the downloaded data.</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>grid</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or str</span></dt>
-<dd><p class="first last">The loaded grid or the file path to the downloaded data.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <div class="section" id="examples-using-rockhound-fetch-etopo1">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_etopo1</span></code><a class="headerlink" href="#examples-using-rockhound-fetch-etopo1" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="ETOPO1 is a 1 arc-minute global relief model of Earth&#x27;s surface that integrates land topography..."><div class="figure" id="id2">
+<div class="sphx-glr-thumbcontainer" tooltip="ETOPO1 is a 1 arc-minute global relief model of Earth&#x27;s surface that integrates land topography..."><div class="figure align-default" id="id2">
 <img alt="../../_images/sphx_glr_etopo1_thumb.png" src="../../_images/sphx_glr_etopo1_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/etopo1.html#sphx-glr-gallery-etopo1-py"><span class="std std-ref">ETOPO1 Earth Relief</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/etopo1.html#sphx-glr-gallery-etopo1-py"><span class="std std-ref">ETOPO1 Earth Relief</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>
@@ -297,9 +286,9 @@ that loads the grid into memory.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>

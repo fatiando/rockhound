@@ -121,6 +121,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_bedmap2.html">rockhound.fetch_bedmap2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_seafloor_age.html">rockhound.fetch_seafloor_age</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_slab2.html">rockhound.fetch_slab2</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#utilities">Utilities</a></li>
@@ -227,51 +228,42 @@
 <h1>rockhound.fetch_prem<a class="headerlink" href="#rockhound-fetch-prem" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="rockhound.fetch_prem">
-<code class="descclassname">rockhound.</code><code class="descname">fetch_prem</code><span class="sig-paren">(</span><em>*</em>, <em>load=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rockhound/prem.html#fetch_prem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rockhound.fetch_prem" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">rockhound.</code><code class="sig-name descname">fetch_prem</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">load=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rockhound/prem.html#fetch_prem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rockhound.fetch_prem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch the Preliminary Reference Earth Model (PREM).</p>
-<p>The Preliminary reference Earth model <a class="reference internal" href="../../references.html#dziewonsky1981" id="id1">[Dziewonsky1981]</a> is a one-dimensional model
-representing the average Earth properties as a function of planetary radius.
-The model includes the depth, density, seismic velocities, attenuation (Q) and
-anisotropic parameter (<span class="math notranslate nohighlight">\(\eta\)</span>) on the boundaries of several Earth layers.
-It’s available through IRIS Data Services Products <a class="reference internal" href="../../references.html#iris2011" id="id2">[IRIS2011]</a> in a csv file
-(comma-separated values). The data is loaded into <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> objects.</p>
+<p>The Preliminary reference Earth model <a class="reference internal" href="../../references.html#dziewonsky1981" id="id1"><span>[Dziewonsky1981]</span></a> is
+a one-dimensional model representing the average Earth properties as
+a function of planetary radius. The model includes the depth, density,
+seismic velocities, attenuation (Q) and anisotropic parameter
+(<span class="math notranslate nohighlight">\(\eta\)</span>) on the boundaries of several Earth layers. It’s available
+through IRIS Data Services Products <a class="reference internal" href="../../references.html#iris2011" id="id2"><span>[IRIS2011]</span></a> in a csv file
+(comma-separated values). The data is loaded into <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.25.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>
+objects.</p>
 <p>If the file isn’t already in your data directory, it will be downloaded
 automatically.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>load</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
-<dd><p class="first last">Wether to load the data into a <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or just return the
-path to the downloaded data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Wether to load the data into a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.25.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or just return
+the path to the downloaded data.</p>
 </dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>prem</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or str</span></dt>
-<dd><p class="first">The loaded data or the file path to the downloaded data.
-The <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.24.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> contains the following data:</p>
-<ul class="last simple">
-<li><code class="docutils literal notranslate"><span class="pre">radius</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code> in km.</li>
-<li><code class="docutils literal notranslate"><span class="pre">density</span></code> in g/cm³.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Vpv</span></code>, <code class="docutils literal notranslate"><span class="pre">Vph</span></code>, <code class="docutils literal notranslate"><span class="pre">Vsv</span></code> and <code class="docutils literal notranslate"><span class="pre">Vsh</span></code> in km/s.</li>
-<li><code class="docutils literal notranslate"><span class="pre">eta</span></code>, <code class="docutils literal notranslate"><span class="pre">Q_mu</span></code> and <code class="docutils literal notranslate"><span class="pre">Q_kappa</span></code> (dimensionless).</li>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>prem</strong> (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.25.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or str) – The loaded data or the file path to the downloaded data.
+The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v0.25.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> contains the following data:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code> in km.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">density</span></code> in g/cm³.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Vpv</span></code>, <code class="docutils literal notranslate"><span class="pre">Vph</span></code>, <code class="docutils literal notranslate"><span class="pre">Vsv</span></code> and <code class="docutils literal notranslate"><span class="pre">Vsh</span></code> in km/s.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eta</span></code>, <code class="docutils literal notranslate"><span class="pre">Q_mu</span></code> and <code class="docutils literal notranslate"><span class="pre">Q_kappa</span></code> (dimensionless).</p></li>
 </ul>
+</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <div class="section" id="examples-using-rockhound-fetch-prem">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_prem</span></code><a class="headerlink" href="#examples-using-rockhound-fetch-prem" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="The Preliminary reference Earth model (PREM) [Dziewonsky1981]_ is a one-dimensional model repre..."><div class="figure" id="id3">
+<div class="sphx-glr-thumbcontainer" tooltip="The Preliminary reference Earth model (PREM) [Dziewonsky1981]_ is a one-dimensional model repre..."><div class="figure align-default" id="id3">
 <img alt="../../_images/sphx_glr_prem_thumb.png" src="../../_images/sphx_glr_prem_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/prem.html#sphx-glr-gallery-prem-py"><span class="std std-ref">PREM: Preliminary Reference Earth Model</span></a></span></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/prem.html#sphx-glr-gallery-prem-py"><span class="std std-ref">PREM: Preliminary Reference Earth Model</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div><div style='clear:both'></div></div>
 </div>
@@ -296,9 +288,9 @@ The <a class="reference external" href="http://pandas.pydata.org/pandas-docs/sta
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>

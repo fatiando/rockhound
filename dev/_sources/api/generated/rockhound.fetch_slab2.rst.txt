@@ -1,0 +1,12 @@
+rockhound.fetch\_slab2
+======================
+
+.. currentmodule:: rockhound
+
+.. autofunction:: fetch_slab2
+
+.. include:: backreferences/rockhound.fetch_slab2.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>

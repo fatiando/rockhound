@@ -116,6 +116,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ETOPO1 Earth Relief</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prem.html">PREM: Preliminary Reference Earth Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seafloor_age.html">Age of the Oceanic Lithosphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slab2.html">Slab2 - A Comprehensive Subduction Zone Geometry Model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
@@ -220,16 +221,16 @@
            <div itemprop="articleBody">
             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-gallery-etopo1-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-etopo1-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="etopo1-earth-relief">
 <span id="sphx-glr-gallery-etopo1-py"></span><h1>ETOPO1 Earth Relief<a class="headerlink" href="#etopo1-earth-relief" title="Permalink to this headline">¶</a></h1>
-<p>ETOPO1 is a 1 arc-minute global relief model of Earth’s surface that integrates land
-topography and ocean bathymetry <a class="reference internal" href="../references.html#amanteeakins2009" id="id1">[AmanteEakins2009]</a>. It’s available in two versions:
-“Ice Surface” (top of Antarctic and Greenland ice sheets) and “Bedrock” (base of the ice
-sheets). The grids are loaded into <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> which can be used to plot
-and make computations.</p>
+<p>ETOPO1 is a 1 arc-minute global relief model of Earth’s surface that integrates
+land topography and ocean bathymetry <a class="reference internal" href="../references.html#amanteeakins2009" id="id1"><span>[AmanteEakins2009]</span></a>. It’s available in two
+versions: “Ice Surface” (top of Antarctic and Greenland ice sheets) and
+“Bedrock” (base of the ice sheets). The grids are loaded into
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> which can be used to plot and make computations.</p>
 <img alt="../_images/sphx_glr_etopo1_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_etopo1_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
@@ -258,30 +259,33 @@ Attributes:
 <span class="n">grid</span> <span class="o">=</span> <a href="../api/generated/rockhound.fetch_etopo1.html#rockhound.fetch_etopo1" title="View documentation for rockhound.fetch_etopo1"><span class="n">rh</span><span class="o">.</span><span class="n">fetch_etopo1</span></a><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;bedrock&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
-<span class="c1"># Select a subset that corresponds to Africa to make plotting faster given the size of</span>
-<span class="c1"># the grid.</span>
+<span class="c1"># Select a subset that corresponds to Africa to make plotting faster given the</span>
+<span class="c1"># size of the grid.</span>
 <span class="n">africa</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">latitude</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">longitude</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
 
 <span class="c1"># Plot the age grid.</span>
-<span class="c1"># We&#39;re not using a map projection to speed up the plotting but this NOT recommended.</span>
+<span class="c1"># We&#39;re not using a map projection to speed up the plotting but this NOT</span>
+<span class="c1"># recommended.</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 <span class="n">africa</span><span class="o">.</span><span class="n">bedrock</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">topo</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">topo</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ETOPO1&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="View documentation for matplotlib.axes.Axes.set_title"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span></a><span class="p">(</span><span class="s2">&quot;ETOPO1&quot;</span><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="View documentation for matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.798 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  10.631 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-etopo1-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/c473b6f2bca40c37b6035a3aa5cd1ff0/etopo1.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">etopo1.py</span></code></a></div>
-<div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/057d6ed6603d9c33accc94f97b7880e1/etopo1.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">etopo1.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../_downloads/9701a5bec6646e645c2649d91ea8a7fd/etopo1.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">etopo1.py</span></code></a></p>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/7ac49269093cb5091bb7182dd23c2412/etopo1.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">etopo1.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 
 
@@ -304,9 +308,9 @@ Attributes:
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>

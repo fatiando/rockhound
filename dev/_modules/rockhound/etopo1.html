@@ -208,22 +208,24 @@
 <span class="sd">Load the ETOPO1 Earth Relief dataset.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">from</span> <span class="nn">pooch</span> <span class="k">import</span> <span class="n">Decompress</span>
+<span class="kn">from</span> <span class="nn">pooch</span> <span class="kn">import</span> <span class="n">Decompress</span>
 
-<span class="kn">from</span> <span class="nn">.registry</span> <span class="k">import</span> <span class="n">REGISTRY</span>
+<span class="kn">from</span> <span class="nn">.registry</span> <span class="kn">import</span> <span class="n">REGISTRY</span>
 
 
 <div class="viewcode-block" id="fetch_etopo1"><a class="viewcode-back" href="../../api/generated/rockhound.fetch_etopo1.html#rockhound.fetch_etopo1">[docs]</a><span class="k">def</span> <span class="nf">fetch_etopo1</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fetch the ETOPO1 global relief model.</span>
 
-<span class="sd">    ETOPO1 is a 1 arc-minute global relief model of Earth&#39;s surface that integrates land</span>
-<span class="sd">    topography and ocean bathymetry [AmanteEakins2009]_. It&#39;s available in two versions:</span>
-<span class="sd">    &quot;Ice Surface&quot; (top of Antarctic and Greenland ice sheets) and &quot;Bedrock&quot; (base of the</span>
-<span class="sd">    ice sheets). Each grid is in a separate gzipped netCDF file (grid-line registered</span>
-<span class="sd">    version). The grids are loaded into :class:`xarray.Dataset` objects.</span>
+<span class="sd">    ETOPO1 is a 1 arc-minute global relief model of Earth&#39;s surface that</span>
+<span class="sd">    integrates land topography and ocean bathymetry [AmanteEakins2009]_. It&#39;s</span>
+<span class="sd">    available in two versions: &quot;Ice Surface&quot; (top of Antarctic and Greenland</span>
+<span class="sd">    ice sheets) and &quot;Bedrock&quot; (base of the ice sheets). Each grid is in</span>
+<span class="sd">    a separate gzipped netCDF file (grid-line registered version). The grids</span>
+<span class="sd">    are loaded into :class:`xarray.Dataset` objects.</span>
 
-<span class="sd">    The vertical datum is sea level and the horizontal reference is the WGS84 ellipsoid.</span>
+<span class="sd">    The vertical datum is sea level and the horizontal reference is the WGS84</span>
+<span class="sd">    ellipsoid.</span>
 
 <span class="sd">    If the files aren&#39;t already in your data directory, they will be downloaded</span>
 <span class="sd">    automatically (which may take a while). Each grid is approximately 380Mb.</span>
@@ -231,14 +233,14 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    version : str</span>
-<span class="sd">        Which version of the dataset to load. Can be ``&quot;ice&quot;`` for the ice surface</span>
-<span class="sd">        version, ``&#39;bedrock&#39;`` for the bedrock version.</span>
+<span class="sd">        Which version of the dataset to load. Can be ``&quot;ice&quot;`` for the ice</span>
+<span class="sd">        surface version, ``&#39;bedrock&#39;`` for the bedrock version.</span>
 <span class="sd">    load : bool</span>
-<span class="sd">        Wether to load the data into an :class:`xarray.Dataset` or just return the</span>
-<span class="sd">        path to the downloaded data.</span>
+<span class="sd">        Wether to load the data into an :class:`xarray.Dataset` or just return</span>
+<span class="sd">        the path to the downloaded data.</span>
 <span class="sd">    kwargs</span>
-<span class="sd">        Keyword arguments will be forwarded to the :func:`xarray.open_dataset` function</span>
-<span class="sd">        that loads the grid into memory.</span>
+<span class="sd">        Keyword arguments will be forwarded to the :func:`xarray.open_dataset`</span>
+<span class="sd">        function that loads the grid into memory.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -279,9 +281,9 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>

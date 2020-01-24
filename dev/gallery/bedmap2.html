@@ -116,6 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="etopo1.html">ETOPO1 Earth Relief</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prem.html">PREM: Preliminary Reference Earth Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seafloor_age.html">Age of the Oceanic Lithosphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slab2.html">Slab2 - A Comprehensive Subduction Zone Geometry Model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
@@ -220,17 +221,18 @@
            <div itemprop="articleBody">
             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-gallery-bedmap2-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-gallery-bedmap2-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="bedmap2">
 <span id="sphx-glr-gallery-bedmap2-py"></span><h1>Bedmap2<a class="headerlink" href="#bedmap2" title="Permalink to this headline">¶</a></h1>
-<p>Bedmap2 is a suite of gridded products describing surface elevation, ice-thickness, the
-sea floor and subglacial bed elevation of the Antarctic south of 60°S <a class="reference internal" href="../references.html#bedmap2" id="id1">[BEDMAP2]</a>.
-Each dataset is projected in Antarctic Polar Stereographic projection, latitude of true
-scale -71 degrees south, datum WGS84. All heights are in metres relative to sea level as
-defined by the g104c geoid. The datasets are downloaded as <code class="docutils literal notranslate"><span class="pre">tiff</span></code> files and loaded
-into a <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.12.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> object.</p>
+<p>Bedmap2 is a suite of gridded products describing surface elevation,
+ice-thickness, the sea floor and subglacial bed elevation of the Antarctic
+south of 60°S <a class="reference internal" href="../references.html#bedmap2" id="id1"><span>[BEDMAP2]</span></a>. Each dataset is projected in Antarctic Polar
+Stereographic projection, latitude of true scale -71 degrees south, datum
+WGS84. All heights are in metres relative to sea level as defined by the g104c
+geoid. The datasets are downloaded as <code class="docutils literal notranslate"><span class="pre">tiff</span></code> files and loaded into
+a <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> object.</p>
 <img alt="../_images/sphx_glr_bedmap2_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_bedmap2_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
@@ -239,7 +241,7 @@ Coordinates:
   * y          (y) float64 3.333e+06 3.332e+06 ... -3.332e+06 -3.333e+06
   * x          (x) float64 -3.333e+06 -3.332e+06 ... 3.332e+06 3.333e+06
 Data variables:
-    thickness  (y, x) float64 nan nan nan nan nan nan ... nan nan nan nan nan
+    thickness  (y, x) float64 dask.array&lt;chunksize=(1000, 1000), meta=np.ndarray&gt;
 Attributes:
     title:                Bedmap2
     projection:           Antarctic Polar Stereographic
@@ -261,23 +263,25 @@ Attributes:
 <span class="nb">print</span><span class="p">(</span><span class="n">bedmap</span><span class="p">)</span>
 
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="View documentation for matplotlib.pyplot.figure"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">pc</span> <span class="o">=</span> <span class="n">bedmap</span><span class="o">.</span><span class="n">thickness</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
-    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ice</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="View documentation for matplotlib.pyplot.subplot"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/collections_api.html#matplotlib.collections.QuadMesh" title="View documentation for matplotlib.collections.QuadMesh"><span class="n">pc</span></a> <span class="o">=</span> <span class="n">bedmap</span><span class="o">.</span><span class="n">thickness</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.SubplotBase.html#matplotlib.axes.SubplotBase" title="View documentation for matplotlib.axes.SubplotBase"><span class="n">ax</span></a><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ice</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Bedmap2 Antarctica Ice Thickness&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="View documentation for matplotlib.axes.Axes.set_title"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span></a><span class="p">(</span><span class="s2">&quot;Bedmap2 Antarctica Ice Thickness&quot;</span><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="View documentation for matplotlib.pyplot.tight_layout"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  25.111 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.898 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-gallery-bedmap2-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/f93fc7678146c09bf911fcfe860a9802/bedmap2.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">bedmap2.py</span></code></a></div>
-<div class="sphx-glr-download docutils container">
-<a class="reference download internal" download="" href="../_downloads/04d4fb5da89995128fc5f1f0cab235f2/bedmap2.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">bedmap2.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../_downloads/03e59d92e99e0a9ac5f2798bce54ce70/bedmap2.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">bedmap2.py</span></code></a></p>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/0c1603659180ed10d5830259b9632629/bedmap2.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">bedmap2.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 
 
@@ -300,9 +304,9 @@ Attributes:
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018-2019, The RockHound Developers
+        &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on May 21, 2019.
+        Last updated on Jan 24, 2020.
       </span>
 
     </p>
