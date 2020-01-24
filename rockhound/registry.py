@@ -16,11 +16,12 @@ def data_location():
     r"""
     The absolute path to the data storage location on disk.
 
-    This is where the data sets are saved on your computer. The data location is
-    dependent on the operating system. The folder locations are defined by the
-    ``appdirs``  package (see the
+    This is where the data sets are saved on your computer. The data location
+    is dependent on the operating system. The folder locations are defined by
+    the ``appdirs``  package (see the
     `appdirs documentation <https://github.com/ActiveState/appdirs>`__).
-    It can also be overwritten by the ``ROCKHOUND_DATA_DIR`` environment variable.
+    It can also be overwritten by the ``ROCKHOUND_DATA_DIR`` environment
+    variable.
 
     Returns
     -------

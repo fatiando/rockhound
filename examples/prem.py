@@ -2,11 +2,13 @@ r"""
 PREM: Preliminary Reference Earth Model
 =======================================
 
-The Preliminary reference Earth model (PREM) [Dziewonsky1981]_ is a one-dimensional
-model representing the average Earth properties as a function of planetary radius.  The
-model includes the depth, density, seismic velocities, attenuation (Q) and anisotropic
-parameter (:math:`\eta`) on the boundaries of several Earth layers.  The data is loaded
-into :class:`pandas.DataFrame` objects, which can be used to plot and make computations.
+The Preliminary reference Earth model (PREM) [Dziewonsky1981]_ is
+a one-dimensional model representing the average Earth properties as a function
+of planetary radius.  The model includes the depth, density, seismic
+velocities, attenuation (Q) and anisotropic parameter (:math:`\eta`) on the
+boundaries of several Earth layers. The data is loaded into
+:class:`pandas.DataFrame` objects, which can be used to plot and make
+computations.
 """
 import rockhound as rh
 import matplotlib.pyplot as plt
