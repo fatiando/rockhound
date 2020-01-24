@@ -11,13 +11,15 @@ def fetch_etopo1(version, *, load=True, **kwargs):
     """
     Fetch the ETOPO1 global relief model.
 
-    ETOPO1 is a 1 arc-minute global relief model of Earth's surface that integrates land
-    topography and ocean bathymetry [AmanteEakins2009]_. It's available in two versions:
-    "Ice Surface" (top of Antarctic and Greenland ice sheets) and "Bedrock" (base of the
-    ice sheets). Each grid is in a separate gzipped netCDF file (grid-line registered
-    version). The grids are loaded into :class:`xarray.Dataset` objects.
+    ETOPO1 is a 1 arc-minute global relief model of Earth's surface that
+    integrates land topography and ocean bathymetry [AmanteEakins2009]_. It's
+    available in two versions: "Ice Surface" (top of Antarctic and Greenland
+    ice sheets) and "Bedrock" (base of the ice sheets). Each grid is in
+    a separate gzipped netCDF file (grid-line registered version). The grids
+    are loaded into :class:`xarray.Dataset` objects.
 
-    The vertical datum is sea level and the horizontal reference is the WGS84 ellipsoid.
+    The vertical datum is sea level and the horizontal reference is the WGS84
+    ellipsoid.
 
     If the files aren't already in your data directory, they will be downloaded
     automatically (which may take a while). Each grid is approximately 380Mb.
@@ -25,14 +27,14 @@ def fetch_etopo1(version, *, load=True, **kwargs):
     Parameters
     ----------
     version : str
-        Which version of the dataset to load. Can be ``"ice"`` for the ice surface
-        version, ``'bedrock'`` for the bedrock version.
+        Which version of the dataset to load. Can be ``"ice"`` for the ice
+        surface version, ``'bedrock'`` for the bedrock version.
     load : bool
-        Whether to load the data into an :class:`xarray.Dataset` or just return the
-        path to the downloaded data.
+        Whether to load the data into an :class:`xarray.Dataset` or just return
+        the path to the downloaded data.
     kwargs
-        Keyword arguments will be forwarded to the :func:`xarray.open_dataset` function
-        that loads the grid into memory.
+        Keyword arguments will be forwarded to the :func:`xarray.open_dataset`
+        function that loads the grid into memory.
 
     Returns
     -------
