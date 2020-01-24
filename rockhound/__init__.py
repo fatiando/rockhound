@@ -6,7 +6,7 @@ from .etopo1 import fetch_etopo1
 from .prem import fetch_prem
 from .bedmap2 import fetch_bedmap2
 from .seafloor import fetch_seafloor_age
-
+from .slab2 import fetch_slab2
 
 # Get the version number through versioneer
 __version__ = version.full_version
