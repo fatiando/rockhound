@@ -48,13 +48,13 @@ def fetch_slab2(zone, *, load=True):
     """
     Load the Slab2 model for a given subduction zone.
 
-    Slab2 is a three-dimensional compilation of global subduction geometries (depth,
-    dip, strike and thickness), separated into regional models for each major
-    subduction zone.
-    Each model is based on a probabilistic non-linear fit to data from a combined
-    catalog consisting of several independent data sets - historic earthquake
-    catalogs, CMT solutions, active seismic profiles, global plate boundaries,
-    bathymetry and sediment thickness information [SLAB2]_.
+    Slab2 is a three-dimensional compilation of global subduction geometries
+    (depth, dip, strike and thickness), separated into regional models for each
+    major subduction zone.
+    Each model is based on a probabilistic non-linear fit to data from
+    a combined catalog consisting of several independent data sets - historic
+    earthquake catalogs, CMT solutions, active seismic profiles, global plate
+    boundaries, bathymetry and sediment thickness information [SLAB2]_.
 
     Parameters
     ----------
@@ -91,12 +91,12 @@ def fetch_slab2(zone, *, load=True):
         - ``vanuatu``: Vanuatu
 
     load : bool
-        Whether to load the data into an :class:`xarray.Dataset` or just return the
-        path to the downloaded data. If False, will return a list with the paths to the
-        subduction grids, respectively.
+        Whether to load the data into an :class:`xarray.Dataset` or just return
+        the path to the downloaded data. If False, will return a list with the
+        paths to the subduction grids, respectively.
     kwargs
-        Keyword arguments will be forwarded to the :func:`xarray.open_dataset` function
-        that loads the grid into memory.
+        Keyword arguments will be forwarded to the :func:`xarray.open_dataset`
+        function that loads the grid into memory.
 
     Returns
     -------

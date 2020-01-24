@@ -29,50 +29,53 @@ def fetch_bedmap2(datasets, *, load=True, chunks=1000, **kwargs):
     Fetch the Bedmap2 datasets for Antarctica.
 
     Bedmap2 is a suite of gridded products describing surface elevation,
-    ice-thickness, the sea floor and subglacial bed elevation of the Antarctic south
-    of 60°S [BEDMAP2]_.
+    ice-thickness, the sea floor and subglacial bed elevation of the Antarctic
+    south of 60°S [BEDMAP2]_.
     The datasets are downloaded as ``tiff`` files and loaded into a
     :class:`xarray.Dataset` object.
 
-    Each dataset is projected in Antarctic Polar Stereographic projection, latitude of
-    true scale -71 degrees south, datum WGS84. All heights are in metres relative to
-    sea level as defined by the g104c geoid.
+    Each dataset is projected in Antarctic Polar Stereographic projection,
+    latitude of true scale -71 degrees south, datum WGS84. All heights are in
+    metres relative to sea level as defined by the g104c geoid.
 
     The available datasets are:
 
     - ``bed``: bedrock height
     - ``surface``: ice surface height
     - ``thickness``: ice thickness
-    - ``icemask_grounded_and_shelves``: mask showing the grounding line and the extent
-      of the floating ice shelves
+    - ``icemask_grounded_and_shelves``: mask showing the grounding line and the
+      extent of the floating ice shelves
     - ``rockmask``: mask showing rock outcrops
-    - ``lakemask_vostok``: mask showing the extent of the lake cavity of Lake Vostok
+    - ``lakemask_vostok``: mask showing the extent of the lake cavity of Lake
+      Vostok
     - ``grounded_bed_uncertainty``: ice bed uncertainty grid
     - ``thickness_uncertainty_5km``: ice thickness uncertainty grid
-    - ``coverage``: binary grid showing the distribution of ice thickness data used
-      in the grid of ice thickness
-    - ``geoid``: values to convert from heights relative to WGS84 datum to heights
-      relative to EIGEN-GL04C geoid (to convert back to WGS84, add this grid)
+    - ``coverage``: binary grid showing the distribution of ice thickness data
+      used in the grid of ice thickness
+    - ``geoid``: values to convert from heights relative to WGS84 datum to
+      heights relative to EIGEN-GL04C geoid (to convert back to WGS84, add this
+      grid)
 
     .. warning ::
         Loading datasets into memory may require a fair amount of memory.
-        In order to prevent this, the function loads the datasets as Dask arrays if
-        ``chunks`` is not ``None``.
-        Be careful when doing operations that loads the entire datasets into memory,
-        like plotting or performing some computations.
+        In order to prevent this, the function loads the datasets as Dask
+        arrays if ``chunks`` is not ``None``.
+        Be careful when doing operations that loads the entire datasets into
+        memory, like plotting or performing some computations.
 
     .. warning ::
-        Loading any dataset along with ``thickness_uncertainty_5km`` would modify the
-        shape of the ``grid`` because it's defined on a different set of points.
+        Loading any dataset along with ``thickness_uncertainty_5km`` would
+        modify the shape of the ``grid`` because it's defined on a different
+        set of points.
 
     Parameters
     ----------
     datasets : list or str
         Names of the datasets that will be loaded from the Bedmap2 model.
     load : bool
-        Wether to load the data into an :class:`xarray.Dataset` or just return the
-        path to the downloaded data tiff files. If False, will return a list with the
-        paths to the files corresponding to *datasets*.
+        Wether to load the data into an :class:`xarray.Dataset` or just return
+        the path to the downloaded data tiff files. If False, will return
+        a list with the paths to the files corresponding to *datasets*.
     chunks : int, tuple or dict
         Chunk sizes along each dimension. This argument is passed to the
         :func:`xarray.open_rasterio` function in order to obtain
