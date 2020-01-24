@@ -30,7 +30,6 @@ def fetch_seafloor_age(*, resolution="6min", load=True, **kwargs):
         Whether to load the data into an :class:`xarray.Dataset` or just return
         the path to the downloaded data. If False, will return a list with the
         paths to the age and age uncertainty grids, respectively.
-
     kwargs
         Keyword arguments will be forwarded to the :func:`xarray.open_dataset`
         function that loads the grid into memory.
