@@ -3,6 +3,38 @@
 Changelog
 =========
 
+Version 0.2.0
+-------------
+
+*Released on: 2020/01/24*
+
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3627166.svg
+   :target: https://doi.org/10.5281/zenodo.3627166
+
+New models and datasets:
+
+- Slab2 model [SLAB2]_ (`#62 <https://github.com/fatiando/PROJECT/pull/62>`__)
+
+New features:
+
+- Load Bedmap2 datasets as Dask arrays to reduce memory consumption by
+  reading the downloaded files in chunks.
+  (`#45 <https://github.com/fatiando/PROJECT/pull/45>`__)
+
+Maintenance:
+
+- Add GitHub template for requesting new datasets or models.
+  (`#41 <https://github.com/fatiando/PROJECT/pull/41>`__)
+- Disable unwanted pylint warnings.
+  (`#65 <https://github.com/fatiando/PROJECT/pull/65>`__)
+
+This release contains contributions from:
+
+- Santiago Soler
+- Leonardo Uieda
+- Agustina Pesce
+
+
 Version 0.1.0
 -------------
 
