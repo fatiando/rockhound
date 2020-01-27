@@ -14,9 +14,10 @@ def fetch_seafloor_age(*, resolution="6min", load=True, **kwargs):
 
     Grids produced by [Muller2008]_.
 
-    Includes the age uncertainty grid as well. Both are available in 2 and 6 arc-minute
-    resolutions. The units for the ages are millions of years. The grids span longitudes
-    from 0 E to 360 E and latitudes from 90 N to -90 N and are grid-line registered.
+    Includes the age uncertainty grid as well. Both are available in 2 and
+    6 arc-minute resolutions. The units for the ages are millions of years. The
+    grids span longitudes from 0 E to 360 E and latitudes from 90 N to -90
+    N and are grid-line registered.
 
     If the files aren't already in your data directory, they will be downloaded
     automatically.
@@ -26,12 +27,12 @@ def fetch_seafloor_age(*, resolution="6min", load=True, **kwargs):
     resolution : str
         Which resolution grid to load. Must be ``"6min"`` or ``"2min"``.
     load : bool
-        Wether to load the data into an :class:`xarray.Dataset` or just return the
-        path to the downloaded data. If False, will return a list with the paths to the
-        age and age uncertainty grids, respectively.
+        Whether to load the data into an :class:`xarray.Dataset` or just return
+        the path to the downloaded data. If False, will return a list with the
+        paths to the age and age uncertainty grids, respectively.
     kwargs
-        Keyword arguments will be forwarded to the :func:`xarray.open_dataset` function
-        that loads the grid into memory.
+        Keyword arguments will be forwarded to the :func:`xarray.open_dataset`
+        function that loads the grid into memory.
 
     Returns
     -------

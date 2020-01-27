@@ -11,12 +11,14 @@ def fetch_prem(*, load=True):
     r"""
     Fetch the Preliminary Reference Earth Model (PREM).
 
-    The Preliminary reference Earth model [Dziewonsky1981]_ is a one-dimensional model
-    representing the average Earth properties as a function of planetary radius.
-    The model includes the depth, density, seismic velocities, attenuation (Q) and
-    anisotropic parameter (:math:`\eta`) on the boundaries of several Earth layers.
-    It's available through IRIS Data Services Products [IRIS2011]_ in a csv file
-    (comma-separated values). The data is loaded into :class:`pandas.DataFrame` objects.
+    The Preliminary reference Earth model [Dziewonsky1981]_ is
+    a one-dimensional model representing the average Earth properties as
+    a function of planetary radius. The model includes the depth, density,
+    seismic velocities, attenuation (Q) and anisotropic parameter
+    (:math:`\eta`) on the boundaries of several Earth layers. It's available
+    through IRIS Data Services Products [IRIS2011]_ in a csv file
+    (comma-separated values). The data is loaded into :class:`pandas.DataFrame`
+    objects.
 
     If the file isn't already in your data directory, it will be downloaded
     automatically.
@@ -24,8 +26,8 @@ def fetch_prem(*, load=True):
     Parameters
     ----------
     load : bool
-        Wether to load the data into a :class:`pandas.DataFrame` or just return the
-        path to the downloaded data.
+        Whether to load the data into a :class:`pandas.DataFrame` or just
+        return the path to the downloaded data.
 
     Returns
     -------

@@ -2,10 +2,11 @@
 Slab2 - A Comprehensive Subduction Zone Geometry Model
 ======================================================
 
-Slab2 is a three-dimensional compilation of global subduction geometries, separated
-into regional models for each major subduction zone.
+Slab2 is a three-dimensional compilation of global subduction geometries,
+separated into regional models for each major subduction zone.
 More information at the
-`USGS <https://www.sciencebase.gov/catalog/item/5aa1b00ee4b0b1c392e86467>`__ website.
+`USGS <https://www.sciencebase.gov/catalog/item/5aa1b00ee4b0b1c392e86467>`__
+website.
 """
 
 import rockhound as rh
