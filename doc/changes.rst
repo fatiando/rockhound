@@ -13,28 +13,28 @@ Version 0.2.0
 
 New models and datasets:
 
-- Slab2 model [SLAB2]_ (`#62 <https://github.com/fatiando/PROJECT/pull/62>`__)
+- Slab2 model [SLAB2]_ (`#62 <https://github.com/fatiando/rockhound/pull/62>`__)
 
 New features:
 
 - Load Bedmap2 datasets as Dask arrays to reduce memory consumption by
   reading the downloaded files in chunks.
-  (`#45 <https://github.com/fatiando/PROJECT/pull/45>`__)
+  (`#45 <https://github.com/fatiando/rockhound/pull/45>`__)
 
 Maintenance:
 
 - Add GitHub template for requesting new datasets or models.
-  (`#41 <https://github.com/fatiando/PROJECT/pull/41>`__)
+  (`#41 <https://github.com/fatiando/rockhound/pull/41>`__)
 - Update CI scripts and fix linting errors.
-  (`#55 <https://github.com/fatiando/PROJECT/pull/55>`__)
+  (`#55 <https://github.com/fatiando/rockhound/pull/55>`__)
 - Use napoleon instead of numpydoc and unpin Sphinx on requirements.
-  (`#60 <https://github.com/fatiando/PROJECT/pull/60>`__)
+  (`#60 <https://github.com/fatiando/rockhound/pull/60>`__)
 - Fix typo on multiple files.
-  (`#64 <https://github.com/fatiando/PROJECT/pull/64>`__)
+  (`#64 <https://github.com/fatiando/rockhound/pull/64>`__)
 - Disable unwanted pylint warnings.
-  (`#65 <https://github.com/fatiando/PROJECT/pull/65>`__)
+  (`#65 <https://github.com/fatiando/rockhound/pull/65>`__)
 - Wrap docstrings to 79 characters per line and check with flake8.
-  (`#68 <https://github.com/fatiando/PROJECT/pull/68>`__)
+  (`#68 <https://github.com/fatiando/rockhound/pull/68>`__)
 
 This release contains contributions from:
 
