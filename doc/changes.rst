@@ -39,8 +39,8 @@ Maintenance:
 This release contains contributions from:
 
 - Santiago Soler
-- Leonardo Uieda
 - Agustina Pesce
+- Leonardo Uieda
 
 
 Version 0.1.0
