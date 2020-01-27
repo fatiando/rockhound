@@ -30,7 +30,7 @@ def fetch_etopo1(version, *, load=True, **kwargs):
         Which version of the dataset to load. Can be ``"ice"`` for the ice
         surface version, ``'bedrock'`` for the bedrock version.
     load : bool
-        Wether to load the data into an :class:`xarray.Dataset` or just return
+        Whether to load the data into an :class:`xarray.Dataset` or just return
         the path to the downloaded data.
     kwargs
         Keyword arguments will be forwarded to the :func:`xarray.open_dataset`
