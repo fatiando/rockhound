@@ -166,4 +166,5 @@ Documentation for other versions
 * `Development <https://www.fatiando.org/rockhound/dev>`__ (reflects the *master* branch on
   Github)
 * `Latest release <https://www.fatiando.org/rockhound/latest>`__
+* `v0.2.0 <https://www.fatiando.org/rockhound/v0.2.0>`__
 * `v0.1.0 <https://www.fatiando.org/rockhound/v0.1.0>`__
