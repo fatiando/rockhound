@@ -3,6 +3,19 @@
 Changelog
 =========
 
+Version 0.2.1
+-------------
+
+*Released on: 2020/01/27*
+
+
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3627166.svg
+   :target: https://doi.org/10.5281/zenodo.3627166
+
+This is minor release which only updates the citation information to the new
+DOI. No DOI was issued for this release since there are no code or
+documentation changes.
+
 Version 0.2.0
 -------------
 
