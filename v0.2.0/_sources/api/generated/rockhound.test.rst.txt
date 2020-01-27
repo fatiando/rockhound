@@ -1,0 +1,12 @@
+rockhound.test
+==============
+
+.. currentmodule:: rockhound
+
+.. autofunction:: test
+
+.. include:: backreferences/rockhound.test.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>
