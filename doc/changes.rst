@@ -25,8 +25,16 @@ Maintenance:
 
 - Add GitHub template for requesting new datasets or models.
   (`#41 <https://github.com/fatiando/PROJECT/pull/41>`__)
+- Update CI scripts and fix linting errors.
+  (`#55 <https://github.com/fatiando/PROJECT/pull/55>`__)
+- Use napoleon instead of numpydoc and unpin Sphinx on requirements.
+  (`#60 <https://github.com/fatiando/PROJECT/pull/60>`__)
+- Fix typo on multiple files.
+  (`#64 <https://github.com/fatiando/PROJECT/pull/64>`__)
 - Disable unwanted pylint warnings.
   (`#65 <https://github.com/fatiando/PROJECT/pull/65>`__)
+- Wrap docstrings to 79 characters per line and check with flake8.
+  (`#68 <https://github.com/fatiando/PROJECT/pull/68>`__)
 
 This release contains contributions from:
 
