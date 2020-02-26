@@ -1,11 +1,11 @@
 Citing RockHound
 ================
 
-This is research software **made by scientists**. Citations help us justify the effort
-that goes into building and maintaining this project.
+This is research software **made by scientists**. Citations help us justify the
+effort that goes into building and maintaining this project.
 
-If you used RockHound in your research, please consider citing it:
+If you used this software in your research, please consider
+citing the following source: https://doi.org/10.5281/zenodo.3086001
 
-   Uieda, L., and Soler, S.R. (2019). Rockhound: Download geophysical models/datasets
-   and load them in Python (Version 0.1.0). Zenodo. https://doi.org/10.5281/zenodo.3086002
-
+The link above includes full citation information and export formats (BibTeX,
+Mendeley, etc).

@@ -42,10 +42,9 @@ Part of the `Fatiando a Terra <https://www.fatiando.org>`__ project
 .. image:: https://img.shields.io/gitter/room/fatiando/fatiando.svg?style=flat-square
     :alt: Chat room on Gitter
     :target: https://gitter.im/fatiando/fatiando
-.. image:: https://img.shields.io/badge/doi-10.5281%2Fzenodo.3086002-blue.svg?style=flat-square
+.. image:: https://img.shields.io/badge/doi-10.5281%2Fzenodo.3086001-blue.svg?style=flat-square
     :alt: Digital Object Identifier for the Zenodo archive
-    :target: https://doi.org/10.5281/zenodo.3086002
-
+    :target: https://doi.org/10.5281/zenodo.3086001
 
 .. placeholder-for-doc-index
 
