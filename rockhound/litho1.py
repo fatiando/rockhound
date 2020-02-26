@@ -185,6 +185,15 @@ BOUNDARIES = [
 def fetch_litho1(*, load=True):
     """
     Load the LITHO1 model.
+
+    LITHO1.0 model is a 1$^o$ tessellated model of the crust and uppermost
+    mantle of the Earth, extending into the upper mantle to include the
+    lithospheric lid and underlying asthenosphere.
+    The model is parameterized laterally by tessellated nodes and vertically
+    as a series of geophysically identified layers, such as water, ice,
+    sediments, crystalline crust, lithospheric lid, and asthenosphere.
+    More details can be found in the model webside
+    https://igppweb.ucsd.edu/~gabi/litho1.0.html and [PASYANOS]_.
     """
     fnames = REGISTRY.fetch("litho1.0.tar.gz", processor=Untar())
     if not load:
