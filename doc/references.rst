@@ -7,3 +7,4 @@ References
 .. [BEDMAP2] Fretwell, P. et al. (2013). Bedmap2: improved ice bed, surface and thickness datasets for Antarctica. The Cryosphere. doi:10.5194/tc-7-375-2013
 .. [Muller2008] Müller, R. D., Sdrolias, M., Gaina, C., & Roest, W. R. (2008). Age, spreading rates, and spreading asymmetry of the world’s ocean crust. Geochemistry, Geophysics, Geosystems, 9(4). doi:10.1029/2007GC001743
 .. [SLAB2] Hayes, G. (2018). Slab2 - A Comprehensive Subduction Zone Geometry Model: U.S. Geological Survey data release, https://doi.org/10.5066/F7PV6JNV.
+.. [PASYANOS] Pasyanos, M. E., Masters, T., Laske,  G. and Ma, Z. (2014). LITHO1.0: An updated crust and lithospheric model of the Earth, J. Geophys. Res., 119 (3), 2153-2173, doi: 10.1002/2013JB010626.
