@@ -202,31 +202,34 @@ def fetch_litho1(*, load=True):
     # Load the space coordinates
     (coord_file,) = tuple(i for i in fnames if i.endswith(COORDINATES_FILE))
     latitude, _, longitude = np.loadtxt(coord_file, unpack=True)
-    # Create array of nodes indices (nodes indices start on 1)
-    nodes = np.arange(1, latitude.size + 1)
-    # Initialize xr.Dataset
-    coords = {
-        "nodes": ("nodes", nodes),
-        "longitude": ("nodes", longitude),
-        "latitude": ("nodes", latitude),
-        "boundaries": ("boundaries", BOUNDARIES),
-    }
-    arrays = {
-        i: (["nodes", "boundaries"], np.nan * np.ones((nodes.size, len(BOUNDARIES))))
-        for i in PROPERTIES
-    }
-    dataset = xr.Dataset(arrays, coords=coords)
-    # Read node files
-    for node in nodes:
+    data_arrays = {i: [] for i in PROPERTIES}
+    for i in range(1, len(latitude) + 1):
         (node_file,) = tuple(
-            i for i in fnames if os.path.basename(i) == "node{}.model".format(node)
+            f for f in fnames if os.path.basename(f) == "node{}.model".format(i)
         )
-        node_df = pd.read_csv(
+        # Read the node files to pandas.DataFrame
+        node = pd.read_csv(
             node_file, sep=r"\s+", skiprows=1, names=COL_NAMES, index_col=-1
         )
-        # Remove duplicate rows in the dataframe
-        node_df = node_df.drop_duplicates()
-        # Remplace the dataframe information in the dataset
-        for b, p in zip(node_df.index, PROPERTIES):
-            dataset[p].loc[dict(nodes=node, boundaries=b)] = node_df[p].loc[b]
-    return dataset
+        # Remove duplicade roes in the dataframe
+        node = node.loc[~node.index.duplicated(keep="first")]
+        # Convert pd.DataFame to xr.DataArray
+        node = node.to_xarray()
+        for prop in PROPERTIES:
+            data_arrays[prop].append(node[prop].rename(str(i)))
+
+    arrays = []
+    for prop in PROPERTIES:
+        dataset = xr.merge(data_arrays[prop])
+        # Convert dataset to dataarray to squeeze all arrays into a 2d array
+        # adding the nodes as a new coordinate
+        array = dataset.to_array().rename(dict(variable="nodes")).rename(prop)
+        arrays.append(array)
+
+    # Merge all properties arrays into a single dataset
+    ds = xr.merge(arrays)
+
+    # Add the latitude and longitude as coordinate in the dataset
+    ds.coords["latitude"] = ("nodes", latitude)
+    ds.coords["longitude"] = ("nodes", longitude)
+    return ds
