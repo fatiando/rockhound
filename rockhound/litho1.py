@@ -11,8 +11,7 @@ from .registry import REGISTRY
 
 
 COORDINATES_FILE = "Icosahedron_Level7_LatLon_mod.txt"
-PROPERTIES = ["depth", "density", "Vp", "Vs", "Qkappa", "Qmu", "Vp2", "Vs2", "eta"]
-COL_NAMES = PROPERTIES + ["boundaries"]
+PROPERTIES = ["depth", "density", "vp", "vs", "qkappa", "qmu", "vp2", "vs2", "eta"]
 BOUNDARIES = [
     "IC0",
     "IC1",
@@ -202,34 +201,43 @@ def fetch_litho1(*, load=True):
     # Load the space coordinates
     (coord_file,) = tuple(i for i in fnames if i.endswith(COORDINATES_FILE))
     latitude, _, longitude = np.loadtxt(coord_file, unpack=True)
-    data_arrays = {i: [] for i in PROPERTIES}
-    for i in range(1, len(latitude) + 1):
-        (node_file,) = tuple(
-            f for f in fnames if os.path.basename(f) == "node{}.model".format(i)
-        )
-        # Read the node files to pandas.DataFrame
-        node = pd.read_csv(
-            node_file, sep=r"\s+", skiprows=1, names=COL_NAMES, index_col=-1
-        )
-        # Remove duplicade roes in the dataframe
-        node = node.loc[~node.index.duplicated(keep="first")]
-        # Convert pd.DataFame to xr.DataArray
-        node = node.to_xarray()
-        for prop in PROPERTIES:
-            data_arrays[prop].append(node[prop].rename(str(i)))
 
-    arrays = []
-    for prop in PROPERTIES:
-        dataset = xr.merge(data_arrays[prop])
-        # Convert dataset to dataarray to squeeze all arrays into a 2d array
-        # adding the nodes as a new coordinate
-        array = dataset.to_array().rename(dict(variable="nodes")).rename(prop)
-        arrays.append(array)
+    # Create a dict containing one 2d-array for each property of the model.
+    # Each 2d-array is full of nans, so it can be filled while reading
+    # the node files.
+    nodes = np.arange(1, latitude.size + 1)
+    data = {
+        prop: np.nan * np.ones((nodes.size, len(BOUNDARIES))) for prop in PROPERTIES
+    }
 
-    # Merge all properties arrays into a single dataset
-    ds = xr.merge(arrays)
+    # Read node files and fill the Dataset
+    dirname, _ = os.path.split(
+        *[fname for fname in fnames if fname.endswith("node1.model")]
+    )
+    node_files = [os.path.join(dirname, "node{}.model".format(n)) for n in nodes]
+    for fname in node_files:
+        if not fname.endswith(".model"):
+            continue
+        node = int(os.path.basename(fname).replace("node", "").replace(".model", ""))
+        with open(fname, "r") as node_file:
+            first_line = True
+            for line in node_file:
+                if first_line:
+                    first_line = False
+                    continue
+                content = line.split()
+                boundary = content.pop(-1)
+                # Asign read values to each array in data dictionary
+                for prop, value in zip(PROPERTIES, content):
+                    data[prop][node - 1, BOUNDARIES.index(boundary)] = float(value)
 
-    # Add the latitude and longitude as coordinate in the dataset
-    ds.coords["latitude"] = ("nodes", latitude)
-    ds.coords["longitude"] = ("nodes", longitude)
-    return ds
+    # Build the dataset
+    dims = ("node", "boundary")
+    coords = {"node": nodes, "boundary": BOUNDARIES}
+    dataset = xr.Dataset(
+        {prop: (dims, data[prop]) for prop in PROPERTIES}, coords=coords,
+    )
+    # Add latitude and longitude as coordinates
+    dataset.coords["latitude"] = ("node", latitude)
+    dataset.coords["longitude"] = ("node", longitude)
+    return dataset
