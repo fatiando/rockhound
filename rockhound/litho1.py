@@ -265,8 +265,8 @@ def fetch_litho1(*, load=True):
     dataset.density.attrs["unit"] = "kg/m3"
     dataset.vp.attrs["unit"] = "m/s"
     dataset.vs.attrs["unit"] = "m/s"
-    dataset.Vp2.attrs["unit"] = "m/s"
-    dataset.Vs2.attrs["unit"] = "m/s"
+    dataset.vp2.attrs["unit"] = "m/s"
+    dataset.vs2.attrs["unit"] = "m/s"
     # Add attributes to the xr.Dataset
     dataset.attrs.update(
         {"title": "LITHO1 model", "datum": "WGS84", "doi": "10.1002/2013JB010626"}
