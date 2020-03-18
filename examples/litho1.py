@@ -18,17 +18,17 @@ import cmocean
 litho = rh.fetch_litho1()
 print(litho)
 
-# Save as NetCDF
-# litho.to_netcdf("~/temp/litho1.nc")
+# Extract the information about the Moho boundary.
+# It is ralated with the CRUST3-BOTTOM boundary in the LITHO1 model.
+moho = litho.sel(boundary="CRUST3-BOTTOM")
 
-# Plot
+# Plot the Moho depth
 plt.figure(figsize=(10, 5))
 ax = plt.axes(projection=ccrs.Robinson())
-moho_depth = litho.sel(boundary="CRUST3-BOTTOM").depth
 pc = plt.scatter(
-    moho_depth.longitude,
-    moho_depth.latitude,
-    c=moho_depth.values,
+    moho.longitude,
+    moho.latitude,
+    c=moho.depth.values,
     s=0.5,
     transform=ccrs.PlateCarree(),
     cmap=cmocean.cm.thermal_r,
