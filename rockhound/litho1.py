@@ -258,4 +258,17 @@ def fetch_litho1(*, load=True):
     # Add latitude and longitude as coordinates
     dataset.coords["latitude"] = ("node", latitude)
     dataset.coords["longitude"] = ("node", longitude)
+    # Add units of longitude, latitude and the data
+    dataset.longitude.attrs["units"] = "degrees"
+    dataset.latitude.attrs["units"] = "degrees"
+    dataset.depth.attrs["unit"] = "meters"
+    dataset.density.attrs["unit"] = "kg/m3"
+    dataset.vp.attrs["unit"] = "m/s"
+    dataset.vs.attrs["unit"] = "m/s"
+    dataset.Vp2.attrs["unit"] = "m/s"
+    dataset.Vs2.attrs["unit"] = "m/s"
+    # Add attributes to the xr.Dataset
+    dataset.attrs.update(
+        {"title": "LITHO1 model", "datum": "WGS84", "doi": "10.1002/2013JB010626"}
+    )
     return dataset
