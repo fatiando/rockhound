@@ -188,9 +188,27 @@ def fetch_litho1(*, load=True):
     LITHO1.0 model is a 1$^o$ tessellated model of the crust and uppermost
     mantle of the Earth, extending into the upper mantle to include the
     lithospheric lid and underlying asthenosphere.
-    The model is parameterized laterally by tessellated nodes and vertically
-    as a series of geophysically identified layers, such as water, ice,
-    sediments, crystalline crust, lithospheric lid, and asthenosphere.
+    Each of the nodes has a unique profile where the layers are:
+    - water
+    - ice
+    - upper sediments (SEDS1)
+    - middle sediments (SEDS2)
+    - lower sediments (SEDS3)
+    - upper crust (CRUST1)
+    - middle crust (CRUST2)
+    - lower crust (CRUST3)
+    - lithospheric mantle (LID)
+    - asthenospheric mantle (ASTHENO)
+    - ak135
+
+    Crustal parameterization was adopted from CRUST1.0 [CRUST1]_ though the
+    depth to Moho and a uniform perturbation in the crystalline crust was
+    allowed in the inversions.
+    Parameters of layer thickness, VP, VS, rho, and Q (placeholder values) are
+    given explicitly for all layers.
+    The parameters below the asthenosphere blend into the ak135 model
+    [Kennett1995]_.
+
     More details can be found in the model webside
     https://igppweb.ucsd.edu/~gabi/litho1.0.html and [PASYANOS]_.
     """
