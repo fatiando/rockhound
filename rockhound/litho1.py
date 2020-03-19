@@ -253,7 +253,7 @@ def fetch_litho1(*, load=True):
     dims = ("node", "boundary")
     coords = {"node": nodes, "boundary": BOUNDARIES}
     dataset = xr.Dataset(
-        {prop: (dims, data[prop]) for prop in PROPERTIES}, coords=coords,
+        {prop: (dims, data[prop]) for prop in PROPERTIES}, coords=coords
     )
     # Add latitude and longitude as coordinates
     dataset.coords["latitude"] = ("node", latitude)
