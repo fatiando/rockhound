@@ -1,3 +1,7 @@
+"""
+Load the GRAV-D Airborne Gravity data for United States
+"""
+import os
 import pandas as pd
 from pooch import Unzip
 
@@ -26,7 +30,7 @@ ZONES = {
         "AS09",
     ],
 }
-COLUMN_NAMES = ["flight_id", "point_id", "latitude", "longitude", "height", "gravity"]
+COLUMNS_NAMES = ["flight_id", "point_id", "latitude", "longitude", "height", "gravity"]
 
 
 def fetch_gravd(zone="alaska", *, load=True):
@@ -36,13 +40,13 @@ def fetch_gravd(zone="alaska", *, load=True):
     frames = []
     for zone_code in ZONES[zone]:
         zipfile = "NGS_GRAVD_Block_{}_BETA1.zip".format(zone_code)
-        filename = "NGS_GRAVD_Block_{}_Gravity_Data_BETA1.txt".format(zone_code)
+        part_of_filename = "NGS_GRAVD_Block_{}_Gravity_Data".format(zone_code)
         (fname,) = tuple(
             f
             for f in REGISTRY.fetch(zipfile, processor=Unzip())
-            if f.endswith(filename)
+            if os.path.basename(f).startswith(part_of_filename)
         )
         frames.append(
-            pd.read_csv(fname, sep=r"\s+", index_col=1, names=COLUMN_NAMES)
+            pd.read_csv(fname, sep=r"\s+", index_col=1, names=COLUMNS_NAMES)
         )
     return pd.concat(frames)
