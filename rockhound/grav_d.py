@@ -30,7 +30,7 @@ ZONES = {
         "AS09",
     ],
 }
-COLUMNS_NAMES = ["flight_id", "point_id", "latitude", "longitude", "height", "gravity"]
+COLUMNS_NAMES = ["flight_id", "id_or_date", "latitude", "longitude", "height", "gravity"]
 
 
 def fetch_gravd(zone="alaska", *, load=True):
@@ -47,6 +47,6 @@ def fetch_gravd(zone="alaska", *, load=True):
             if os.path.basename(f).startswith(part_of_filename)
         )
         frames.append(
-            pd.read_csv(fname, sep=r"\s+", index_col=1, names=COLUMNS_NAMES)
+            pd.read_csv(fname, sep=r"\s+", names=COLUMNS_NAMES)
         )
-    return pd.concat(frames)
+    return pd.concat(frames, ignore_index=True)
