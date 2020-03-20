@@ -59,7 +59,7 @@ ZONES = {
     "Eastern South": ["ES01", "ES02", "ES03", "ES04", "ES05", "ES06", "ES07"],
     "Mountain South": ["MS01", "MS02", "MS03", "MS04", "MS05"],
     "Pacific North": ["PN01", "PN02", "PN03"],
-    "Pacific South": ["PS01", "PS02", "PS02"],
+    "Pacific South": ["PS01", "PS02"],
 }
 BLOCKS = [zone[i] for zone in ZONES.values() for i in range(len(zone))]
 COLUMNS_NAMES = [
