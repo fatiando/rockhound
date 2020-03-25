@@ -100,8 +100,16 @@ def fetch_gravd(zone=None, block=None, *, load=True):
     if zone is None and block is None:
         raise ValueError("Either a zone or a block must be provided.")
     if zone is not None:
+        if zone not in ZONES:
+            raise ValueError(
+                "Passed zone '{}' is not a valid GRAV-D zone.".format(zone)
+            )
         blocks = tuple(b for b in ZONES[zone])
     if block is not None:
+        if block not in BLOCKS:
+            raise ValueError(
+                "Passed block '{}' is not a valid GRAV-D block.".format(block)
+            )
         blocks = (block,)
     fnames = list(
         fname
