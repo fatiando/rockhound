@@ -1,6 +1,8 @@
 """
 Test functions for GRAV-D fetch function
 """
+import os
+import pytest
 import numpy.testing as npt
 
 from .. import fetch_gravd
@@ -227,3 +229,44 @@ def test_gravd_gravity():
         dataframe = fetch_gravd(block=block)
         npt.assert_allclose(dataframe.gravity.min(), GRAVITY[block][0])
         npt.assert_allclose(dataframe.gravity.max(), GRAVITY[block][1])
+
+
+def test_gravd_invalid_zone():
+    """
+    Test if error is raised after invalid zone
+    """
+    with pytest.raises(ValueError):
+        fetch_gravd(zone="this is not a valid zone")
+
+
+def test_gravd_invalid_block():
+    """
+    Test if error is raised after invalid block
+    """
+    with pytest.raises(ValueError):
+        fetch_gravd(block="this is not a valid block")
+
+
+def test_gravd_zone_and_block():
+    """
+    Test if error is raised after passing a zone and a block
+    """
+    with pytest.raises(ValueError):
+        fetch_gravd(zone="Alaska North", block="AN01")
+
+
+def test_gravd_no_zone_nor_block():
+    """
+    Test if error is raised if no zone nor block is passed
+    """
+    with pytest.raises(ValueError):
+        fetch_gravd()
+
+
+def test_gravd_file_name_only():
+    """
+    Fetch only the file name
+    """
+    for block in BLOCKS:
+        fname = fetch_gravd(block=block, load=False)
+        assert type(fname) == list
