@@ -2,6 +2,7 @@
 Load the GRAV-D Airborne Gravity data for United States
 """
 import os
+import numpy as np
 import pandas as pd
 from pooch import Unzip
 
@@ -131,4 +132,4 @@ def _load_block_file(block, fnames):
         and f.endswith(".txt")
         and "supplementary" not in os.path.basename(f)
     )
-    return pd.read_csv(fname, sep=r"\s+", names=COLUMNS_NAMES)
+    return pd.read_csv(fname, sep=r"\s+", names=COLUMNS_NAMES, usecols=np.arange(6))
