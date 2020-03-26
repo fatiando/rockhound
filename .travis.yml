@@ -38,10 +38,6 @@ env:
 # Specify the build configurations. Be sure to only deploy from a single build.
 matrix:
     include:
-        - name: "Linux - Python 3.7"
-          os: linux
-          env:
-              - PYTHON=3.7
         # Main build to deploy to PyPI and Github pages
         - name: "Linux - Python 3.6 (deploy)"
           os: linux
@@ -69,17 +65,10 @@ install:
 
 # Run the actual tests and checks
 script:
-    # Run the test suite
-    - make test
+    # Run a minimal test
+    - make minimal_test
     # Build the documentation
     - make -C doc clean all
-
-# Things to do if the build is successful
-after_success:
-    # Upload coverage information
-    - coverage xml
-    - echo "Uploading coverage to Codecov"
-    - codecov -e PYTHON
 
 # Deploy
 deploy:
