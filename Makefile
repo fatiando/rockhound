@@ -2,6 +2,7 @@
 PROJECT=rockhound
 TESTDIR=.tmp-test-dir-with-unique-name
 PYTEST_ARGS=--cov-config=../.coveragerc --cov-report=term-missing --cov=$(PROJECT) --doctest-modules -v --pyargs
+PYTEST_MINIMAL_ARGS=-v --pyargs -m minimal
 LINT_FILES=setup.py $(PROJECT)
 BLACK_FILES=setup.py $(PROJECT) examples
 FLAKE8_FILES=setup.py $(PROJECT) examples
@@ -25,6 +26,9 @@ test:
 	mkdir -p $(TESTDIR)
 	cd $(TESTDIR); MPLBACKEND='agg' pytest $(PYTEST_ARGS) $(PROJECT)
 	cp $(TESTDIR)/.coverage* .
+
+minimal_test:
+	pytest $(PYTEST_MINIMAL_ARGS)
 
 format:
 	black $(BLACK_FILES)
