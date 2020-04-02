@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_gallery_bedmap2.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_gallery_bedmap2.py:
+        Click :ref:`here <sphx_glr_download_gallery_bedmap2.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_gallery_bedmap2.py:
 
 
 Bedmap2
@@ -77,7 +79,7 @@ a :class:`xarray.Dataset` object.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  37.437 seconds)
+   **Total running time of the script:** ( 0 minutes  48.593 seconds)
 
 
 .. _sphx_glr_download_gallery_bedmap2.py:
@@ -90,13 +92,13 @@ a :class:`xarray.Dataset` object.
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: bedmap2.py <bedmap2.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: bedmap2.ipynb <bedmap2.ipynb>`
 

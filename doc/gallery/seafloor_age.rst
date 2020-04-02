@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_gallery_seafloor_age.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_gallery_seafloor_age.py:
+        Click :ref:`here <sphx_glr_download_gallery_seafloor_age.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_gallery_seafloor_age.py:
 
 
 Age of the Oceanic Lithosphere
@@ -34,8 +36,8 @@ websites.
     <xarray.Dataset>
     Dimensions:      (latitude: 1801, longitude: 3601)
     Coordinates:
-      * longitude    (longitude) float32 -180.0 -179.9 -179.8 ... 179.8 179.9 180.0
       * latitude     (latitude) float32 -90.0 -89.9 -89.8 -89.7 ... 89.8 89.9 90.0
+      * longitude    (longitude) float32 -180.0 -179.9 -179.8 ... 179.8 179.9 180.0
     Data variables:
         age          (latitude, longitude) float32 nan nan nan ... 55.42 55.42 55.42
         uncertainty  (latitude, longitude) float32 nan nan nan ... 15.0 15.0 15.0
@@ -78,7 +80,7 @@ websites.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.618 seconds)
+   **Total running time of the script:** ( 0 minutes  4.814 seconds)
 
 
 .. _sphx_glr_download_gallery_seafloor_age.py:
@@ -91,13 +93,13 @@ websites.
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: seafloor_age.py <seafloor_age.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: seafloor_age.ipynb <seafloor_age.ipynb>`
 

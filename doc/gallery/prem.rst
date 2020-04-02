@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_gallery_prem.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_gallery_prem.py:
+        Click :ref:`here <sphx_glr_download_gallery_prem.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_gallery_prem.py:
 
 
 PREM: Preliminary Reference Earth Model
@@ -84,7 +86,7 @@ computations.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.505 seconds)
+   **Total running time of the script:** ( 0 minutes  0.617 seconds)
 
 
 .. _sphx_glr_download_gallery_prem.py:
@@ -97,13 +99,13 @@ computations.
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: prem.py <prem.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: prem.ipynb <prem.ipynb>`
 
