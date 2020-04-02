@@ -8,17 +8,19 @@ BUILDDIR      = _build
 
 # Internal variables.
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees  $(SPHINXOPTS) .
+NOPLOTS = -D plot_gallery=0
 
 .PHONY: help clean html linkcheck doctest api
 
-all: html
+all: html-noplot
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  all        generate the complete webpage"
-	@echo "  html       make only the HTML files from the existing rst sources"
-	@echo "  linkcheck  check all external links for integrity"
-	@echo "  doctest    run all doctests embedded in the documentation (if enabled)"
+	@echo "  all           generate the complete webpage (without running gallery examples)"
+	@echo "  html-noplot   make only the HTML files without running the gallery examples"
+	@echo "  gallery       rerun gallery examples and generate the complete webpage"
+	@echo "  linkcheck     check all external links for integrity"
+	@echo "  doctest       run all doctests embedded in the documentation (if enabled)"
 
 clean:
 	rm -rf $(BUILDDIR)/html/*
@@ -29,15 +31,26 @@ clean:
 	rm -rf sample_data
 	rm -rf .ipynb_checkpoints
 
+clean-gallery:
+	rm -rf $(BUILDDIR)/gallery
+
 api:
 	@echo
 	@echo "Building API docs."
 	@echo
 	$(SPHINXAUTOGEN) -i -t _templates -o api/generated api/index.rst
 
-html: api
+html-noplot: api
 	@echo
-	@echo "Building HTML files."
+	@echo "Building HTML files (without running gallery examples)."
+	@echo
+	$(SPHINXBUILD) $(NOPLOTS) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
+gallery: api
+	@echo
+	@echo "Rerunning gallery examples and building HTML files."
 	@echo
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
