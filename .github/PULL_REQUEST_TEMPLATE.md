@@ -15,7 +15,7 @@ automatically close it when this gets merged.
 - [ ] Add new public functions/methods/classes to `doc/api/index.rst` and the base `__init__.py` file for the package.
 - [ ] Write detailed docstrings for all functions/classes/methods. It often helps to design better code if you write the docstrings first.
 - [ ] If adding new functionality, add an example to the docstring, gallery, and/or tutorials.
-- [ ] If adding new example, please build the docs and push the changes made on `doc/gallery`. Continuous Integration services build and deploy the docs, but they need examples to be already built.
+- [ ] If adding new example, please build the docs with `make -C doc gallery` and push the changes made on `doc/gallery`. Continuous Integration services build and deploy the docs, but they won't run the examples.
 - [ ] Add your full name, affiliation, and [ORCID](https://orcid.org) (optional) to the `AUTHORS.md` file (if you haven't already) in case you'd like to be listed as an author on the [Zenodo](https://zenodo.org/communities/fatiando) archive of the next release.
 
 
