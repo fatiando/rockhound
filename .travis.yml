@@ -67,7 +67,7 @@ install:
 script:
     # Run a minimal test
     - make minimal_test
-    # Build the documentation
+    # Build the documentation (without running the examples)
     - make -C doc clean all
 
 # Deploy
