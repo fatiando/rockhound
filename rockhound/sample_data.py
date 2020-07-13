@@ -21,9 +21,6 @@ def fetch_baja_bathymetry():
         The bathymetry data. Columns are longitude, latitude, and bathymetry
         (in meters) for each data point.
 
-    See also
-    --------
-    setup_baja_bathymetry_map: Utility function to help setup a Cartopy map.
     """
     data_file = REGISTRY.fetch("baja-bathymetry.csv.xz")
     data = pd.read_csv(data_file, compression="xz")
@@ -53,10 +50,6 @@ def fetch_california_gps():
         velocity (meter/year), standard deviation of North velocity
         (meter/year), standard deviation of upward velocity (meter/year).
 
-    See also
-    --------
-    setup_california_gps_map: Utility function to help setup a Cartopy map.
-
     """
     data_file = REGISTRY.fetch("california-gps.csv.xz")
     data = pd.read_csv(data_file, compression="xz")
@@ -77,10 +70,6 @@ def fetch_texas_wind():
         Columns are the station ID, longitude, latitude, air temperature in C,
         east component of wind speed in knots, and north component of wind
         speed in knots.
-
-    See also
-    --------
-    setup_texas_wind_map: Utility function to help setup a Cartopy map.
 
     """
     data_file = REGISTRY.fetch("texas-wind.csv")
@@ -165,6 +154,7 @@ def fetch_britain_magnetic():
     -------
     data : :class:`pandas.DataFrame`
         The magnetic anomaly data.
+
     """
     return pd.read_csv(REGISTRY.fetch("britain-magnetic.csv.xz"), compression="xz")
 
