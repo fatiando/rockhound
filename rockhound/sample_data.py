@@ -1,20 +1,11 @@
 """
 Fetch sample datasets
 """
-import numpy as np
 import pandas as pd
 import xarray as xr
 from pooch import Decompress
 
 from .registry import REGISTRY
-
-
-try:
-    import cartopy.feature as cfeature
-    import cartopy.crs as ccrs
-    from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
-except ImportError:
-    pass
 
 
 def fetch_baja_bathymetry():
