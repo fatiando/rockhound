@@ -7,7 +7,10 @@ USA, on February 26 2018. The original data was downloaded from `Iowa State
 University <https://mesonet.agron.iastate.edu/request/download.phtml>`__.
 """
 import matplotlib.pyplot as plt
+import numpy as np
 import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 import rockhound as rh
 
 
@@ -37,8 +40,18 @@ ax.quiver(
     width=0.003,
     transform=ccrs.PlateCarree(),
 )
-# Use an utility function to add tick labels and land and ocean features to the
-# map.
-rh.setup_texas_wind_map(ax)
+
+# Add tick labels and land and ocean features to the map.
+region = (-107, -93, 25.5, 37)
+crs = ccrs.PlateCarree()
+ax.add_feature(cfeature.LAND, facecolor="#dddddd")
+ax.add_feature(cfeature.BORDERS, linewidth=0.5)
+ax.add_feature(cfeature.STATES, linewidth=0.1)
+ax.set_extent(region, crs=crs)
+ax.set_xticks(np.arange(-106, -92, 3), crs=crs)
+ax.set_yticks(np.arange(27, 38, 3), crs=crs)
+ax.xaxis.set_major_formatter(LongitudeFormatter())
+ax.yaxis.set_major_formatter(LatitudeFormatter())
+
 plt.tight_layout()
 plt.show()

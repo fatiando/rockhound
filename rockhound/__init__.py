@@ -16,9 +16,6 @@ from .sample_data import (
     fetch_geoid_earth,
     fetch_gravity_earth,
     fetch_topography_earth,
-    setup_baja_bathymetry_map,
-    setup_california_gps_map,
-    setup_texas_wind_map,
 )
 
 # Get the version number through versioneer

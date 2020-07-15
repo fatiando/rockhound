@@ -34,16 +34,6 @@ Sample datasets
     fetch_gravity_earth
     fetch_topography_earth
 
-Utility Plotting Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. autosummary::
-   :toctree: generated/
-
-    setup_baja_bathymetry_map
-    setup_california_gps_map
-    setup_texas_wind_map
-
 Utilities
 ---------
 

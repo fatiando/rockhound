@@ -10,6 +10,8 @@ directory if it's not there already.
 import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 import rockhound as rh
 
 
@@ -32,8 +34,17 @@ plt.scatter(
     transform=ccrs.PlateCarree(),
 )
 plt.colorbar().set_label("meters")
-# Use an utility function to add tick labels and land and ocean features
-# to the map.
-rh.setup_baja_bathymetry_map(ax)
+
+# Add tick labels and land and ocean features to the map.
+crs = ccrs.PlateCarree()
+region = (245.0, 254.705, 20.0, 29.99)
+ax.add_feature(cfeature.LAND, facecolor="grey")
+ax.set_extent(region, crs=crs)
+crs = ccrs.PlateCarree()
+ax.set_xticks(np.arange(-114, -105, 2), crs=crs)
+ax.set_yticks(np.arange(21, 30, 2), crs=crs)
+ax.xaxis.set_major_formatter(LongitudeFormatter())
+ax.yaxis.set_major_formatter(LatitudeFormatter())
+
 plt.tight_layout()
 plt.show()

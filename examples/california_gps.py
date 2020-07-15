@@ -10,6 +10,8 @@ meters/year.
 """
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 import numpy as np
 import verde as vd
 import rockhound as rh
@@ -36,7 +38,6 @@ ax.quiver(
     scale=0.3,
     transform=crs,
 )
-rh.setup_california_gps_map(ax)
 # Plot the vertical velocity
 ax = axes[1]
 ax.set_title("Vertical velocity")
@@ -52,6 +53,17 @@ tmp = ax.scatter(
     transform=crs,
 )
 plt.colorbar(tmp, ax=ax).set_label("meters/year")
-rh.setup_california_gps_map(ax)
+
+# Add tick labels and land and ocean features to the map.
+crs = ccrs.PlateCarree()
+region = (235.2, 245.3, 31.9, 42.3)
+ax.add_feature(cfeature.LAND, facecolor="skyblue")
+ax.add_feature(cfeature.OCEAN, facecolor="gray")
+ax.set_extent(region, crs=crs)
+ax.set_xticks(np.arange(-124, -115, 4), crs=crs)
+ax.set_yticks(np.arange(33, 42, 2), crs=crs)
+ax.xaxis.set_major_formatter(LongitudeFormatter())
+ax.yaxis.set_major_formatter(LatitudeFormatter())
+
 plt.tight_layout(w_pad=0)
 plt.show()

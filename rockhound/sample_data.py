@@ -17,29 +17,6 @@ except ImportError:
     pass
 
 
-def _setup_map(
-    ax, xticks, yticks, crs, region, land=None, ocean=None, borders=None, states=None
-):
-    """
-    Setup a Cartopy map with land and ocean features and proper tick labels.
-    """
-
-    if land is not None:
-        ax.add_feature(cfeature.LAND, facecolor=land)
-    if ocean is not None:
-        ax.add_feature(cfeature.OCEAN, facecolor=ocean)
-    if borders is not None:
-        ax.add_feature(cfeature.BORDERS, linewidth=borders)
-    if states is not None:
-        ax.add_feature(cfeature.STATES, linewidth=states)
-    ax.set_extent(region, crs=crs)
-    # Set the proper ticks for a Cartopy map
-    ax.set_xticks(xticks, crs=crs)
-    ax.set_yticks(yticks, crs=crs)
-    ax.xaxis.set_major_formatter(LongitudeFormatter())
-    ax.yaxis.set_major_formatter(LatitudeFormatter())
-
-
 def fetch_baja_bathymetry():
     """
     Fetch sample bathymetry data from Baja California.
@@ -61,39 +38,6 @@ def fetch_baja_bathymetry():
     data_file = REGISTRY.fetch("baja-bathymetry.csv.xz")
     data = pd.read_csv(data_file, compression="xz")
     return data
-
-
-def setup_baja_bathymetry_map(
-    ax, region=(245.0, 254.705, 20.0, 29.99), land="gray", ocean=None
-):
-    """
-    Setup a Cartopy map for the Baja California bathymetry dataset.
-
-    Parameters
-    ----------
-    ax : matplotlib Axes
-        The axes where the map is being plotted.
-    region : list = [W, E, S, N]
-        The boundaries of the map region in the coordinate system of the data.
-    land : str or None
-        The name of the color of the land feature or None to omit it.
-    ocean : str or None
-        The name of the color of the ocean feature or None to omit it.
-
-    See also
-    --------
-    fetch_baja_bathymetry: Sample bathymetry data from Baja California.
-
-    """
-    _setup_map(
-        ax,
-        xticks=np.arange(-114, -105, 2),
-        yticks=np.arange(21, 30, 2),
-        land=land,
-        ocean=ocean,
-        region=region,
-        crs=ccrs.PlateCarree(),
-    )
 
 
 def fetch_california_gps():
@@ -129,39 +73,6 @@ def fetch_california_gps():
     return data
 
 
-def setup_california_gps_map(
-    ax, region=(235.2, 245.3, 31.9, 42.3), land="gray", ocean="skyblue"
-):
-    """
-    Setup a Cartopy map for the California GPS velocity dataset.
-
-    Parameters
-    ----------
-    ax : matplotlib Axes
-        The axes where the map is being plotted.
-    region : list = [W, E, S, N]
-        The boundaries of the map region in the coordinate system of the data.
-    land : str or None
-        The name of the color of the land feature or None to omit it.
-    ocean : str or None
-        The name of the color of the ocean feature or None to omit it.
-
-    See also
-    --------
-    fetch_california_gps: Sample GPS velocity data from California.
-
-    """
-    _setup_map(
-        ax,
-        xticks=np.arange(-124, -115, 4),
-        yticks=np.arange(33, 42, 2),
-        land=land,
-        ocean=ocean,
-        region=region,
-        crs=ccrs.PlateCarree(),
-    )
-
-
 def fetch_texas_wind():
     """
     Fetch sample wind speed and air temperature data for Texas, USA.
@@ -185,44 +96,6 @@ def fetch_texas_wind():
     data_file = REGISTRY.fetch("texas-wind.csv")
     data = pd.read_csv(data_file)
     return data
-
-
-def setup_texas_wind_map(
-    ax, region=(-107, -93, 25.5, 37), land="#dddddd", borders=0.5, states=0.1
-):
-    """
-    Setup a Cartopy map for the Texas wind speed and air temperature dataset.
-
-    Parameters
-    ----------
-    ax : matplotlib Axes
-        The axes where the map is being plotted.
-    region : list = [W, E, S, N]
-        The boundaries of the map region in the coordinate system of the data.
-    land : str or None
-        The name of the color of the land feature or None to omit it.
-    borders : float or None
-        Line width of the country borders.
-    states : float or None
-        Line width of the state borders.
-
-    See also
-    --------
-    fetch_texas_wind: Sample wind speed and air temperature data for Texas.
-
-    """
-
-    _setup_map(
-        ax,
-        xticks=np.arange(-106, -92, 3),
-        yticks=np.arange(27, 38, 3),
-        land=land,
-        ocean=None,
-        region=region,
-        borders=borders,
-        states=states,
-        crs=ccrs.PlateCarree(),
-    )
 
 
 def fetch_geoid_earth():
