@@ -24,6 +24,9 @@ Data Fetching and Loading
 Sample datasets
 ---------------
 
+These are small datasets (or subsets of larger data) that are used to test methods
+and in project documentation and tutorials. 
+
 .. autosummary::
    :toctree: generated/
 
