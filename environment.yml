@@ -9,7 +9,6 @@ dependencies:
     - xarray
     - pandas
     # Development requirements
-    - verde
     - rasterio
     - dask
     - netcdf4

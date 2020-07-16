@@ -14,7 +14,6 @@ more information.
 """
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
-import verde as vd
 import rockhound as rh
 
 # Fetch the data in a pandas.DataFrame
@@ -36,7 +35,13 @@ tmp = ax.scatter(
 plt.colorbar(
     tmp, ax=ax, label="observed gravity [mGal]", aspect=50, pad=0.1, shrink=0.92
 )
-ax.set_extent(vd.get_region((data.longitude, data.latitude)))
+region = (
+    data.longitude.min(),
+    data.longitude.max(),
+    data.latitude.min(),
+    data.latitude.max(),
+)
+ax.set_extent(region)
 ax.gridlines(draw_labels=True)
 ax.coastlines()
 plt.tight_layout()

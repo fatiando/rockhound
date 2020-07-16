@@ -13,7 +13,6 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 import numpy as np
-import verde as vd
 import rockhound as rh
 
 
@@ -41,7 +40,7 @@ ax.quiver(
 # Plot the vertical velocity
 ax = axes[1]
 ax.set_title("Vertical velocity")
-maxabs = vd.maxabs(data.velocity_up)
+maxabs = np.abs(data.velocity_up).max()
 tmp = ax.scatter(
     data.longitude,
     data.latitude,

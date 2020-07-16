@@ -26,7 +26,6 @@ automatically.
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import numpy as np
-import verde as vd
 import rockhound as rh
 
 # Fetch the data in a pandas.DataFrame
@@ -57,7 +56,13 @@ plt.colorbar(
     shrink=0.7,
     pad=0.1,
 )
-ax.set_extent(vd.get_region((data.longitude, data.latitude)))
+region = (
+    data.longitude.min(),
+    data.longitude.max(),
+    data.latitude.min(),
+    data.latitude.max(),
+)
+ax.set_extent(region)
 ax.gridlines(draw_labels=True)
 ax.coastlines(resolution="50m")
 plt.tight_layout()

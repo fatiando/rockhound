@@ -1,4 +1,3 @@
-verde
 rasterio
 dask
 netcdf4
