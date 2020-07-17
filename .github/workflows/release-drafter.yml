@@ -9,6 +9,7 @@ on:
     # Only run the release drafter on the master branch after a PR is merged
     branches:
       - master
+      - release-drafter
 
 jobs:
   update_release_draft:
