@@ -6,7 +6,7 @@ name: Release Drafter
 
 on:
   push:
-    # branches to consider in the event; optional, defaults to all
+    # Only run the release drafter on the master branch after a PR is merged
     branches:
       - master
 
