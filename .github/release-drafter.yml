@@ -1,6 +1,7 @@
 # Configuration for the Release Drafter workflow
 name-template: 'v$NEXT_PATCH_VERSION'
 tag-template: 'v$NEXT_PATCH_VERSION'
+change-template: '* $TITLE ([#$NUMBER]($URL) by [@$AUTHOR](https://github.com/$AUTHOR))'
 categories:
   - title: 'New functions/classes'
     label: 'feature'
@@ -16,13 +17,12 @@ categories:
     label: 'maintenance'
 exclude-labels:
   - 'skip-changelog'
-change-template: '* $TITLE ([#$NUMBER]($URL) by [@$AUTHOR](https://github.com/$AUTHOR))'
 template: |
   [![DOI](https://zenodo.org/badge/DOI/PASTE_DOI_HERE.svg)](https://doi.org/PASTE_DOI_HERE)
 
   ## Highlights
 
-  *
+  * DELETE IF THERE ARE NO HIGHLIGHTS
 
   $CHANGES
 
