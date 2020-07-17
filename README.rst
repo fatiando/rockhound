@@ -23,25 +23,16 @@ Part of the `Fatiando a Terra <https://www.fatiando.org>`__ project
     :target: https://github.com/conda-forge/rockhound-feedstock
 .. image:: https://img.shields.io/travis/fatiando/rockhound/master.svg?style=flat-square&label=TravisCI
     :alt: TravisCI build status
-    :target: https://travis-ci.org/fatiando/rockhound
+    :target: https://travis-ci.com/fatiando/rockhound
 .. image:: https://img.shields.io/azure-devops/build/fatiando/c64572de-afef-44c5-86a8-212dce3e0a5c/8/master.svg?label=Azure&style=flat-square
     :alt: Azure Pipelines build status
     :target: https://dev.azure.com/fatiando/rockhound/_build
 .. image:: https://img.shields.io/codecov/c/github/fatiando/rockhound/master.svg?style=flat-square
     :alt: Test coverage status
     :target: https://codecov.io/gh/fatiando/rockhound
-.. image:: https://img.shields.io/codeclimate/maintainability/fatiando/rockhound.svg?style=flat-square
-    :alt: Code quality status
-    :target: https://codeclimate.com/github/fatiando/rockhound
-.. image:: https://img.shields.io/codacy/grade/6b698defc0df47288a634930d41a9d65.svg?style=flat-square&label=codacy
-    :alt: Code quality grade on codacy
-    :target: https://www.codacy.com/app/leouieda/rockhound
 .. image:: https://img.shields.io/pypi/pyversions/rockhound.svg?style=flat-square
     :alt: Compatible Python versions.
     :target: https://pypi.python.org/pypi/rockhound
-.. image:: https://img.shields.io/gitter/room/fatiando/fatiando.svg?style=flat-square
-    :alt: Chat room on Gitter
-    :target: https://gitter.im/fatiando/fatiando
 .. image:: https://img.shields.io/badge/doi-10.5281%2Fzenodo.3086001-blue.svg?style=flat-square
     :alt: Digital Object Identifier for the Zenodo archive
     :target: https://doi.org/10.5281/zenodo.3086001
