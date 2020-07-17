@@ -1,13 +1,13 @@
 # Configuration for the Release Drafter workflow
 name-template: 'v$NEXT_PATCH_VERSION'
 tag-template: 'v$NEXT_PATCH_VERSION'
-change-template: '* $TITLE ([#$NUMBER]($URL) by [@$AUTHOR](https://github.com/$AUTHOR))'
+change-template: '* $TITLE (#$NUMBER by [@$AUTHOR](https://github.com/$AUTHOR))'
 categories:
   - title: 'New functions/classes'
     label: 'feature'
   - title: 'Enhancements'
     label: 'enhancement'
-  - title: 'Bug Fixes'
+  - title: 'Bug fixes'
     label: 'bug'
   - title: 'Deprecations'
     label: 'deprecation'
@@ -26,6 +26,6 @@ template: |
 
   $CHANGES
 
-  ## This release contains contributions from:
+  ## Contributors
 
   $CONTRIBUTORS
