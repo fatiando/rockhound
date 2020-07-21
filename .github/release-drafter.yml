@@ -1,31 +1,31 @@
 # Configuration for the Release Drafter workflow
 name-template: 'v$NEXT_PATCH_VERSION'
 tag-template: 'v$NEXT_PATCH_VERSION'
-change-template: '* $TITLE (#$NUMBER by [@$AUTHOR](https://github.com/$AUTHOR))'
+change-template: '* $TITLE (#$NUMBER)'
 categories:
-  - title: 'New functions/classes'
+  - title: 'New functions/classes:'
     label: 'feature'
-  - title: 'Enhancements'
+  - title: 'Enhancements:'
     label: 'enhancement'
-  - title: 'Bug fixes'
+  - title: 'Bug fixes:'
     label: 'bug'
-  - title: 'Deprecations'
+  - title: 'Deprecations:'
     label: 'deprecation'
-  - title: 'Documentation'
+  - title: 'Backwards incompatible:'
+    label: 'breaking change'
+  - title: 'Documentation:'
     label: 'documentation'
-  - title: 'Maintenance'
+  - title: 'Maintenance:'
     label: 'maintenance'
 exclude-labels:
   - 'skip-changelog'
 template: |
   [![DOI](https://zenodo.org/badge/DOI/PASTE_DOI_HERE.svg)](https://doi.org/PASTE_DOI_HERE)
 
-  ## Highlights
+  ## Highlights:
 
   * DELETE IF THERE ARE NO HIGHLIGHTS
 
   $CHANGES
 
-  ## Contributors
-
-  $CONTRIBUTORS
+  **This release contains contributions from:** $CONTRIBUTORS
