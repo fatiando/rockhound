@@ -61,6 +61,8 @@ sphinx_gallery_conf = {
     'doc_module': 'rockhound',
     # Insert links to documentation of objects in the examples
     'reference_url': {'rockhound': None},
+    # Increase the size of generated thumbnails
+    'thumbnail_size': (500, 500),
 }
 
 # Always show the source code that generates a plot
