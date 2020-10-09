@@ -129,15 +129,15 @@ jobs:
       - name: Install the package
         run: pip install --no-deps dist/*.whl
 
-      - name: Cache directory where datasets will be downloaded
-        uses: actions/cache@v2
-        with:
-          path: |
-            ${ROCKHOUND_DATA_DIR}
-          key: ${{ hashFiles('rockhound/registry.txt') }}
-        env:
-          # Define directory where datasets will be downloaded
-          ROCKHOUND_DATA_DIR: ${{ runner.temp }}/cache/rockhound
+      # - name: Cache directory where datasets will be downloaded
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       ${ROCKHOUND_DATA_DIR}
+      #     key: ${{ hashFiles('rockhound/registry.txt') }}
+      #   env:
+      #     # Define directory where datasets will be downloaded
+      #     ROCKHOUND_DATA_DIR: ${{ runner.temp }}/cache/rockhound
 
       - name: Run the tests
         run: |
