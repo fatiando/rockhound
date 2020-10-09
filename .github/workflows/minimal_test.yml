@@ -1,0 +1,38 @@
+# Run only availabily test of datasets
+
+name: minimal-test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+# Use bash by default in all jobs
+defaults:
+  run:
+    # The -l {0} is necessary for conda environments to be activated
+    shell: bash -l {0}
+
+jobs:
+  minimal-test:
+    name: Minimal test
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # The GitHub token is preserved by default but this job doesn't need
+          # to be able to push to GitHub.
+          persist-credentials: false
+
+      - name: Install the package
+        run: |
+          pip install .
+          pip install pytest
+
+      - name: Run minimal test
+        run: |
+          make minimal_test
