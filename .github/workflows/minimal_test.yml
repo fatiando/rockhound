@@ -16,10 +16,11 @@ defaults:
 
 jobs:
   minimal-test:
-    name: Minimal test
+    name: minimal-test
     runs-on: ubuntu-latest
-    matrix:
-      python-version: [3.7]
+    strategy:
+      matrix:
+        python-version: 3.7
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE
