@@ -133,7 +133,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ${ROCKHOUND_DATA_DIR}
+            ${{ runner.temp }}/cache/rockhound
           key: ${{ hashFiles('rockhound/registry.txt') }}
         env:
           # Define directory where datasets will be downloaded
