@@ -138,12 +138,6 @@ jobs:
 
       - name: Run the tests
         run: |
-          sudo apt-get install tree
-          if [ -d ~/cache ]; then
-            tree ~/cache
-          else
-          tree -L 3 ~
-          fi
           make test
         env:
           # Define directory where datasets will be downloaded
