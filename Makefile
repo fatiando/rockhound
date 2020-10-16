@@ -33,9 +33,13 @@ test_availability:
 format:
 	black $(BLACK_FILES)
 
-check:
-	black --check $(BLACK_FILES)
-	flake8 $(FLAKE8_FILES)
+check: black-check flake8
+
+black-check:
+        black --check $(BLACK_FILES)
+
+flake8:
+        flake8 $(FLAKE8_FILES)
 
 lint:
 	pylint --jobs=0 $(LINT_FILES)
