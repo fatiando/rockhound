@@ -133,21 +133,17 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ${ROCKHOUND_DATA_DIR}
-          key: ${{ hashFiles('rockhound/registry.txt') }}
-        env:
-          # Define directory where datasets will be downloaded
-          ROCKHOUND_DATA_DIR: ${{ runner.temp }}/cache/rockhound
+            ~/cache
+          key: ${{ runner.os }}-${{ hashFiles('rockhound/registry.txt') }}
 
       - name: Run the tests
         run: |
-          if [ -d ${ROCKHOUND_DATA_DIR} ]; then
-            ls ${ROCKHOUND_DATA_DIR}
-          fi
+          sudo apt install tree
+          tree ~
           make test
         env:
           # Define directory where datasets will be downloaded
-          ROCKHOUND_DATA_DIR: ${{ runner.temp }}/cache/rockhound
+          ROCKHOUND_DATA_DIR: ~/cache/rockhound
 
       - name: Build the documentation
         run: make -C doc clean all
