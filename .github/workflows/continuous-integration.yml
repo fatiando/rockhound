@@ -149,14 +149,6 @@ jobs:
           # Define directory where datasets will be downloaded
           ROCKHOUND_DATA_DIR: ~/cache/rockhound
 
-      # Store the docs as a build artifact on GitHub so we can check it if
-      # needed.
-      - name: Upload HTML documentation as an artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: docs-${{ matrix.os }}-${{ matrix.python }}${{ matrix.dependencies }}-{{ github.sha }}
-          path: doc/_build/html
-
       - name: Convert coverage report to XML for codecov
         run: coverage xml
 
