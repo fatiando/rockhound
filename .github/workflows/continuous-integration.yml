@@ -28,8 +28,6 @@ jobs:
   #############################################################################
   # Run tests, build the docs, and deploy if needed
   test:
-    # Run the tests on PRs only if the have the runtest label.
-    if: ${{ (github.event_name == 'pull_request' && github.event.label.name == 'runtest') || github.event_name != 'pull_request'  }}
     name: ubuntu py${{ matrix.python }} [test]
     runs-on: ubuntu-latest
     strategy:
