@@ -153,7 +153,7 @@ jobs:
         run: make -C doc clean all
         env:
           # Define directory where datasets will be downloaded
-          ROCKHOUND_DATA_DIR: ${{ runner.temp }}/cache/rockhound
+          ROCKHOUND_DATA_DIR: ~/cache/rockhound
 
       # Store the docs as a build artifact on GitHub so we can check it if
       # needed.
