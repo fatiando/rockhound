@@ -1,7 +1,6 @@
 """
 Test if all files on registry are available for download
 """
-import pytest
 from ..registry import REGISTRY
 
 
