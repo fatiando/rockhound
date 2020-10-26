@@ -134,7 +134,7 @@ jobs:
         with:
           path: |
             ~/cache
-          key: ${{ runner.os }}-${{ hashFiles('rockhound/registry.txt') }}
+          key: registry-${{ hashFiles('rockhound/registry.txt') }}
 
       - name: Run the tests
         run: |
