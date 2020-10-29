@@ -39,8 +39,10 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="rockhound.fetch_prem" href="rockhound.fetch_prem.html" />
@@ -114,10 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Models and Datasets</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#data-fetching-and-loading">Data Fetching and Loading</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">rockhound.fetch_etopo1</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#examples-using-rockhound-fetch-etopo1">Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_etopo1</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rockhound.fetch_etopo1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_prem.html">rockhound.fetch_prem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_bedmap2.html">rockhound.fetch_bedmap2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_seafloor_age.html">rockhound.fetch_seafloor_age</a></li>
@@ -235,7 +234,7 @@ integrates land topography and ocean bathymetry <a class="reference internal" hr
 available in two versions: “Ice Surface” (top of Antarctic and Greenland
 ice sheets) and “Bedrock” (base of the ice sheets). Each grid is in
 a separate gzipped netCDF file (grid-line registered version). The grids
-are loaded into <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> objects.</p>
+are loaded into <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> objects.</p>
 <p>The vertical datum is sea level and the horizontal reference is the WGS84
 ellipsoid.</p>
 <p>If the files aren’t already in your data directory, they will be downloaded
@@ -243,28 +242,21 @@ automatically (which may take a while). Each grid is approximately 380Mb.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Which version of the dataset to load. Can be <code class="docutils literal notranslate"><span class="pre">&quot;ice&quot;</span></code> for the ice
+<li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Which version of the dataset to load. Can be <code class="docutils literal notranslate"><span class="pre">&quot;ice&quot;</span></code> for the ice
 surface version, <code class="docutils literal notranslate"><span class="pre">'bedrock'</span></code> for the bedrock version.</p></li>
-<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Wether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return
+<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Whether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return
 the path to the downloaded data.</p></li>
-<li><p><strong>kwargs</strong> – Keyword arguments will be forwarded to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset" title="(in xarray v0.14.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code></a>
+<li><p><strong>kwargs</strong> – Keyword arguments will be forwarded to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code></a>
 function that loads the grid into memory.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>grid</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or str) – The loaded grid or the file path to the downloaded data.</p>
+<dd class="field-even"><p><strong>grid</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or str) – The loaded grid or the file path to the downloaded data.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="section" id="examples-using-rockhound-fetch-etopo1">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_etopo1</span></code><a class="headerlink" href="#examples-using-rockhound-fetch-etopo1" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="ETOPO1 is a 1 arc-minute global relief model of Earth&#x27;s surface that integrates land topography..."><div class="figure align-default" id="id2">
-<img alt="../../_images/sphx_glr_etopo1_thumb.png" src="../../_images/sphx_glr_etopo1_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/etopo1.html#sphx-glr-gallery-etopo1-py"><span class="std std-ref">ETOPO1 Earth Relief</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div><div style='clear:both'></div></div>
-</div>
+<div style='clear:both'></div></div>
 
 
            </div>
@@ -288,7 +280,7 @@ function that loads the grid into memory.</p></li>
     <p>
         &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on Jan 24, 2020.
+        Last updated on Oct 29, 2020.
       </span>
 
     </p>

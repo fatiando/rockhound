@@ -39,8 +39,10 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="rockhound.fetch_seafloor_age" href="rockhound.fetch_seafloor_age.html" />
@@ -116,10 +118,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#data-fetching-and-loading">Data Fetching and Loading</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_etopo1.html">rockhound.fetch_etopo1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_prem.html">rockhound.fetch_prem</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">rockhound.fetch_bedmap2</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#examples-using-rockhound-fetch-bedmap2">Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_bedmap2</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rockhound.fetch_bedmap2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_seafloor_age.html">rockhound.fetch_seafloor_age</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_slab2.html">rockhound.fetch_slab2</a></li>
 </ul>
@@ -234,7 +233,7 @@
 ice-thickness, the sea floor and subglacial bed elevation of the Antarctic
 south of 60°S <a class="reference internal" href="../../references.html#bedmap2" id="id1"><span>[BEDMAP2]</span></a>.
 The datasets are downloaded as <code class="docutils literal notranslate"><span class="pre">tiff</span></code> files and loaded into a
-<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> object.</p>
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> object.</p>
 <p>Each dataset is projected in Antarctic Polar Stereographic projection,
 latitude of true scale -71 degrees south, datum WGS84. All heights are in
 metres relative to sea level as defined by the g104c geoid.</p>
@@ -273,32 +272,25 @@ set of points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>datasets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Names of the datasets that will be loaded from the Bedmap2 model.</p></li>
-<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Wether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return
+<li><p><strong>datasets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Names of the datasets that will be loaded from the Bedmap2 model.</p></li>
+<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Whether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return
 the path to the downloaded data tiff files. If False, will return
 a list with the paths to the files corresponding to <em>datasets</em>.</p></li>
-<li><p><strong>chunks</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Chunk sizes along each dimension. This argument is passed to the
-<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_rasterio.html#xarray.open_rasterio" title="(in xarray v0.14.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_rasterio</span></code></a> function in order to obtain
+<li><p><strong>chunks</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><em>tuple</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Chunk sizes along each dimension. This argument is passed to the
+<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_rasterio.html#xarray.open_rasterio" title="(in xarray v0.16.2.dev3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_rasterio</span></code></a> function in order to obtain
 <a class="reference external" href="https://docs.dask.org/en/latest/array.html">Dask arrays</a> inside the
-returned <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a>.
+returned <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a>.
 This helps to read the dataset without loading it entirely into memory.</p></li>
-<li><p><strong>**kwargs</strong> – Extra parameters passed to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_rasterio.html#xarray.open_rasterio" title="(in xarray v0.14.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_rasterio</span></code></a> function.</p></li>
+<li><p><strong>**kwargs</strong> – Extra parameters passed to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_rasterio.html#xarray.open_rasterio" title="(in xarray v0.16.2.dev3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_rasterio</span></code></a> function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>grid</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a>) – The loaded Bedmap2 datasets.</p>
+<dd class="field-even"><p><strong>grid</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a>) – The loaded Bedmap2 datasets.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="section" id="examples-using-rockhound-fetch-bedmap2">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_bedmap2</span></code><a class="headerlink" href="#examples-using-rockhound-fetch-bedmap2" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Bedmap2 is a suite of gridded products describing surface elevation, ice-thickness, the sea flo..."><div class="figure align-default" id="id2">
-<img alt="../../_images/sphx_glr_bedmap2_thumb.png" src="../../_images/sphx_glr_bedmap2_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/bedmap2.html#sphx-glr-gallery-bedmap2-py"><span class="std std-ref">Bedmap2</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div><div style='clear:both'></div></div>
-</div>
+<div style='clear:both'></div></div>
 
 
            </div>
@@ -322,7 +314,7 @@ This helps to read the dataset without loading it entirely into memory.</p></li>
     <p>
         &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on Jan 24, 2020.
+        Last updated on Oct 29, 2020.
       </span>
 
     </p>

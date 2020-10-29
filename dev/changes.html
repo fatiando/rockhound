@@ -39,8 +39,10 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="References" href="references.html" />
@@ -114,6 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-2-0">Version 0.2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-1-0">Version 0.1.0</a></li>
 </ul>
 </li>
@@ -210,6 +213,42 @@
             
   <div class="section" id="changelog">
 <span id="changes"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-0-2-0">
+<h2>Version 0.2.0<a class="headerlink" href="#version-0-2-0" title="Permalink to this headline">¶</a></h2>
+<p><em>Released on: 2020/01/27</em></p>
+<a class="reference external image-reference" href="https://doi.org/10.5281/zenodo.3627166"><img alt="https://zenodo.org/badge/DOI/10.5281/zenodo.3627166.svg" src="https://zenodo.org/badge/DOI/10.5281/zenodo.3627166.svg" /></a>
+<p>New models and datasets:</p>
+<ul class="simple">
+<li><p>Slab2 model <a class="reference internal" href="references.html#slab2" id="id1"><span>[SLAB2]</span></a> (<a class="reference external" href="https://github.com/fatiando/rockhound/pull/62">#62</a>)</p></li>
+</ul>
+<p>New features:</p>
+<ul class="simple">
+<li><p>Load Bedmap2 datasets as Dask arrays to reduce memory consumption by
+reading the downloaded files in chunks.
+(<a class="reference external" href="https://github.com/fatiando/rockhound/pull/45">#45</a>)</p></li>
+</ul>
+<p>Maintenance:</p>
+<ul class="simple">
+<li><p>Add GitHub template for requesting new datasets or models.
+(<a class="reference external" href="https://github.com/fatiando/rockhound/pull/41">#41</a>)</p></li>
+<li><p>Update CI scripts and fix linting errors.
+(<a class="reference external" href="https://github.com/fatiando/rockhound/pull/55">#55</a>)</p></li>
+<li><p>Use napoleon instead of numpydoc and unpin Sphinx on requirements.
+(<a class="reference external" href="https://github.com/fatiando/rockhound/pull/60">#60</a>)</p></li>
+<li><p>Fix typo on multiple files.
+(<a class="reference external" href="https://github.com/fatiando/rockhound/pull/64">#64</a>)</p></li>
+<li><p>Disable unwanted pylint warnings.
+(<a class="reference external" href="https://github.com/fatiando/rockhound/pull/65">#65</a>)</p></li>
+<li><p>Wrap docstrings to 79 characters per line and check with flake8.
+(<a class="reference external" href="https://github.com/fatiando/rockhound/pull/68">#68</a>)</p></li>
+</ul>
+<p>This release contains contributions from:</p>
+<ul class="simple">
+<li><p>Santiago Soler</p></li>
+<li><p>Agustina Pesce</p></li>
+<li><p>Leonardo Uieda</p></li>
+</ul>
+</div>
 <div class="section" id="version-0-1-0">
 <h2>Version 0.1.0<a class="headerlink" href="#version-0-1-0" title="Permalink to this headline">¶</a></h2>
 <p><em>Released on: 2019/05/21</em></p>
@@ -219,10 +258,10 @@ CRUST1.0, ETOPO1 and more) and load them into Python data structures (pandas, nu
 xarray).</p>
 <p>Available models and datasets:</p>
 <ul class="simple">
-<li><p>ETOPO1 <a class="reference internal" href="references.html#amanteeakins2009" id="id1"><span>[AmanteEakins2009]</span></a></p></li>
-<li><p>PREM <a class="reference internal" href="references.html#dziewonsky1981" id="id2"><span>[Dziewonsky1981]</span></a></p></li>
-<li><p>Bedmap2 <a class="reference internal" href="references.html#bedmap2" id="id3"><span>[BEDMAP2]</span></a></p></li>
-<li><p>Age of the oceanic lithosphere <a class="reference internal" href="references.html#muller2008" id="id4"><span>[Muller2008]</span></a></p></li>
+<li><p>ETOPO1 <a class="reference internal" href="references.html#amanteeakins2009" id="id2"><span>[AmanteEakins2009]</span></a></p></li>
+<li><p>PREM <a class="reference internal" href="references.html#dziewonsky1981" id="id3"><span>[Dziewonsky1981]</span></a></p></li>
+<li><p>Bedmap2 <a class="reference internal" href="references.html#bedmap2" id="id4"><span>[BEDMAP2]</span></a></p></li>
+<li><p>Age of the oceanic lithosphere <a class="reference internal" href="references.html#muller2008" id="id5"><span>[Muller2008]</span></a></p></li>
 </ul>
 <p>Features:</p>
 <ul class="simple">
@@ -252,7 +291,7 @@ are not corrupted and decompress files if necessary.</p></li>
     <p>
         &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on Jan 24, 2020.
+        Last updated on Oct 29, 2020.
       </span>
 
     </p>

@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_gallery_seafloor_age.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_gallery_seafloor_age.py:
+        Click :ref:`here <sphx_glr_download_gallery_seafloor_age.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_gallery_seafloor_age.py:
 
 
 Age of the Oceanic Lithosphere
@@ -42,6 +44,8 @@ websites.
     Attributes:
         title:    Age of oceanic lithosphere
         doi:      10.1029/2007GC001743
+    /home/santi/git/rockhound/examples/seafloor_age.py:32: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
 
@@ -76,7 +80,7 @@ websites.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.669 seconds)
+   **Total running time of the script:** ( 0 minutes  4.814 seconds)
 
 
 .. _sphx_glr_download_gallery_seafloor_age.py:
@@ -89,13 +93,13 @@ websites.
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: seafloor_age.py <seafloor_age.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: seafloor_age.ipynb <seafloor_age.ipynb>`
 

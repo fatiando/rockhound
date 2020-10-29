@@ -39,8 +39,10 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="rockhound.fetch_slab2" href="rockhound.fetch_slab2.html" />
@@ -117,10 +119,7 @@
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_etopo1.html">rockhound.fetch_etopo1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_prem.html">rockhound.fetch_prem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_bedmap2.html">rockhound.fetch_bedmap2</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">rockhound.fetch_seafloor_age</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#examples-using-rockhound-fetch-seafloor-age">Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_seafloor_age</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rockhound.fetch_seafloor_age</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rockhound.fetch_slab2.html">rockhound.fetch_slab2</a></li>
 </ul>
 </li>
@@ -240,28 +239,21 @@ automatically.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Which resolution grid to load. Must be <code class="docutils literal notranslate"><span class="pre">&quot;6min&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;2min&quot;</span></code>.</p></li>
-<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Wether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return
+<li><p><strong>resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Which resolution grid to load. Must be <code class="docutils literal notranslate"><span class="pre">&quot;6min&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;2min&quot;</span></code>.</p></li>
+<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Whether to load the data into an <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or just return
 the path to the downloaded data. If False, will return a list with the
 paths to the age and age uncertainty grids, respectively.</p></li>
-<li><p><strong>kwargs</strong> – Keyword arguments will be forwarded to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset" title="(in xarray v0.14.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code></a>
+<li><p><strong>kwargs</strong> – Keyword arguments will be forwarded to the <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.open_dataset.html#xarray.open_dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code></a>
 function that loads the grid into memory.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>grid</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.14.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or str) – The loaded grid or the file path to the downloaded data.</p>
+<dd class="field-even"><p><strong>grid</strong> (<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.html#xarray.Dataset" title="(in xarray v0.16.2.dev3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">xarray.Dataset</span></code></a> or str) – The loaded grid or the file path to the downloaded data.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="section" id="examples-using-rockhound-fetch-seafloor-age">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">rockhound.fetch_seafloor_age</span></code><a class="headerlink" href="#examples-using-rockhound-fetch-seafloor-age" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Global grids of the age of the oceanic lithosphere produced by [Muller2008]_. Available in 2 an..."><div class="figure align-default" id="id2">
-<img alt="../../_images/sphx_glr_seafloor_age_thumb.png" src="../../_images/sphx_glr_seafloor_age_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../../gallery/seafloor_age.html#sphx-glr-gallery-seafloor-age-py"><span class="std std-ref">Age of the Oceanic Lithosphere</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div><div style='clear:both'></div></div>
-</div>
+<div style='clear:both'></div></div>
 
 
            </div>
@@ -285,7 +277,7 @@ function that loads the grid into memory.</p></li>
     <p>
         &copy; Copyright 2018-2020, The RockHound Developers
       <span class="lastupdated">
-        Last updated on Jan 24, 2020.
+        Last updated on Oct 29, 2020.
       </span>
 
     </p>

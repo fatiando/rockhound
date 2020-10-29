@@ -20,6 +20,7 @@ These are the currently avaialbe models/datasets:
 .. only:: html
 
  .. figure:: /gallery/images/thumb/sphx_glr_bedmap2_thumb.png
+     :alt: Bedmap2
 
      :ref:`sphx_glr_gallery_bedmap2.py`
 
@@ -40,6 +41,7 @@ These are the currently avaialbe models/datasets:
 .. only:: html
 
  .. figure:: /gallery/images/thumb/sphx_glr_etopo1_thumb.png
+     :alt: ETOPO1 Earth Relief
 
      :ref:`sphx_glr_gallery_etopo1.py`
 
@@ -60,6 +62,7 @@ These are the currently avaialbe models/datasets:
 .. only:: html
 
  .. figure:: /gallery/images/thumb/sphx_glr_prem_thumb.png
+     :alt: PREM: Preliminary Reference Earth Model
 
      :ref:`sphx_glr_gallery_prem.py`
 
@@ -80,6 +83,7 @@ These are the currently avaialbe models/datasets:
 .. only:: html
 
  .. figure:: /gallery/images/thumb/sphx_glr_seafloor_age_thumb.png
+     :alt: Age of the Oceanic Lithosphere
 
      :ref:`sphx_glr_gallery_seafloor_age.py`
 
@@ -100,6 +104,7 @@ These are the currently avaialbe models/datasets:
 .. only:: html
 
  .. figure:: /gallery/images/thumb/sphx_glr_slab2_thumb.png
+     :alt: Slab2 - A Comprehensive Subduction Zone Geometry Model
 
      :ref:`sphx_glr_gallery_slab2.py`
 

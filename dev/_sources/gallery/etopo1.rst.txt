@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_gallery_etopo1.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_gallery_etopo1.py:
+        Click :ref:`here <sphx_glr_download_gallery_etopo1.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_gallery_etopo1.py:
 
 
 ETOPO1 Earth Relief
@@ -41,6 +43,8 @@ versions: "Ice Surface" (top of Antarctic and Greenland ice sheets) and
         GMT_version:  4.4.0
         node_offset:  0
         doi:          10.7289/V5C8276M
+    /home/santi/git/rockhound/examples/etopo1.py:33: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+      plt.show()
 
 
 
@@ -79,7 +83,7 @@ versions: "Ice Surface" (top of Antarctic and Greenland ice sheets) and
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.631 seconds)
+   **Total running time of the script:** ( 0 minutes  40.339 seconds)
 
 
 .. _sphx_glr_download_gallery_etopo1.py:
@@ -92,13 +96,13 @@ versions: "Ice Surface" (top of Antarctic and Greenland ice sheets) and
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: etopo1.py <etopo1.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: etopo1.ipynb <etopo1.ipynb>`
 
