@@ -1,3 +1,14 @@
+.. raw:: html
+
+    <h1 align="center">⚠️ NOTICE: Development of RockHound has stopped. ⚠️</h1>
+    
+Our focus has shifted to curating a set of data that has open licenses and serves as 
+good sample data for tutorials and documentation. 
+We're gathering and packaging these datasets in https://github.com/fatiando-data and 
+have created the `Ensaio <https://www.fatiando.org/ensaio/>`__ package to load them.
+
+----
+
 RockHound
 =========
 
