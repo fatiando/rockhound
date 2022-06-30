@@ -1,6 +1,6 @@
 .. raw:: html
 
-    <h1 align="center">⚠️ NOTICE: Development of RockHound has stopped. ⚠️</h1>
+    <h1 align="center">NOTICE: Development of RockHound has stopped.</h1>
     
 Our focus has shifted to curating a set of data that has open licenses and serves as 
 good sample data for tutorials and documentation. 
